@@ -42,7 +42,7 @@
     </div>
 
     <!-- 1 -->
-    <h2>1 · Цель занятия</h2>
+    <h2 id="cel">1 · Цель занятия <a class="yakor" href="#cel" aria-label="ссылка на этот раздел">#</a></h2>
     <p><strong>Сделать и отдать.</strong> Не «начать проект», не «разобраться с инструментами», а довести одну маленькую вещь
     до состояния, когда её видно снаружи.</p>
     <p>Три вещи, которые ты сегодня сделаешь впервые:</p>
@@ -54,13 +54,13 @@
     <p class="dim">Программа всех восьми занятий: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.</p>
 
     <!-- 2 -->
-    <h2>2 · Путь-минимум: мышкой, без терминала</h2>
+    <h2 id="minimum">2 · Путь-минимум: мышкой, без терминала <a class="yakor" href="#minimum" aria-label="ссылка на этот раздел">#</a></h2>
     <p>Этого пути достаточно, чтобы закончить занятие полностью. Терминал нужен в двух шагах из восьми,
     и там написано, что набрать.</p>
 
     <details class="step" open>
-      <summary><span class="n">1</span> Свой репозиторий из шаблона</summary>
-      <div class="body">
+      <summary><span class="n">1</span> Свой репозиторий из шаблона <a class="yakor" href="#shag-1">#</a></summary>
+      <div class="body" id="shag-1">
         <ol>
           <li>Открой <a href="https://github.com/y-kolyada/b1bootcamp26-template">шаблон курса</a>.</li>
           <li>Нажми зелёную кнопку <strong>Use this template</strong> → <strong>Create a new repository</strong>.</li>
@@ -72,9 +72,9 @@
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">2</span> Репозиторий у тебя на компьютере, и первая красная проверка</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">2</span> Репозиторий у тебя на компьютере, и первая красная проверка <a class="yakor" href="#shag-2">#</a></summary>
+      <div class="body" id="shag-2">
         <p>В Ubuntu, в терминале:</p>
 <pre><code>git clone https://github.com/&lt;твой-ник&gt;/&lt;твой-репозиторий&gt;.git
 cd &lt;твой-репозиторий&gt;
@@ -86,9 +86,9 @@ cd &lt;твой-репозиторий&gt;
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">3</span> Задание: <code>zadanie-1.md</code></summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">3</span> Задание: <code>zadanie-1.md</code> <a class="yakor" href="#shag-3">#</a></summary>
+      <div class="body" id="shag-3">
         <p><strong>Это пишешь ты, до того как откроешь ИИ.</strong> Открой <code>zadanie-1.md</code> в редакторе и заполни:</p>
         <ul>
           <li><strong>Хочу:</strong> одна фраза. Что за страница и про что.</li>
@@ -100,9 +100,9 @@ cd &lt;твой-репозиторий&gt;
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">4</span> Попроси ИИ сделать страницу</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">4</span> Попроси ИИ сделать страницу <a class="yakor" href="#shag-4">#</a></summary>
+      <div class="body" id="shag-4">
         <p>В редакторе открой Claude Code и напиши ему ровно это:</p>
 <pre><code>Прочитай zadanie-1.md. Сделай index.html по этому заданию.
 Другие файлы не меняй. В конце перечисли, что изменил.</code></pre>
@@ -112,9 +112,9 @@ cd &lt;твой-репозиторий&gt;
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">5</span> Проверь не на слово: <code>git diff</code> и запись</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">5</span> Проверь не на слово: <code>git diff</code> и запись <a class="yakor" href="#shag-5">#</a></summary>
+      <div class="body" id="shag-5">
         <p>ИИ в конце рассказывает, что сделал. <strong>Это его слова, а не доказательство.</strong> Доказательство — что изменилось в файлах:</p>
 <pre><code>git diff</code></pre>
         <div class="prints"><strong>Должно напечатать</strong> строки с <code>+</code> и <code>-</code> — добавленное и убранное.
@@ -124,9 +124,9 @@ cd &lt;твой-репозиторий&gt;
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">6</span> Проверка должна позеленеть</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">6</span> Проверка должна позеленеть <a class="yakor" href="#shag-6">#</a></summary>
+      <div class="body" id="shag-6">
 <pre><code>./check.sh</code></pre>
         <div class="prints"><strong>Должно напечатать:</strong> <code>ЗЕЛЁНОЕ</code> и ни одной строки со словом <code>НЕТ</code>.</div>
         <p>Если осталось красное — читай строку после <code>НЕТ</code>: там написано, что сделать.</p>
@@ -134,9 +134,9 @@ cd &lt;твой-репозиторий&gt;
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">7</span> Публикация: страница в интернете</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">7</span> Публикация: страница в интернете <a class="yakor" href="#shag-7">#</a></summary>
+      <div class="body" id="shag-7">
         <p>Сначала отправь свои коммиты на GitHub — в редакторе это <strong>Sync Changes</strong>. Потом один раз включи публикацию:</p>
         <ol>
           <li>В своём репозитории сверху — <strong>Settings</strong>.</li>
@@ -150,9 +150,9 @@ cd &lt;твой-репозиторий&gt;
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">8</span> Приёмка: принял или вернул</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">8</span> Приёмка: принял или вернул <a class="yakor" href="#shag-8">#</a></summary>
+      <div class="body" id="shag-8">
         <p>Открой своё задание и пройди по трём предикатам. По каждому — «да» или «нет», глядя на страницу, а не на рассказ ИИ.</p>
         <ul>
           <li>все «да» — <strong>принял</strong>;</li>
@@ -165,12 +165,12 @@ cd &lt;твой-репозиторий&gt;
     </details>
 
     <!-- 3 -->
-    <h2>3 · Путь-100%: то же самое командами</h2>
+    <h2 id="cli">3 · Путь-100%: то же самое командами <a class="yakor" href="#cli" aria-label="ссылка на этот раздел">#</a></h2>
     <p>Шаги и их результаты те же, номера те же. Быстрее и точнее; и это тот путь, которым пользуемся мы сами.</p>
 
-    <details class="step">
-      <summary><span class="n">1</span> Свой репозиторий — одной командой</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">1</span> Свой репозиторий — одной командой <a class="yakor" href="#cli-1">#</a></summary>
+      <div class="body" id="cli-1">
 <pre><code>gh repo create &lt;твой-репозиторий&gt; --template y-kolyada/b1bootcamp26-template --public</code></pre>
         <div class="prints"><strong>Должно напечатать:</strong> <code>✓ Created repository &lt;твой-ник&gt;/&lt;твой-репозиторий&gt; on github.com</code></div>
         <p class="dim">Если ответило <code>Bad credentials</code> — войди заново: <code>gh auth login --web --git-protocol https</code>,
@@ -179,9 +179,9 @@ cd &lt;твой-репозиторий&gt;
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">2-3</span> Клон, красная проверка, задание</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">2-3</span> Клон, красная проверка, задание <a class="yakor" href="#cli-2">#</a></summary>
+      <div class="body" id="cli-2">
 <pre><code>git clone https://github.com/&lt;твой-ник&gt;/&lt;твой-репозиторий&gt;.git
 cd &lt;твой-репозиторий&gt;
 ./check.sh
@@ -194,9 +194,9 @@ git commit -m "задание 1"</code></pre>
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">4-5</span> ИИ из терминала, и проверка не на слово</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">4-5</span> ИИ из терминала, и проверка не на слово <a class="yakor" href="#cli-3">#</a></summary>
+      <div class="body" id="cli-3">
 <pre><code>claude -p "Прочитай zadanie-1.md. Сделай index.html по этому заданию. Другие файлы не меняй. В конце перечисли, что изменил."
 git diff
 git add index.html zapis-1.md
@@ -207,9 +207,9 @@ git commit -m "страница по заданию 1, и запись"</code></
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">6-7</span> Зелёная проверка и публикация</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">6-7</span> Зелёная проверка и публикация <a class="yakor" href="#cli-4">#</a></summary>
+      <div class="body" id="cli-4">
 <pre><code>./check.sh
 git push</code></pre>
         <div class="prints"><strong>Должно напечатать</strong> <code>ЗЕЛЁНОЕ</code>, а <code>git push</code> — строку с именем ветки <code>main</code>.</div>
@@ -221,7 +221,7 @@ git push</code></pre>
     </details>
 
     <!-- 4 -->
-    <h2>4 · Путь-максимум: дай ИИ глаза</h2>
+    <h2 id="maximum">4 · Путь-максимум: дай ИИ глаза <a class="yakor" href="#maximum" aria-label="ссылка на этот раздел">#</a></h2>
 
     <p><strong>ИИ не видит твою страницу.</strong> Он читает текст файлов и по тексту решает, что получилось.
     Поэтому он может быть уверен, что всё хорошо, когда на экране слова наезжают друг на друга.</p>
@@ -242,9 +242,9 @@ git push</code></pre>
       <p>Оба случая записаны в <a href="zapis-1.md">zapis-1.md</a>. <strong>Разница между ними и есть смысл этого блока.</strong></p>
     </div>
 
-    <details class="step">
-      <summary><span class="n">1</span> Поставь браузер, которым смотрит ИИ</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">1</span> Поставь браузер, которым смотрит ИИ <a class="yakor" href="#max-1">#</a></summary>
+      <div class="body" id="max-1">
         <p><strong>Сначала убедись, что есть Node.</strong> Он ставится установщиком из «Твой ход 0», через <code>nvm</code> и без пароля:</p>
 <pre><code>node --version
 npm --version</code></pre>
@@ -272,9 +272,9 @@ npx playwright install chromium chromium-headless-shell</code></pre>
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">2</span> Скрипт на сорок строк, который смотрит за тебя</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">2</span> Скрипт на сорок строк, который смотрит за тебя <a class="yakor" href="#max-2">#</a></summary>
+      <div class="body" id="max-2">
         <p>Возьми готовый: <a href="glaza.mjs">glaza.mjs</a> — он лежит в этом же репозитории, рядом со страницей.
         Положи его <strong>в ту же папку, где ставил playwright</strong>, то есть в свой проект.</p>
         <p>Что он делает: открывает страницу <strong>шириной с телефон</strong>, меряет её, перечисляет всё,
@@ -295,9 +295,9 @@ npx playwright install chromium chromium-headless-shell</code></pre>
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">3</span> Запусти и прочитай, что он скажет</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">3</span> Запусти и прочитай, что он скажет <a class="yakor" href="#max-3">#</a></summary>
+      <div class="body" id="max-3">
 <pre><code>node glaza.mjs index.html</code></pre>
         <p>Если ответит <code>playwright не найден</code> — ты в другой папке, вернись в проект. Скрипт скажет это прямым текстом
         и подскажет три команды из шага 1.</p>
@@ -318,9 +318,9 @@ npx playwright install chromium chromium-headless-shell</code></pre>
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="n">4</span> То же самое, но прямо из ИИ</summary>
-      <div class="body">
+    <details class="step"None>
+      <summary><span class="n">4</span> То же самое, но прямо из ИИ <a class="yakor" href="#max-4">#</a></summary>
+      <div class="body" id="max-4">
         <p>Скрипт запускаешь ты. Можно сделать так, чтобы браузером пользовался <strong>сам ИИ</strong> — тогда он
         смотрит на страницу в середине работы, не спрашивая тебя:</p>
 <pre><code>claude mcp add --scope user playwright -- npx -y @playwright/mcp@latest --headless --browser chromium</code></pre>
@@ -339,7 +339,7 @@ npx playwright install chromium chromium-headless-shell</code></pre>
     это занятие 5. Агент, который сам чинит найденное и сам перепроверяет, — занятие 7.</p>
 
     <!-- 5 -->
-    <h2>5 · Артефакты: что у тебя есть после занятия</h2>
+    <h2 id="artefakty">5 · Артефакты: что у тебя есть после занятия <a class="yakor" href="#artefakty" aria-label="ссылка на этот раздел">#</a></h2>
     <p>Это перечень, по которому видно, что занятие сделано. Он одинаков для всех путей.</p>
     <ol>
       <li><strong>Свой репозиторий</strong> — адрес на GitHub, со своей историей.</li>
@@ -350,14 +350,17 @@ npx playwright install chromium chromium-headless-shell</code></pre>
       <li><strong>Адрес в интернете</strong> — <code>https://&lt;твой-ник&gt;.github.io/&lt;твой-репозиторий&gt;/</code>, открывается с телефона.</li>
     </ol>
 
-    <div class="box">
-      <h3>Не успел — это нормально</h3>
+    <div class="box" id="ne-uspel">
+      <h3>Не успел — это нормально <a class="yakor" href="#ne-uspel">#</a></h3>
       <p>Занятие рассчитано так, что успеть можно. Но если не успел — <strong>продолжай с того номера, на котором остановился</strong>:
       номера на этой странице и в занятии одни и те же, и страница никуда не денется.</p>
       <p>Застрял — напиши в Discord <strong>одну строку</strong> в таком виде:</p>
 <pre><code>шаг 4 · последняя строка: Permission denied</code></pre>
       <p>Номер шага и последняя строка, которую напечатал терминал. Этого хватает, чтобы ответить сразу.
       «У меня не работает» — не хватает, и тебе придётся ждать уточняющих вопросов.</p>
+      <p><strong>В ответ тебе пришлют ссылку на нужный шаг</strong> — такую, которая открывает именно его.
+      Значок <span class="yakor">#</span> рядом с заголовком любого шага и есть эта ссылка: нажми на него,
+      и адрес в строке браузера станет ссылкой на этот шаг. Её можно переслать.</p>
     </div>
 
     <footer>

@@ -116,3 +116,23 @@ details.step > summary code { white-space: nowrap; }
 
 .soon { color: var(--dim); }
 footer { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 14px; color: var(--dim); font-size: .9rem; }
+
+/* --- якоря: ссылка на конкретный шаг, а не на страницу целиком --- */
+/* ВИДИМЫ ВСЕГДА, А НЕ ПО НАВЕДЕНИЮ. На телефоне наведения не существует,
+   а ссылку на шаг чаще всего нужно взять именно с телефона. */
+.yakor {
+  color: var(--dim); text-decoration: none; font-weight: 400;
+  padding: 0 .35em; opacity: .45;
+}
+.yakor:hover, .yakor:focus { opacity: 1; color: var(--acc); }
+/* Куда пришли по ссылке - подсвечивается, иначе на длинной странице
+   непонятно, то ли это место. */
+:target { scroll-margin-top: 14px; }
+/* Якорь шага стоит на СОДЕРЖИМОМ - только так браузер раскрывает свёрнутый
+   шаг сам, без JavaScript (проверено). Но тогда заголовок шага уезжает за
+   верх экрана, и непонятно, куда ты попал. Отступ возвращает его в кадр. */
+details.step .body:target { scroll-margin-top: 124px; }
+@media (min-width: 56rem) { details.step .body:target { scroll-margin-top: 64px; } }
+details.step .body:target { background: var(--code); border-radius: 0 0 9px 9px; }
+details.step:has(.body:target) { border-color: var(--acc); }
+h2:target, h3:target { background: var(--code); border-radius: 6px; }
