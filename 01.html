@@ -245,16 +245,22 @@ git push</code></pre>
     <details class="step">
       <summary><span class="n">1</span> Поставь браузер, которым смотрит ИИ</summary>
       <div class="body">
-<pre><code>mkdir -p ~/glaza &amp;&amp; cd ~/glaza
+<p><strong>Ставить надо в папке своего проекта</strong> — там же, где лежит <code>index.html</code>. Не в домашней, не «где-нибудь».</p>
+<pre><code>cd ~/&lt;твой-репозиторий&gt;
 npm init -y
 npm i playwright
 npx playwright install chromium chromium-headless-shell</code></pre>
         <div class="prints"><strong>Должно напечатать</strong> полоски загрузки и в конце строки
         <code>downloaded to ...</code>. Это <strong>681 МБ на диске</strong> и несколько минут — самая тяжёлая установка курса.</div>
+        <p><strong>Почему именно в папке проекта, и это не придирка.</strong> Если рядом со скриптом нет <code>playwright</code>,
+        <code>node</code> идёт искать его <strong>выше, в родительских папках</strong>, и может найти чужой — другой версии.
+        Тогда ошибка будет непонятная: про какой-то несуществующий файл браузера, а не про то, что поставлено не туда.
+        <strong>Так и случилось при первой проверке этой страницы</strong>, у тренера.</p>
         <p class="dim"><strong>Может понадобиться пароль взрослого.</strong> Если браузер не запустится и напишет
         <code>error while loading shared libraries</code> — системе не хватает библиотек, и ставятся они только с паролем.
         Покажи эту строку тренеру, он даст точную команду. У нас всё встало без пароля, но системы у всех разные.</p>
-        <div class="after"><b>После шага существует:</b> папка <code>~/glaza</code>, и в ней браузер, который работает без окна.</div>
+        <div class="after"><b>После шага существует:</b> в твоём проекте папка <code>node_modules</code>, и браузер, который работает без окна.
+        <code>node_modules</code> в историю не попадает — он уже записан в <code>.gitignore</code>.</div>
       </div>
     </details>
 
@@ -262,7 +268,7 @@ npx playwright install chromium chromium-headless-shell</code></pre>
       <summary><span class="n">2</span> Скрипт на сорок строк, который смотрит за тебя</summary>
       <div class="body">
         <p>Возьми готовый: <a href="glaza.mjs">glaza.mjs</a> — он лежит в этом же репозитории, рядом со страницей.
-        Положи его в свою папку с проектом.</p>
+        Положи его <strong>в ту же папку, где ставил playwright</strong>, то есть в свой проект.</p>
         <p>Что он делает: открывает страницу <strong>шириной с телефон</strong>, меряет её, перечисляет всё,
         что вылезло за правый край, и сохраняет снимок.</p>
 <pre><code>const beda = await page.evaluate(() =&gt; {
@@ -285,6 +291,8 @@ npx playwright install chromium chromium-headless-shell</code></pre>
       <summary><span class="n">3</span> Запусти и прочитай, что он скажет</summary>
       <div class="body">
 <pre><code>node glaza.mjs index.html</code></pre>
+        <p>Если ответит <code>playwright не найден</code> — ты в другой папке, вернись в проект. Скрипт скажет это прямым текстом
+        и подскажет три команды из шага 1.</p>
         <p>Когда всё хорошо:</p>
 <pre><code>экран телефона: 390px, страница: 390px
 за край ничего не вылезло
