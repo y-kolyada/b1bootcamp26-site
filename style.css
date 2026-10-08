@@ -45,7 +45,7 @@ nav.sessions li > a, nav.sessions li > .later {
 nav.sessions li > a { color: var(--fg); }
 nav.sessions li > a:hover { background: var(--code); }
 nav.sessions li > a[aria-current="page"] { border-color: var(--line); background: var(--code); font-weight: 600; }
-nav.sessions li > .later { color: var(--dim); }
+nav.sessions li > .later { color: var(--dim); text-wrap: pretty; }
 nav.sessions li > .later::after { content: " · будет"; font-size: .85em; }
 nav.sessions .num { display: inline-block; width: 1.4em; color: var(--dim); flex: none; }
 
@@ -72,7 +72,16 @@ pre {
   background: var(--code); border: 1px solid var(--line); border-radius: 8px;
   padding: 12px 14px; overflow-x: auto; margin: 0 0 .7rem;
 }
-pre code { background: none; padding: 0; font-size: .88rem; }
+/* ПЕРЕНОС, А НЕ ГОРИЗОНТАЛЬНАЯ ПРОКРУТКА. Замер headless-браузером на ширине
+   390px показал семь элементов, уезжающих за край внутри своих рамок: длинные
+   команды и адреса. Страница при этом не прокручивалась, то есть предикат
+   формально держался - а команду на телефоне было не прочитать целиком.
+   `pre-wrap` сохраняет настоящие переводы строк и переносит только длинные:
+   при копировании команда остаётся одной строкой. */
+pre code {
+  background: none; padding: 0; font-size: .88rem;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
 
 /* --- шаг: открыт один, остальные свёрнуты. Без JavaScript --- */
 details.step {
@@ -88,6 +97,9 @@ details.step[open] > summary::before { content: "▾"; }
 details.step[open] > summary { border-bottom: 1px solid var(--line); }
 details.step .body { padding: 14px; }
 details.step .n { color: var(--dim); font-variant-numeric: tabular-nums; }
+/* В заголовке шага команда не разрывается посередине: на ширине 390px
+   `git diff` переносился между словами и читался как два разных. */
+details.step > summary code { white-space: nowrap; }
 
 /* --- после шага существует --- */
 .after {
