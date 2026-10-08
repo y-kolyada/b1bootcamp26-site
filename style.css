@@ -31,16 +31,23 @@ header.top .three { color: var(--dim); font-size: .95rem; margin-top: 4px; }
 nav.sessions { margin: 0 0 28px; padding: 0; }
 nav.sessions ol { list-style: none; margin: 0; padding: 0; }
 nav.sessions li { margin: 0 0 2px; }
-nav.sessions a, nav.sessions span {
+/* ПРЯМЫЕ ДЕТИ li, И ЭТО ИСПРАВЛЕНИЕ, А НЕ СТИЛЬ. Было написано
+   `nav.sessions span`, и этот селектор ловил ещё и <span class="num"> с
+   номером ВНУТРИ ссылки: номер становился блоком со своими отступами, и к
+   нему приклеивалось " · будет". Слова наезжали друг на друга. Нашёл тренер
+   глазами на телефоне за минуту - проверка из девяти строк этого не видит.
+   Чтобы не повторилось, ненаписанные занятия помечены классом .later, а не
+   типом элемента, и проверка считает их. */
+nav.sessions li > a, nav.sessions li > .later {
   display: block; padding: 7px 10px; border-radius: 7px; text-decoration: none;
   font-size: .95rem; border: 1px solid transparent;
 }
-nav.sessions a { color: var(--fg); }
-nav.sessions a:hover { background: var(--code); }
-nav.sessions a[aria-current="page"] { border-color: var(--line); background: var(--code); font-weight: 600; }
-nav.sessions span { color: var(--dim); }
-nav.sessions span::after { content: " · будет"; font-size: .85em; }
-nav.sessions .num { display: inline-block; width: 1.4em; color: var(--dim); }
+nav.sessions li > a { color: var(--fg); }
+nav.sessions li > a:hover { background: var(--code); }
+nav.sessions li > a[aria-current="page"] { border-color: var(--line); background: var(--code); font-weight: 600; }
+nav.sessions li > .later { color: var(--dim); }
+nav.sessions li > .later::after { content: " · будет"; font-size: .85em; }
+nav.sessions .num { display: inline-block; width: 1.4em; color: var(--dim); flex: none; }
 
 @media (min-width: 56rem) {
   .cols { display: grid; grid-template-columns: 15rem 1fr; gap: 36px; align-items: start; }
