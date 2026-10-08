@@ -245,7 +245,15 @@ git push</code></pre>
     <details class="step">
       <summary><span class="n">1</span> Поставь браузер, которым смотрит ИИ</summary>
       <div class="body">
-<p><strong>Ставить надо в папке своего проекта</strong> — там же, где лежит <code>index.html</code>. Не в домашней, не «где-нибудь».</p>
+        <p><strong>Сначала убедись, что есть Node.</strong> Он ставится установщиком из «Твой ход 0», через <code>nvm</code> и без пароля:</p>
+<pre><code>node --version
+npm --version</code></pre>
+        <div class="prints"><strong>Должно напечатать</strong> что-то вроде <code>v24.14.1</code> и <code>11.11.0</code>.
+        Нужен Node <strong>18 или новее</strong>.</div>
+        <p>Если ответило <code>command not found</code> — Node не стоит. <strong>Не ставь его отсюда:</strong> вернись в
+        <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">Твой ход 0</a> и запусти установщик.
+        Он поставит нужную версию без пароля администратора; способы «поставить быстро» обычно требуют пароль и дают другую версию.</p>
+        <p><strong>Ставить playwright надо в папке своего проекта</strong> — там же, где лежит <code>index.html</code>. Не в домашней, не «где-нибудь».</p>
 <pre><code>cd ~/&lt;твой-репозиторий&gt;
 npm init -y
 npm i playwright
@@ -259,7 +267,7 @@ npx playwright install chromium chromium-headless-shell</code></pre>
         <p class="dim"><strong>Может понадобиться пароль взрослого.</strong> Если браузер не запустится и напишет
         <code>error while loading shared libraries</code> — системе не хватает библиотек, и ставятся они только с паролем.
         Покажи эту строку тренеру, он даст точную команду. У нас всё встало без пароля, но системы у всех разные.</p>
-        <div class="after"><b>После шага существует:</b> в твоём проекте папка <code>node_modules</code>, и браузер, который работает без окна.
+        <div class="after"><b>После шага существует:</b> Node отвечает на <code>node --version</code>, в твоём проекте есть папка <code>node_modules</code>, и браузер, который работает без окна.
         <code>node_modules</code> в историю не попадает — он уже записан в <code>.gitignore</code>.</div>
       </div>
     </details>
