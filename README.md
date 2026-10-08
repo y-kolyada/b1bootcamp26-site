@@ -13,11 +13,24 @@
 | Файл | Что это |
 | --- | --- |
 | [`index.html`](./index.html) | страница. Пока это заглушка, и ты её заменишь |
-| [`zadanie.md`](./zadanie.md) | **задание**: что нужно сделать. Пишешь **ты**, до того как попросить ИИ |
-| [`zapis.md`](./zapis.md) | **запись**: что получилось на самом деле |
+| [`zadanie-1.md`](./zadanie-1.md) | **задание** первого занятия: что нужно сделать. Пишешь **ты**, до того как попросить ИИ |
+| [`zapis-1.md`](./zapis-1.md) | **запись** первого занятия: что получилось на самом деле |
 | [`check.sh`](./check.sh) | **проверка**: отвечает «ЗЕЛЁНОЕ» или «КРАСНОЕ», без мнений |
 
 Эти три слова — **задание · запись · проверка** — повторяются на каждом занятии все восемь раз. Больше в курсе ничего нет.
+
+### Номер в имени файла — это номер занятия
+
+`zadanie-1.md` и `zapis-1.md` — первое занятие. На втором ты сделаешь себе вторую пару, скопировав первую:
+
+```bash
+cp zadanie-1.md zadanie-2.md
+cp zapis-1.md zapis-2.md
+```
+
+**Почему не один файл на всё.** Задание третьего занятия ты будешь уточнять и возвращать по нему работу — и это не должно задевать задание первого. А ещё так видно историю каждого задания отдельно: `git log zadanie-3.md` расскажет только про него.
+
+Страница у тебя одна, `index.html`, и она растёт от занятия к занятию. Пар `задание · запись` будет восемь.
 
 ---
 
@@ -35,9 +48,9 @@ cd <твой-репозиторий>
 
 Дальше:
 
-1. Открой `zadanie.md` и напиши **своё** задание. **До** того, как попросишь ИИ.
+1. Открой `zadanie-1.md` и напиши **своё** задание. **До** того, как попросишь ИИ.
 2. Попроси ИИ сделать страницу по заданию.
-3. Запиши в `zapis.md`, что получилось.
+3. Запиши в `zapis-1.md`, что получилось.
 4. Запусти `./check.sh` ещё раз.
 5. Пройди по своим предикатам и реши сам: **принял или вернул.**
 
@@ -77,7 +90,7 @@ https://<твой-ник>.github.io/<твой-репозиторий>/
 
 **This is the starting point for a participant's product in the AI Bootcamp course.** Press **Use this template** to get your own repository with your own history.
 
-Four files, readable in full in one session: a page, a **task** you write before asking the AI, a **record** of what actually happened, and a **check** that answers green or red with no opinions. Those three words - task, record, check - are the whole course, repeated eight times.
+Four files, readable in full in one session: a page, a **task** you write before asking the AI, a **record** of what actually happened, and a **check** that answers green or red with no opinions. **The number in a filename is the session number** - `zadanie-1.md` and `zapis-1.md` are session one's pair, and each later session gets its own pair, copied from the last, so one task's history stays its own. Those three words - task, record, check - are the whole course, repeated eight times.
 
 **What is deliberately absent:** the finished page (the AI makes it from your task), real tests (you write them in session 4), and CI (you add it in session 5, when publishing becomes conditional on green). `check.sh` is **green while proving almost nothing** - it is session 7's own specimen of that problem.
 
