@@ -3,44 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Замени этот заголовок</title>
-<style>
-  :root { --bg: #fbfbfa; --fg: #1a1a18; --dim: #6b6b66; --line: #e4e4e0; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #16161a; --fg: #f0f0ee; --dim: #9a9a95; --line: #2e2e34; }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; padding: 48px 16px; background: var(--bg); color: var(--fg);
-    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    display: flex; justify-content: center;
-  }
-  main { max-width: 34rem; width: 100%; }
-  h1 { font-size: 1.75rem; line-height: 1.2; margin: 0 0 .75rem; }
-  p { margin: 0 0 1rem; }
-  .dim { color: var(--dim); }
-  .box { border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; margin-top: 28px; }
-  code { background: var(--line); padding: .1em .35em; border-radius: 4px; font-size: .9em; }
-</style>
+<title>AI Bootcamp · курс из восьми занятий</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
+<div class="wrap">
 
-  <h1>Страница работает</h1>
+<header class="top">
+  <a class="home" href="./">AI Bootcamp</a>
+  <div class="three">задание · запись · проверка</div>
+</header>
 
-  <p>Если ты это читаешь в интернете, а не у себя на компьютере, — значит весь путь уже собран:
-  репозиторий есть, страница опубликована, ссылку можно кинуть другу.</p>
+<div class="cols">
 
-  <p class="dim">Это всё, что здесь должно быть. Содержимое придумаешь ты, а сделает ИИ.</p>
+  <nav class="sessions" aria-label="Занятия">
+    <ol>
+      <li><a href="01.html"><span class="num">1</span>Первая поставка</a></li>
+      <li><span><span class="num">2</span>Задание и возврат</span></li>
+      <li><span><span class="num">3</span>История изменений</span></li>
+      <li><span><span class="num">4</span>Своя проверка</span></li>
+      <li><span><span class="num">5</span>Проверка без тебя</span></li>
+      <li><span><span class="num">6</span>Когда не получилось</span></li>
+      <li><span><span class="num">7</span>Зелёное, которое ничего не значит</span></li>
+      <li><span><span class="num">8</span>Сдача: показать и защитить</span></li>
+    </ol>
+  </nav>
 
-  <div class="box">
-    <p><strong>Твой следующий ход.</strong></p>
-    <p>Открой <code>zadanie-1.md</code> и напиши, какую страницу ты хочешь — <strong>до того</strong>, как попросишь ИИ.
-    Потом попроси. Потом запусти <code>./check.sh</code>.</p>
-    <p class="dim">Проверка сейчас краснеет на заголовке этой страницы: он так и называется
-    «Замени этот заголовок». Это нарочно.</p>
-  </div>
+  <main>
+    <h1>Восемь занятий, и на каждом ты что-то отдаёшь</h1>
+    <p class="lead">Курс про то, как работать с ИИ так, чтобы получался продукт, а не разговор.
+    Ты пишешь задание, ИИ делает, проверка отвечает «да» или «нет». Восемь раз.</p>
 
-</main>
+    <h2>Три слова, из которых состоит весь курс</h2>
+    <p><strong>Задание</strong> — что нужно сделать. Пишешь <strong>ты</strong>, до того как попросить ИИ.<br>
+    <strong>Запись</strong> — что получилось на самом деле. Не рассказ ИИ о своей работе, а то, что видно в файлах.<br>
+    <strong>Проверка</strong> — отвечает «ЗЕЛЁНОЕ» или «КРАСНОЕ». Без мнений и без «почти».</p>
+
+    <div class="box">
+      <h3>Этот сайт сделан по тем же правилам</h3>
+      <p>У него есть своё задание — <a href="zadanie-1.md">zadanie-1.md</a> — написанное <em>до</em> того, как ИИ начал работать,
+      и своя запись — <a href="zapis-1.md">zapis-1.md</a>, где видно, что он на самом деле сделал.</p>
+      <p>У нас нет никакой оснастки, которой не будет у тебя. Если нам неудобно — значит неудобно и тебе, и это надо исправлять, а не прятать.</p>
+    </div>
+
+    <h2>Как читать страницу занятия</h2>
+    <p>Шаги пронумерованы и свёрнуты: открываешь один, делаешь, закрываешь. У каждого шага написано,
+    <strong>что существует после него</strong> — файл, коммит или адрес. Это и есть ответ на вопрос «получилось ли».</p>
+    <p>Путей к результату три, и они приводят в одно и то же состояние:</p>
+    <ul>
+      <li><strong>минимум</strong> — мышкой и в редакторе, без терминала;</li>
+      <li><strong>100%</strong> — командами, быстрее и точнее;</li>
+      <li><strong>максимум</strong> — там, где уже агенты и автоматика. Появится позже.</li>
+    </ul>
+    <p class="dim">Новое занятие появляется здесь за несколько дней до самого занятия.</p>
+
+    <h2>Что нужно до первого занятия</h2>
+    <p>Настроенное рабочее место. Это отдельная инструкция, и она лежит в репозитории курса:
+    <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">Твой ход 0 · Собери рабочее место</a>.</p>
+    <p>Программа всех восьми занятий —
+    <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.</p>
+
+    <footer>
+      Сайт сделан той же оснасткой, что у участников: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.
+    </footer>
+  </main>
+
+</div>
+</div>
 </body>
 </html>

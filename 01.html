@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Занятие 1 · Первая поставка · AI Bootcamp</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="home" href="./">AI Bootcamp</a>
+  <div class="three">задание · запись · проверка</div>
+</header>
+
+<div class="cols">
+
+  <nav class="sessions" aria-label="Занятия">
+    <ol>
+      <li><a href="01.html" aria-current="page"><span class="num">1</span>Первая поставка</a></li>
+      <li><span><span class="num">2</span>Задание и возврат</span></li>
+      <li><span><span class="num">3</span>История изменений</span></li>
+      <li><span><span class="num">4</span>Своя проверка</span></li>
+      <li><span><span class="num">5</span>Проверка без тебя</span></li>
+      <li><span><span class="num">6</span>Когда не получилось</span></li>
+      <li><span><span class="num">7</span>Зелёное, которое ничего не значит</span></li>
+      <li><span><span class="num">8</span>Сдача: показать и защитить</span></li>
+    </ol>
+  </nav>
+
+  <main>
+    <h1>Занятие 1 · Первая поставка</h1>
+    <p class="lead">К концу занятия у тебя есть адрес в интернете, который можно кинуть другу,
+    и страница по этому адресу сделана ИИ — по твоему заданию, а не по его догадке.</p>
+
+    <div class="box warn">
+      <h3>Если рабочее место ещё не собрано</h3>
+      <p>Начни отсюда: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">Твой ход 0 · Собери рабочее место</a>.
+      Это не отставание — это шаг 0, и он есть у всех.</p>
+      <p class="dim">Нет подписки на Claude? Скажи тренеру одной строкой «подписки нет». Курс от этого не ломается: помощник будет другой, а задание, запись и проверка те же.</p>
+    </div>
+
+    <!-- 1 -->
+    <h2>1 · Цель занятия</h2>
+    <p><strong>Сделать и отдать.</strong> Не «начать проект», не «разобраться с инструментами», а довести одну маленькую вещь
+    до состояния, когда её видно снаружи.</p>
+    <p>Три вещи, которые ты сегодня сделаешь впервые:</p>
+    <ul>
+      <li><strong>напишешь задание до того, как попросишь ИИ</strong> — это главное, и это трудно;</li>
+      <li><strong>проверишь результат не на слово</strong>, а по тому, что изменилось в файлах;</li>
+      <li><strong>примешь или вернёшь работу</strong> — по предикату, а не по настроению.</li>
+    </ul>
+    <p class="dim">Программа всех восьми занятий: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.</p>
+
+    <!-- 2 -->
+    <h2>2 · Путь-минимум: мышкой, без терминала</h2>
+    <p>Этого пути достаточно, чтобы закончить занятие полностью. Терминал нужен в двух шагах из восьми,
+    и там написано, что набрать.</p>
+
+    <details class="step" open>
+      <summary><span class="n">1</span> Свой репозиторий из шаблона</summary>
+      <div class="body">
+        <ol>
+          <li>Открой <a href="https://github.com/y-kolyada/b1bootcamp26-template">шаблон курса</a>.</li>
+          <li>Нажми зелёную кнопку <strong>Use this template</strong> → <strong>Create a new repository</strong>.</li>
+          <li>Имя — латиницей, без имени и фамилии. Например <code>my-first-page</code>.</li>
+          <li>Оставь <strong>Public</strong> и нажми <strong>Create repository</strong>.</li>
+        </ol>
+        <div class="after"><b>После шага существует:</b> адрес <code>https://github.com/&lt;твой-ник&gt;/&lt;твой-репозиторий&gt;</code>,
+        и в нём шесть файлов. Истории шаблона в нём нет — только одна своя первая запись.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">2</span> Репозиторий у тебя на компьютере, и первая красная проверка</summary>
+      <div class="body">
+        <p>В Ubuntu, в терминале:</p>
+<pre><code>git clone https://github.com/&lt;твой-ник&gt;/&lt;твой-репозиторий&gt;.git
+cd &lt;твой-репозиторий&gt;
+./check.sh</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> <code>КРАСНОЕ</code> и одну строку со словом <code>НЕТ</code> —
+        «заголовок всё ещё из шаблона». <strong>Так и должно быть.</strong> Проверка, которая ни разу не краснела, ничего не доказывает.</div>
+        <p class="dim">Если ответило <code>Permission denied</code> — набери <code>bash check.sh</code> и скажи тренеру. Это наша ошибка, не твоя.</p>
+        <div class="after"><b>После шага существует:</b> папка с проектом у тебя на машине, и красная проверка.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">3</span> Задание: <code>zadanie-1.md</code></summary>
+      <div class="body">
+        <p><strong>Это пишешь ты, до того как откроешь ИИ.</strong> Открой <code>zadanie-1.md</code> в редакторе и заполни:</p>
+        <ul>
+          <li><strong>Хочу:</strong> одна фраза. Что за страница и про что.</li>
+          <li><strong>Три предиката</strong> — утверждения, на которые можно ответить «да» или «нет», посмотрев на результат.</li>
+        </ul>
+        <p>«Сделай красиво» — не предикат. «На странице есть список минимум из трёх строк, и каждая строка — название игры» — предикат.</p>
+        <p>Сохрани и зафиксируй: в редакторе это <strong>Source Control</strong> → сообщение <code>задание 1</code> → <strong>Commit</strong>.</p>
+        <div class="after"><b>После шага существует:</b> заполненный <code>zadanie-1.md</code> и коммит с ним.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">4</span> Попроси ИИ сделать страницу</summary>
+      <div class="body">
+        <p>В редакторе открой Claude Code и напиши ему ровно это:</p>
+<pre><code>Прочитай zadanie-1.md. Сделай index.html по этому заданию.
+Другие файлы не меняй. В конце перечисли, что изменил.</code></pre>
+        <p><strong>Почему именно так.</strong> Ты не описываешь страницу в чате — ты показываешь на задание. Тогда через неделю понятно,
+        что ты просил, а не что помнишь.</p>
+        <div class="after"><b>После шага существует:</b> изменённый <code>index.html</code>. В <strong>Source Control</strong> он виден как изменённый файл.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">5</span> Проверь не на слово: <code>git diff</code> и запись</summary>
+      <div class="body">
+        <p>ИИ в конце рассказывает, что сделал. <strong>Это его слова, а не доказательство.</strong> Доказательство — что изменилось в файлах:</p>
+<pre><code>git diff</code></pre>
+        <div class="prints"><strong>Должно напечатать</strong> строки с <code>+</code> и <code>-</code> — добавленное и убранное.
+        Выйти из просмотра — клавиша <kbd>q</kbd>.</div>
+        <p>Теперь заполни <code>zapis-1.md</code>: что ИИ сказал, что показал <code>git diff</code>, и совпало ли это.</p>
+        <div class="after"><b>После шага существует:</b> заполненный <code>zapis-1.md</code> и коммит с ним.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">6</span> Проверка должна позеленеть</summary>
+      <div class="body">
+<pre><code>./check.sh</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> <code>ЗЕЛЁНОЕ</code> и ни одной строки со словом <code>НЕТ</code>.</div>
+        <p>Если осталось красное — читай строку после <code>НЕТ</code>: там написано, что сделать.</p>
+        <div class="after"><b>После шага существует:</b> зелёная проверка.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">7</span> Публикация: страница в интернете</summary>
+      <div class="body">
+        <p>Сначала отправь свои коммиты на GitHub — в редакторе это <strong>Sync Changes</strong>. Потом один раз включи публикацию:</p>
+        <ol>
+          <li>В своём репозитории сверху — <strong>Settings</strong>.</li>
+          <li>В левом столбце — <strong>Pages</strong>.</li>
+          <li><strong>Source</strong> → <code>Deploy from a branch</code>, <strong>Branch</strong> → <code>main</code>, папка → <code>/(root)</code>, <strong>Save</strong>.</li>
+        </ol>
+        <p>Через минуту-две адрес будет такой:</p>
+<pre><code>https://&lt;твой-ник&gt;.github.io/&lt;твой-репозиторий&gt;/</code></pre>
+        <div class="after"><b>После шага существует:</b> адрес, который открывается с телефона, и на странице твой заголовок.
+        <strong>Это то, что можно кинуть другу.</strong></div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">8</span> Приёмка: принял или вернул</summary>
+      <div class="body">
+        <p>Открой своё задание и пройди по трём предикатам. По каждому — «да» или «нет», глядя на страницу, а не на рассказ ИИ.</p>
+        <ul>
+          <li>все «да» — <strong>принял</strong>;</li>
+          <li>хоть одно «нет» — <strong>вернул</strong>, и говоришь, по какому именно предикату.</li>
+        </ul>
+        <p>Возврат пишется ИИ одной фразой: <code>не выполнен предикат 2: списка из трёх строк на странице нет</code>.</p>
+        <p><strong>Возврат — не провал и не ссора.</strong> Это обычная работа, и на занятии 2 она будет главной темой.</p>
+        <div class="after"><b>После шага существует:</b> в <code>zapis-1.md</code> написано «принял» или «вернул по предикату N», и это закоммичено.</div>
+      </div>
+    </details>
+
+    <!-- 3 -->
+    <h2>3 · Путь-100%: то же самое командами</h2>
+    <p>Шаги и их результаты те же, номера те же. Быстрее и точнее; и это тот путь, которым пользуемся мы сами.</p>
+
+    <details class="step">
+      <summary><span class="n">1</span> Свой репозиторий — одной командой</summary>
+      <div class="body">
+<pre><code>gh repo create &lt;твой-репозиторий&gt; --template y-kolyada/b1bootcamp26-template --public</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> <code>✓ Created repository &lt;твой-ник&gt;/&lt;твой-репозиторий&gt; on github.com</code></div>
+        <p class="dim">Если ответило <code>Bad credentials</code> — войди заново: <code>gh auth login --web --git-protocol https</code>,
+        и не закрывай терминал, пока не напишет <code>✓ Logged in as</code>.</p>
+        <div class="after"><b>После шага существует:</b> то же, что в шаге 1 выше — адрес репозитория.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">2-3</span> Клон, красная проверка, задание</summary>
+      <div class="body">
+<pre><code>git clone https://github.com/&lt;твой-ник&gt;/&lt;твой-репозиторий&gt;.git
+cd &lt;твой-репозиторий&gt;
+./check.sh
+code zadanie-1.md</code></pre>
+        <div class="prints"><strong>Проверка должна напечатать</strong> <code>КРАСНОЕ</code>. Последняя команда открывает задание в редакторе.</div>
+        <p>Заполнил — зафиксируй:</p>
+<pre><code>git add zadanie-1.md
+git commit -m "задание 1"</code></pre>
+        <div class="after"><b>После шагов существует:</b> папка с проектом, красная проверка, коммит с заданием.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">4-5</span> ИИ из терминала, и проверка не на слово</summary>
+      <div class="body">
+<pre><code>claude -p "Прочитай zadanie-1.md. Сделай index.html по этому заданию. Другие файлы не меняй. В конце перечисли, что изменил."
+git diff
+git add index.html zapis-1.md
+git commit -m "страница по заданию 1, и запись"</code></pre>
+        <div class="prints"><strong><code>git diff</code> должен напечатать</strong> строки с <code>+</code> и <code>-</code>.
+        Если он молчит — ИИ ничего не изменил, и это тоже результат: тогда задание не дошло.</div>
+        <div class="after"><b>После шагов существует:</b> изменённый <code>index.html</code>, заполненный <code>zapis-1.md</code>, коммит.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">6-7</span> Зелёная проверка и публикация</summary>
+      <div class="body">
+<pre><code>./check.sh
+git push</code></pre>
+        <div class="prints"><strong>Должно напечатать</strong> <code>ЗЕЛЁНОЕ</code>, а <code>git push</code> — строку с именем ветки <code>main</code>.</div>
+        <p>Публикацию включи один раз через <strong>Settings → Pages</strong>, как в шаге 7 выше.</p>
+        <p class="dim">Командой это тоже делается, но мы её ещё не проверили на себе — поэтому и не даём. Правило курса:
+        <strong>непроверенную команду не публикуем.</strong></p>
+        <div class="after"><b>После шагов существует:</b> зелёная проверка и адрес в интернете.</div>
+      </div>
+    </details>
+
+    <!-- 4 -->
+    <h2>4 · Путь-максимум — продолжение следует</h2>
+    <p class="soon">Здесь появится то, что делает работу за тебя: агент, который сам правит и сам проверяет;
+    автоматическая проверка на GitHub, из-за которой <strong>красное не публикуется</strong>; и сборка, которая запускается на каждый коммит.</p>
+    <p class="soon">Этого пути здесь нет не потому, что он секретный, а потому что <strong>мы сами его на этом занятии ещё не прошли</strong>.
+    Появится, когда пройдём. Автоматическая проверка — занятие 5, агенты — занятие 7.</p>
+
+    <!-- 5 -->
+    <h2>5 · Артефакты: что у тебя есть после занятия</h2>
+    <p>Это перечень, по которому видно, что занятие сделано. Он одинаков для всех путей.</p>
+    <ol>
+      <li><strong>Свой репозиторий</strong> — адрес на GitHub, со своей историей.</li>
+      <li><strong><code>zadanie-1.md</code></strong> — «хочу» и три предиката, написанные <em>до</em> работы ИИ. В коммите.</li>
+      <li><strong><code>index.html</code></strong> — страница, сделанная ИИ по этому заданию. В коммите.</li>
+      <li><strong><code>zapis-1.md</code></strong> — что сказал ИИ, что показал <code>git diff</code>, и решение: принял или вернул по предикату N. В коммите.</li>
+      <li><strong>Зелёная <code>./check.sh</code></strong> — и память о том, что в первую минуту она была красной.</li>
+      <li><strong>Адрес в интернете</strong> — <code>https://&lt;твой-ник&gt;.github.io/&lt;твой-репозиторий&gt;/</code>, открывается с телефона.</li>
+    </ol>
+
+    <div class="box">
+      <h3>Не успел — это нормально</h3>
+      <p>Занятие рассчитано так, что успеть можно. Но если не успел — <strong>продолжай с того номера, на котором остановился</strong>:
+      номера на этой странице и в занятии одни и те же, и страница никуда не денется.</p>
+      <p>Застрял — напиши в Discord <strong>одну строку</strong> в таком виде:</p>
+<pre><code>шаг 4 · последняя строка: Permission denied</code></pre>
+      <p>Номер шага и последняя строка, которую напечатал терминал. Этого хватает, чтобы ответить сразу.
+      «У меня не работает» — не хватает, и тебе придётся ждать уточняющих вопросов.</p>
+    </div>
+
+    <footer>
+      Эта страница — часть сайта курса, сделанного той же оснасткой, что у участников.
+      Её задание: <a href="zadanie-1.md">zadanie-1.md</a>. Что получилось на самом деле: <a href="zapis-1.md">zapis-1.md</a>.
+    </footer>
+  </main>
+
+</div>
+</div>
+</body>
+</html>
