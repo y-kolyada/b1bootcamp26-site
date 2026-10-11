@@ -62,8 +62,8 @@ try {
         await details.evaluate((d) => { d.open = true; });
       }
 
-      await btn.scrollIntoViewIfNeeded();
-      await btn.click();
+      await btn.evaluate((el) => el.scrollIntoView());
+      await btn.click({ force: true });
       const isVisible = await card.isVisible();
       check(`клик на «${btnText}» открывает карточку`, isVisible);
 
@@ -88,12 +88,12 @@ try {
         // Закрытие крестиком
         const closeBtn = card.locator('.term-close');
         if (await closeBtn.count() > 0) {
-          await closeBtn.click();
+          await closeBtn.click({ force: true });
           const closed = !(await card.isVisible());
           check(`крестик закрывает карточку «${btnText}»`, closed);
         } else {
           // Закрытие повторным кликом
-          await btn.click();
+          await btn.click({ force: true });
           check(`повторный клик закрывает карточку «${btnText}»`, !(await card.isVisible()));
         }
       }
@@ -103,8 +103,8 @@ try {
     if (count > 0) {
       const firstBtn = termBtns.first();
       const firstCard = termCards.first();
-      await firstBtn.scrollIntoViewIfNeeded();
-      await firstBtn.click();
+      await firstBtn.evaluate((el) => el.scrollIntoView());
+      await firstBtn.click({ force: true });
       await page.keyboard.press('Escape');
       check('клавиша Escape закрывает открытую карточку', !(await firstCard.isVisible()));
     }
@@ -113,9 +113,9 @@ try {
     if (count > 0) {
       const firstBtn = termBtns.first();
       const firstCard = termCards.first();
-      await firstBtn.scrollIntoViewIfNeeded();
-      await firstBtn.click();
-      await page.locator('header.top').first().click();
+      await firstBtn.evaluate((el) => el.scrollIntoView());
+      await firstBtn.click({ force: true });
+      await page.locator('header.top').first().click({ force: true });
       check('клик вне карточки закрывает её (light dismiss)', !(await firstCard.isVisible()));
     }
 

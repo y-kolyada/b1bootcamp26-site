@@ -5,12 +5,14 @@
   --bg: #fbfbfa; --fg: #1a1a18; --dim: #6b6b66; --line: #e4e4e0;
   --acc: #1d4ed8; --ok: #126b2f; --warn: #8a5a00; --code: #f1f1ee;
   --term-accent: #db8b0e; --term-bg-hover: rgba(252, 189, 74, 0.28);
+  --step-target-bg: rgba(252, 189, 74, 0.12); --step-target-border: rgba(219, 139, 14, 0.55);
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #16161a; --fg: #f0f0ee; --dim: #9a9a95; --line: #2e2e34;
     --acc: #8ab0ff; --ok: #6fd48c; --warn: #e0b45a; --code: #22222a;
     --term-accent: #fcbd4a; --term-bg-hover: rgba(252, 189, 74, 0.22);
+    --step-target-bg: rgba(252, 189, 74, 0.08); --step-target-border: rgba(252, 189, 74, 0.45);
   }
 }
 
@@ -135,9 +137,10 @@ footer { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 14px;
    верх экрана, и непонятно, куда ты попал. Отступ возвращает его в кадр. */
 details.step .body:target { scroll-margin-top: 124px; }
 @media (min-width: 56rem) { details.step .body:target { scroll-margin-top: 64px; } }
-details.step .body:target { background: var(--code); border-radius: 0 0 9px 9px; }
-details.step:has(.body:target) { border-color: var(--acc); }
-h2:target, h3:target { background: var(--code); border-radius: 6px; }
+details.step .body:target { background: var(--step-target-bg); border-radius: 0 0 9px 9px; }
+details.step:has(.body:target) { border-color: var(--step-target-border); }
+details.step:has(.body:target) > summary { border-bottom-color: var(--step-target-border); }
+h2:target, h3:target { background: var(--step-target-bg); border-radius: 6px; }
 
 /* --- «свернуть всё»: видна всегда, даже когда уехали вниз --- */
 /* Низ справа - под большой палец на телефоне и подальше от текста на широком. */
