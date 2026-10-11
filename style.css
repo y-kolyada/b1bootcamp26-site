@@ -188,6 +188,13 @@ body { padding-bottom: 72px; }
   color: var(--fg);
   text-align: left;
 }
+.term-card[hidden] {
+  display: none !important;
+}
+.term[data-open] .term-card,
+.term-card:not([hidden]) {
+  display: block;
+}
 .term-card::after {
   content: "";
   position: absolute;
@@ -198,15 +205,30 @@ body { padding-bottom: 72px; }
   border-style: solid;
   border-color: var(--line) transparent transparent transparent;
 }
-.term:focus-within .term-card,
-.term[data-open] .term-card {
-  display: block;
+.term-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
 }
 .term-title {
-  display: block;
+  display: inline-block;
   font-weight: 600;
-  margin-bottom: 4px;
   color: var(--fg);
+}
+.term-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--dim);
+  cursor: pointer;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+.term-close:hover {
+  color: var(--fg);
+  background: var(--code);
 }
 .term-desc {
   display: block;
@@ -216,7 +238,7 @@ body { padding-bottom: 72px; }
 .term-links {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   padding-top: 8px;
   border-top: 1px solid var(--line);
   font-size: .82rem;
@@ -227,6 +249,23 @@ body { padding-bottom: 72px; }
 }
 .term-links a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .term-card {
+    position: fixed;
+    bottom: 20px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: none;
+    transform: none;
+    z-index: 1000;
+    box-shadow: 0 12px 32px rgba(0,0,0,.3);
+  }
+  .term-card::after {
+    display: none;
+  }
 }
 
 /* Ссылка на словарь в боковом меню */

@@ -151,6 +151,16 @@ for LESSON in "${LESSONS[@]}"; do
   fi
 done
 
+# --- предикат 9: интерактивные карточки терминов (Playwright) ---
+if [ -f "tests/test-terms.mjs" ]; then
+  if node tests/test-terms.mjs >/dev/null 2>&1; then
+    ok "предикат 9: карточки терминов кликабельны, не текут в текст и не режутся экраном"
+  else
+    bad "предикат 9: ошибка в интерактивных карточках терминов" \
+        "запусти 'node tests/test-terms.mjs', чтобы увидеть точную причину"
+  fi
+fi
+
 echo "  ----------------------------------------------"
 if [ "$FAIL" -eq 0 ]; then
   printf '  %s\n\n' "$(g 'ЗЕЛЁНОЕ')"
