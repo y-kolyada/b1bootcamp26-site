@@ -4,11 +4,13 @@
 :root {
   --bg: #fbfbfa; --fg: #1a1a18; --dim: #6b6b66; --line: #e4e4e0;
   --acc: #1d4ed8; --ok: #126b2f; --warn: #8a5a00; --code: #f1f1ee;
+  --term-accent: #db8b0e; --term-bg-hover: rgba(252, 189, 74, 0.28);
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #16161a; --fg: #f0f0ee; --dim: #9a9a95; --line: #2e2e34;
     --acc: #8ab0ff; --ok: #6fd48c; --warn: #e0b45a; --code: #22222a;
+    --term-accent: #fcbd4a; --term-bg-hover: rgba(252, 189, 74, 0.22);
   }
 }
 
@@ -158,16 +160,22 @@ body { padding-bottom: 72px; }
 .term-btn {
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
+  padding: 1px 4px;
+  margin: -1px -4px;
   font: inherit;
   color: inherit;
   cursor: pointer;
-  border-bottom: 1.5px dotted var(--acc);
+  border-bottom: 2px dashed var(--term-accent);
+  border-radius: 4px;
   outline: none;
+  transition: background .15s ease, border-color .15s ease;
 }
-.term-btn:hover, .term-btn:focus-visible {
-  color: var(--acc);
+.term-btn:hover,
+.term-btn:focus-visible,
+.term[data-open] .term-btn,
+.term-btn[aria-expanded="true"] {
+  background: var(--term-bg-hover) !important;
+  border-bottom: 2px solid var(--term-accent) !important;
 }
 .term-card {
   display: none;
