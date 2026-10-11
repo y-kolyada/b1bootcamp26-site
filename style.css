@@ -89,7 +89,7 @@ details.step {
 }
 details.step > summary {
   cursor: pointer; padding: 12px 14px; font-weight: 600; list-style: none;
-  display: flex; gap: 10px; align-items: baseline;
+  display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;
 }
 details.step > summary::-webkit-details-marker { display: none; }
 details.step > summary::before { content: "▸"; color: var(--dim); font-weight: 400; }
@@ -148,3 +148,136 @@ h2:target, h3:target { background: var(--code); border-radius: 6px; }
 .svernut:hover, .svernut:focus { border-color: var(--acc); color: var(--acc); }
 /* Чтобы кнопка не накрывала последние строки страницы. */
 body { padding-bottom: 72px; }
+
+/* --- Интерактивные термины курса --- */
+.term {
+  position: relative;
+  display: inline-block;
+  white-space: normal;
+}
+.term-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border-bottom: 1.5px dotted var(--acc);
+  outline: none;
+}
+.term-btn:hover, .term-btn:focus-visible {
+  color: var(--acc);
+}
+.term-card {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 290px;
+  max-width: 82vw;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15), 0 4px 6px rgba(0,0,0,.08);
+  padding: 12px 14px;
+  font-size: .88rem;
+  line-height: 1.45;
+  color: var(--fg);
+  text-align: left;
+}
+.term-card::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--line) transparent transparent transparent;
+}
+.term:focus-within .term-card,
+.term[data-open] .term-card {
+  display: block;
+}
+.term-title {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--fg);
+}
+.term-desc {
+  display: block;
+  color: var(--fg);
+  margin-bottom: 8px;
+}
+.term-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  font-size: .82rem;
+}
+.term-links a {
+  color: var(--acc);
+  text-decoration: none;
+}
+.term-links a:hover {
+  text-decoration: underline;
+}
+
+/* Ссылка на словарь в боковом меню */
+nav.sessions .nav-extra {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+nav.sessions .nav-extra a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: .95rem;
+  color: var(--fg);
+  border: 1px solid transparent;
+}
+nav.sessions .nav-extra a:hover {
+  background: var(--code);
+}
+nav.sessions .nav-extra a[aria-current="page"] {
+  border-color: var(--line);
+  background: var(--code);
+  font-weight: 600;
+}
+
+/* --- Карточки в глоссарии --- */
+.glossary-term {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 0 0 16px;
+  background: var(--bg);
+}
+.glossary-term h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.glossary-term p {
+  margin: 0 0 8px;
+}
+.glossary-meta {
+  color: var(--dim);
+  font-size: .9rem;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
