@@ -79,9 +79,9 @@ cp zapis-1.md zapis-2.md</code></pre>
     </details>
 
     <details class="step">
-      <summary><span class="n">2</span> Создай <code>AGENTS.md</code> — правила твоего дома <a class="yakor" href="#min-2">#</a></summary>
+      <summary><span class="n">2</span> Открой <code>AGENTS.md</code> — правила твоего дома <a class="yakor" href="#min-2">#</a></summary>
       <div class="body" id="min-2">
-        <p>Создай в корне репозитория файл <code>AGENTS.md</code>. Напиши в нём правила, по которым ИИ обязан работать с тобой:</p>
+        <p>В твоём проекте уже есть файл <code>AGENTS.md</code> — мы дали его со старта, чтобы сразу защитить тебя от спешки и ошибок ИИ. Открой его в редакторе и посмотри, как устроены правила твоего дома:</p>
 <pre><code># Правила для ИИ
 
 Твой напарник — автор продукта (от 13+ до 17 лет). Ты — его исполнитель.
@@ -91,20 +91,20 @@ cp zapis-1.md zapis-2.md</code></pre>
 2. Порядок работы: Задание -> Запись -> Проверка.
 3. Меняй только то, о чём просили. Не трогай работающий код без спроса.
 4. Отложенные мысли записывай в potom.md.</code></pre>
-        <p>Любой умный помощник сначала читает этот файл и понимает, кто в доме хозяин.</p>
-        <div class="after"><b>После шага существует:</b> файл <code>AGENTS.md</code> с правилами для ИИ.</div>
+        <p>Любой умный помощник сначала читает этот файл и понимает, кто в доме хозяин. Ты можешь дополнить его своими правилами в любое время.</p>
+        <div class="after"><b>После шага существует:</b> проверенный файл <code>AGENTS.md</code> с правилами для ИИ.</div>
       </div>
     </details>
 
     <details class="step">
-      <summary><span class="n">3</span> Создай <code>CLAUDE.md</code> — мостик для Claude Code <a class="yakor" href="#min-3">#</a></summary>
+      <summary><span class="n">3</span> Проверь <code>CLAUDE.md</code> — мостик для Claude Code <a class="yakor" href="#min-3">#</a></summary>
       <div class="body" id="min-3">
-        <p>Создай рядом файл <code>CLAUDE.md</code> ровно из двух строк:</p>
+        <p>Открой файл <code>CLAUDE.md</code> — в нём ровно две строки:</p>
 <pre><code># Claude Code
 Читай AGENTS.md — там наши правила и порядок работы.</code></pre>
         <p><strong>Зачем этот мостик.</strong> Claude Code при запуске автоматически ищет файл <code>CLAUDE.md</code>.
         Мы делаем его тонким указателем на <code>AGENTS.md</code>, чтобы не дублировать правила в двух местах.</p>
-        <div class="after"><b>После шага существует:</b> файл <code>CLAUDE.md</code>, указывающий на <code>AGENTS.md</code>.</div>
+        <div class="after"><b>После шага существует:</b> проверенный файл <code>CLAUDE.md</code>, указывающий на <code>AGENTS.md</code>.</div>
       </div>
     </details>
 
@@ -123,7 +123,7 @@ cp zapis-1.md zapis-2.md</code></pre>
         <p>Или в терминале (<strong>микро-цель:</strong> создаём несгораемую точку возврата — <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">коммит</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Коммит</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Несгораемая точка сохранения в истории проекта с понятным описанием.</span><span class="term-links"><a href="01.html#shag-3">Где встретилось: Занятие 1 →</a> <a href="glossary.html#kommit">В словарь понятий 📖</a></span></span></span> в Git <em>до</em> запуска ИИ, чтобы зафиксировать правила и новые требования):</p>
 <pre><code>git add AGENTS.md CLAUDE.md zadanie-2.md
 git commit -m "docs: правила дома и задание 2"</code></pre>
-        <div class="prints"><strong>Должно напечатать:</strong> строку коммита со списком добавленных файлов (<code>3 files changed</code>).</div>
+        <div class="prints"><strong>Должно напечатать:</strong> строку коммита со списком сохранённых файлов.</div>
         <div class="after"><b>После шага существует:</b> сохранённый коммит с правилами <code>AGENTS.md</code>, мостиком <code>CLAUDE.md</code> и файлом <code>zadanie-2.md</code>.</div>
       </div>
     </details>
