@@ -311,11 +311,38 @@ nav.sessions .nav-extra a[aria-current="page"] {
   background: var(--bg);
 }
 .glossary-term h3 {
-  margin: 0 0 8px;
-  font-size: 1.15rem;
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.glossary-title {
+  color: var(--fg);
+}
+.glossary-object {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--warn);
+  background: rgba(252, 189, 74, 0.16);
+  border: 1px solid rgba(219, 139, 14, 0.35);
+  padding: 2px 8px;
+  border-radius: 5px;
+  letter-spacing: 0.02em;
+}
+.glossary-term h3 .yakor {
+  margin-left: auto;
+  font-size: 1rem;
+}
+.glossary-lead {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.48;
+  color: var(--fg);
+  margin: 0 0 10px;
 }
 .glossary-term p {
   margin: 0 0 8px;

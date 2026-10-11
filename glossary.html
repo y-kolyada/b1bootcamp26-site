@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Словарь понятий · AI Bootcamp</title>
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 <div class="wrap">
@@ -42,8 +42,11 @@
     </div>
 
     <div class="glossary-term" id="predikat">
-      <h3>Предикат <a class="yakor" href="#predikat">#</a></h3>
-      <p><strong>Утверждение, на которое можно ответить строго «ДА» или «НЕТ»</strong>, просто взглянув на результат работы.</p>
+      <h3>
+        <span class="glossary-title">Предикат</span>
+        <a class="yakor" href="#predikat">#</a>
+      </h3>
+      <p class="glossary-lead">Утверждение, на которое можно ответить строго «ДА» или «НЕТ», просто взглянув на результат работы.</p>
       <p>Машина не понимает слов «сделай красиво» или «удобно». Предикат заменяет споры проверяемыми фактами: «на странице есть заголовок H1 с названием игры», «кнопка меняет цвет при наведении».</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилось впервые:</strong> <a href="01.html#shag-3">Занятие 1 · Шаг 3 (zadanie-1.md)</a>
@@ -51,8 +54,12 @@
     </div>
 
     <div class="glossary-term" id="zadanie">
-      <h3>Задание (zadanie-N.md) <a class="yakor" href="#zadanie">#</a></h3>
-      <p><strong>Документ, который пишет автор продукта ДО того, как просить ИИ написать код.</strong></p>
+      <h3>
+        <span class="glossary-title">Задание</span>
+        <code class="glossary-object">zadanie-N.md</code>
+        <a class="yakor" href="#zadanie">#</a>
+      </h3>
+      <p class="glossary-lead">Документ, который пишет автор продукта ДО того, как просить ИИ написать код.</p>
       <p>Содержит одну фразу цели («Хочу») и ровно три проверяемых предиката. Фиксирует волю автора. Через неделю понятно, о чём просили, а не что смутно помнится.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилось впервые:</strong> <a href="01.html#shag-3">Занятие 1 · Шаг 3</a>
@@ -60,8 +67,12 @@
     </div>
 
     <div class="glossary-term" id="zapis">
-      <h3>Запись (zapis-N.md) <a class="yakor" href="#zapis">#</a></h3>
-      <p><strong>Честный отчёт проверки сделанной работы.</strong></p>
+      <h3>
+        <span class="glossary-title">Запись</span>
+        <code class="glossary-object">zapis-N.md</code>
+        <a class="yakor" href="#zapis">#</a>
+      </h3>
+      <p class="glossary-lead">Честный отчёт проверки сделанной работы.</p>
       <p>Слова ИИ о том, что он сделал — это не доказательство. Доказательство — команда <code>git diff</code>. В запись вносятся реальные факты изменений файлов и вердикт автора: «принял» или «вернул по предикату N».</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилось впервые:</strong> <a href="01.html#shag-5">Занятие 1 · Шаг 5</a>
@@ -69,8 +80,12 @@
     </div>
 
     <div class="glossary-term" id="proverka">
-      <h3>Проверка (check.sh) <a class="yakor" href="#proverka">#</a></h3>
-      <p><strong>Автоматический скрипт, отвечающий только «ЗЕЛЁНОЕ» или «КРАСНОЕ».</strong> Без мнений и без «почти».</p>
+      <h3>
+        <span class="glossary-title">Проверка</span>
+        <code class="glossary-object">check.sh</code>
+        <a class="yakor" href="#proverka">#</a>
+      </h3>
+      <p class="glossary-lead">Автоматический скрипт, отвечающий только «ЗЕЛЁНОЕ» или «КРАСНОЕ». Без мнений и без «почти».</p>
       <p>Проверка, которая ни разу не краснела, ничего не доказывает. Если скрипт выдаёт «НЕТ» — он прямо называет номер нарушенного предиката.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилось впервые:</strong> <a href="01.html#shag-2">Занятие 1 · Шаг 2</a>
@@ -78,8 +93,11 @@
     </div>
 
     <div class="glossary-term" id="repo">
-      <h3>Репозиторий <a class="yakor" href="#repo">#</a></h3>
-      <p><strong>Дом твоего проекта, хранящий все файлы и полную историю их изменений.</strong></p>
+      <h3>
+        <span class="glossary-title">Репозиторий</span>
+        <a class="yakor" href="#repo">#</a>
+      </h3>
+      <p class="glossary-lead">Дом твоего проекта, хранящий все файлы и полную историю их изменений.</p>
       <p>Живёт одновременно у тебя на компьютере (локально) и на GitHub (в облаке). Позволяет работать безопасно: ни одна строка не пропадёт бесследно.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилось впервые:</strong> <a href="01.html#shag-1">Занятие 1 · Шаг 1</a>
@@ -87,8 +105,11 @@
     </div>
 
     <div class="glossary-term" id="kommit">
-      <h3>Коммит <a class="yakor" href="#kommit">#</a></h3>
-      <p><strong>Несгораемая точка сохранения в истории проекта с понятным описанием.</strong></p>
+      <h3>
+        <span class="glossary-title">Коммит</span>
+        <a class="yakor" href="#kommit">#</a>
+      </h3>
+      <p class="glossary-lead">Несгораемая точка сохранения в истории проекта с понятным описанием.</p>
       <p>В отличие от обычного сохранения файла (Ctrl+S), коммит фиксирует состояние всего проекта целиком в определённый момент времени. К любому коммиту можно вернуться.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилось впервые:</strong> <a href="01.html#shag-3">Занятие 1 · Шаг 3</a>
@@ -96,8 +117,12 @@
     </div>
 
     <div class="glossary-term" id="diff">
-      <h3>Дифф (git diff) <a class="yakor" href="#diff">#</a></h3>
-      <p><strong>Команда терминала, показывающая реальную разницу между файлами до и после работы.</strong></p>
+      <h3>
+        <span class="glossary-title">Дифф</span>
+        <code class="glossary-object">git diff</code>
+        <a class="yakor" href="#diff">#</a>
+      </h3>
+      <p class="glossary-lead">Команда терминала, показывающая реальную разницу между файлами до и после работы.</p>
       <p>Зелёные строки с плюсом <code>+</code> — то, что добавилось. Красные строки с минусом <code>-</code> — то, что удалилось. Единственный надёжный способ проверить работу ИИ.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилось впервые:</strong> <a href="01.html#shag-5">Занятие 1 · Шаг 5</a>
@@ -105,17 +130,23 @@
     </div>
 
     <div class="glossary-term" id="artefakt">
-      <h3>Артефакт <a class="yakor" href="#artefakt">#</a></h3>
-      <p><strong>Осязаемый проверяемый результат работы, который остаётся после завершения шага.</strong></p>
-      <p>Не «я посидел и подумал», а конкретный созданный файл (`zadanie-N.md`, `index.html`), коммит в Git или адрес опубликованного сайта в интернете.</p>
+      <h3>
+        <span class="glossary-title">Артефакт</span>
+        <a class="yakor" href="#artefakt">#</a>
+      </h3>
+      <p class="glossary-lead">Осязаемый проверяемый результат работы, который остаётся после завершения шага.</p>
+      <p>Не «я посидел и подумал», а конкретный созданный файл (<code>zadanie-N.md</code>, <code>index.html</code>), коммит в Git или адрес опубликованного сайта в интернете.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилось впервые:</strong> <a href="01.html#shag-3">Занятие 1 · Шаг 3</a>
       </div>
     </div>
 
     <div class="glossary-term" id="priemka">
-      <h3>Приёмка и возврат <a class="yakor" href="#priemka">#</a></h3>
-      <p><strong>Процесс проверки результата по утверждённым предикатам.</strong></p>
+      <h3>
+        <span class="glossary-title">Приёмка и возврат</span>
+        <a class="yakor" href="#priemka">#</a>
+      </h3>
+      <p class="glossary-lead">Процесс проверки результата по утверждённым предикатам.</p>
       <p>Если все предикаты выполнены — работа <em>принята</em>. Если хотя бы один нарушен — работа <em>возвращается</em> на доработку с точным указанием номера предиката. Возврат — это не обида и не ссора, это обычная взрослая работа.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилось впервые:</strong> <a href="01.html#shag-8">Занятие 1 · Шаг 8</a>
@@ -123,8 +154,11 @@
     </div>
 
     <div class="glossary-term" id="osnastka">
-      <h3>Оснастка <a class="yakor" href="#osnastka">#</a></h3>
-      <p><strong>Система правил и инструментов, удерживающая ИИ в рамках проекта.</strong></p>
+      <h3>
+        <span class="glossary-title">Оснастка</span>
+        <a class="yakor" href="#osnastka">#</a>
+      </h3>
+      <p class="glossary-lead">Система правил и инструментов, удерживающая ИИ в рамках проекта.</p>
       <p>Включает файл правил дома <code>AGENTS.md</code>, мостик <code>CLAUDE.md</code>, команды и скилы. Превращает ИИ из непредсказуемого генератора текста в дисциплинированного исполнителя.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилась впервые:</strong> <a href="02.html#min-2">Занятие 2 · Шаг 2</a>
@@ -132,8 +166,12 @@
     </div>
 
     <div class="glossary-term" id="skil">
-      <h3>Скил (.claude/skills/) <a class="yakor" href="#skil">#</a></h3>
-      <p><strong>Автоматический предохранитель и навык для самого ИИ.</strong></p>
+      <h3>
+        <span class="glossary-title">Скил</span>
+        <code class="glossary-object">.claude/skills/</code>
+        <a class="yakor" href="#skil">#</a>
+      </h3>
+      <p class="glossary-lead">Автоматический предохранитель и навык для самого ИИ.</p>
       <p>ИИ считывает описание скила и сам включает «стоп-кран», если ты поторопился: не даёт писать код, пока нет цели и трёх строгих предикатов, и помогает подобрать варианты.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретился впервые:</strong> <a href="02.html#sto-2">Занятие 2 · Шаг 2</a>
@@ -141,8 +179,12 @@
     </div>
 
     <div class="glossary-term" id="komanda">
-      <h3>Команда (.claude/commands/) <a class="yakor" href="#komanda">#</a></h3>
-      <p><strong>Ручной рычаг управления для автора проекта.</strong></p>
+      <h3>
+        <span class="glossary-title">Команда</span>
+        <code class="glossary-object">.claude/commands/</code>
+        <a class="yakor" href="#komanda">#</a>
+      </h3>
+      <p class="glossary-lead">Ручной рычаг управления для автора проекта.</p>
       <p>Вызывается нажатием слэша в терминале (например, <code>/zadanie</code>). Даёт человеку удобное меню для явного запуска нужного инструмента.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилась впервые:</strong> <a href="02.html#sto-2">Занятие 2 · Шаг 2</a>
@@ -150,8 +192,12 @@
     </div>
 
     <div class="glossary-term" id="tochka-vozvrata">
-      <h3>Точка возврата (git checkout) <a class="yakor" href="#tochka-vozvrata">#</a></h3>
-      <p><strong>Чистый коммит, сделанный ДО запуска ИИ, позволяющий сбросить любые неудачные эксперименты.</strong></p>
+      <h3>
+        <span class="glossary-title">Точка возврата</span>
+        <code class="glossary-object">git checkout</code>
+        <a class="yakor" href="#tochka-vozvrata">#</a>
+      </h3>
+      <p class="glossary-lead">Чистый коммит, сделанный ДО запуска ИИ, позволяющий сбросить любые неудачные эксперименты.</p>
       <p>Команда <code>git checkout -- index.html</code> мгновенно возвращает файл к исходному чистому состоянию, стирая любые галлюцинации нейросети.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилась впервые:</strong> <a href="02.html#max-4">Занятие 2 · Шаг 4</a>
@@ -159,8 +205,11 @@
     </div>
 
     <div class="glossary-term" id="mikro-cel">
-      <h3>Микро-цель <a class="yakor" href="#mikro-cel">#</a></h3>
-      <p><strong>Краткое пояснение в одну фразу перед любой командой: ЗАЧЕМ мы её нажимаем.</strong></p>
+      <h3>
+        <span class="glossary-title">Микро-цель</span>
+        <a class="yakor" href="#mikro-cel">#</a>
+      </h3>
+      <p class="glossary-lead">Краткое пояснение в одну фразу перед любой командой: ЗАЧЕМ мы её нажимаем.</p>
       <p>Защищает от механического копирования «заклинаний». Формирует понимание физического смысла каждого действия в Linux и Git.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилась впервые:</strong> <a href="02.html#min-1">Занятие 2 · Шаг 1</a>
@@ -168,8 +217,12 @@
     </div>
 
     <div class="glossary-term" id="potom">
-      <h3>Отложенные мысли (potom.md) <a class="yakor" href="#potom">#</a></h3>
-      <p><strong>Список идей, которые придумали во время работы, но решили не делать прямо сейчас.</strong></p>
+      <h3>
+        <span class="glossary-title">Отложенные мысли</span>
+        <code class="glossary-object">potom.md</code>
+        <a class="yakor" href="#potom">#</a>
+      </h3>
+      <p class="glossary-lead">Список идей, которые придумали во время работы, но решили не делать прямо сейчас.</p>
       <p>Каждая строка содержит три поля: «Что», «Зачем это нужно» и «Почему не сейчас». Позволяет не терять мысли и не отвлекаться от текущего задания.</p>
       <div class="glossary-meta">
         🎯 <strong>Где встретилось впервые:</strong> <a href="01.html#cel">Занятие 1 · Цель</a>
