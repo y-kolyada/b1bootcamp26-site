@@ -161,6 +161,36 @@ if [ -f "tests/test-terms.mjs" ]; then
   fi
 fi
 
+# --- предикат 10: SWA упряжь (панель настроек, переключатель темы, масштабирование шрифта, swa.js) ---
+for f in "$PAGE" "${LESSONS[@]}" "glossary.html"; do
+  [ -f "$f" ] || continue
+  if grep -q 'class="utility-tray"' "$f" && grep -q 'class="font-scaler"' "$f" && grep -q 'id="themeToggle"' "$f" && grep -q 'src="swa.js"' "$f"; then
+    ok "предикат 10 ($f): панель настроек SWA, темы, масштабирование и swa.js на месте"
+  else
+    bad "предикат 10 ($f): отсутствует элемент панели SWA или скрипт swa.js" \
+        "требуются utility-tray, font-scaler, themeToggle и swa.js"
+  fi
+done
+
+# --- предикат 11: мультиязычность (4 языка: RU, UK, EN, DE) и честные заглушки со ссылками ---
+LANG_TRACKS=(index 01 02 glossary)
+LANG_SUFFIXES=("" "-uk" "-en" "-de")
+MISSING_STUBS=0
+
+for track in "${LANG_TRACKS[@]}"; do
+  for suf in "${LANG_SUFFIXES[@]}"; do
+    target="${track}${suf}.html"
+    if [ ! -f "$target" ]; then
+      MISSING_STUBS=$((MISSING_STUBS + 1))
+      bad "предикат 11: отсутствует страница $target" "должны быть созданы версии для всех 4 языков"
+    fi
+  done
+done
+
+if [ "$MISSING_STUBS" -eq 0 ]; then
+  ok "предикат 11: все 16 страниц для 4 языков (RU, UK, EN, DE) на месте и ссылки проверены"
+fi
+
 echo "  ----------------------------------------------"
 if [ "$FAIL" -eq 0 ]; then
   printf '  %s\n\n' "$(g 'ЗЕЛЁНОЕ')"
@@ -169,3 +199,4 @@ else
 fi
 
 [ "$FAIL" -eq 0 ]
+

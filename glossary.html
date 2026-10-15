@@ -4,14 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Словарь понятий · AI Bootcamp</title>
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
+<script>
+  (function() {
+    var t = localStorage.getItem('b1-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    var f = localStorage.getItem('b1-font');
+    if (f) document.documentElement.setAttribute('data-font', f);
+  })();
+</script>
 </head>
 <body>
 <div class="wrap">
 
 <header class="top">
-  <a class="home" href="./">AI Bootcamp</a>
-  <div class="three">задание · действие · проверка</div>
+  <div class="brand-group">
+    <a class="home" href="./">
+      <span class="badge-ai">ai|</span>
+      <span class="sub-brand">aibootcamp-teens</span>
+    </a>
+    <div class="three" aria-hidden="true">задание · действие · проверка</div>
+  </div>
+  <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
+    <div class="lang-switcher" aria-label="Выбор языка">
+      <a href="glossary.html" class="active" aria-current="page">RU</a>
+      <a href="glossary-uk.html">UK</a>
+      <a href="glossary-en.html">EN</a>
+      <a href="glossary-de.html">DE</a>
+    </div>
+    <div class="font-scaler" role="group" aria-label="Размер шрифта">
+      <button type="button" class="font-btn font-s" data-size="s" title="Мелкий шрифт" aria-label="Мелкий шрифт">А</button>
+      <button type="button" class="font-btn font-m active" data-size="m" title="Стандартный шрифт" aria-label="Стандартный шрифт">A</button>
+      <button type="button" class="font-btn font-l" data-size="l" title="Крупный шрифт" aria-label="Крупный шрифт">A</button>
+    </div>
+    <button type="button" class="theme-toggle" id="themeToggle" title="Сменить тему (День/Ночь)" aria-label="Сменить тему день/ночь">
+      <span class="theme-icon" aria-hidden="true">☼</span>
+    </button>
+  </div>
 </header>
 
 <div class="cols">
@@ -29,6 +58,10 @@
     </ol>
     <div class="nav-extra">
       <a href="glossary.html" aria-current="page">📖 Словарь понятий</a>
+    </div>
+    <div class="page-toc" id="pageToc" aria-label="Разделы этой страницы" hidden>
+      <div class="toc-title">На этой странице</div>
+      <ul class="toc-list" id="tocList"></ul>
     </div>
   </nav>
 
@@ -239,6 +272,7 @@
 
 <a class="svernut" href="glossary.html" title="Наверх">наверх</a>
 <script src="terms.js?v=2"></script>
+<script src="swa.js"></script>
 
 </body>
 </html>
