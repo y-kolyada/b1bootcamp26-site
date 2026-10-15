@@ -193,7 +193,19 @@ nav.sessions .num { display: inline-block; width: 1.4em; color: var(--dim); flex
 
 @media (min-width: 56rem) {
   .cols { display: grid; grid-template-columns: 15rem 1fr; gap: 36px; align-items: start; }
-  nav.sessions { position: sticky; top: 18px; margin: 0; }
+  nav.sessions {
+    position: sticky;
+    top: 18px;
+    max-height: calc(100vh - 36px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  nav.sessions::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* --- текст --- */
@@ -254,6 +266,7 @@ details.step > summary code { white-space: nowrap; }
 
 .box { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin: 1.4rem 0; }
 .box.warn { border-left: 3px solid var(--warn); }
+.box.key { border-left: 4px solid var(--term-accent); background: var(--code); }
 .box h3 { margin-top: 0; }
 
 .soon { color: var(--dim); }
