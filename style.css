@@ -77,6 +77,20 @@ header.top a.home {
   border-radius: 4px;
   letter-spacing: -0.5px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+/* Инверсия цветов логотипа в ночном режиме */
+html[data-theme="dark"] .badge-ai {
+  background: #fcbd4a;
+  color: #121316;
+  box-shadow: 0 0 10px rgba(252, 189, 74, 0.28);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .badge-ai {
+    background: #fcbd4a;
+    color: #121316;
+    box-shadow: 0 0 10px rgba(252, 189, 74, 0.28);
+  }
 }
 .sub-brand {
   font-size: 1.15rem;
@@ -432,8 +446,9 @@ body { padding-bottom: 72px; }
 
 /* Ссылка на словарь в боковом меню */
 nav.sessions .nav-extra {
-  margin-top: 16px;
+  margin-top: 14px;
   padding-top: 12px;
+  padding-bottom: 12px;
   border-top: 1px solid var(--line);
 }
 nav.sessions .nav-extra a {
@@ -511,8 +526,8 @@ nav.sessions .nav-extra a[aria-current="page"] {
 
 /* --- динамический навигатор по странице (In-Page TOC) --- */
 .page-toc {
-  margin-top: 24px;
-  padding-top: 16px;
+  margin-top: 0;
+  padding-top: 12px;
   border-top: 1px solid var(--line);
 }
 .toc-title {
