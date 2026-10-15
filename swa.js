@@ -94,4 +94,18 @@
       }
     }
   }
+
+  // 4. Поддержка режима печати и PDF (раскрытие всех шагов для брошюры)
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll('details.step:not([open])').forEach((d) => {
+      d.setAttribute('data-was-closed', 'true');
+      d.setAttribute('open', '');
+    });
+  });
+  window.addEventListener('afterprint', () => {
+    document.querySelectorAll('details.step[data-was-closed]').forEach((d) => {
+      d.removeAttribute('data-was-closed');
+      d.removeAttribute('open');
+    });
+  });
 })();
