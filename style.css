@@ -68,31 +68,26 @@ header.top a.home {
   gap: 8px;
 }
 .badge-ai {
-  background: #161e2e;
-  color: #fcbd4a;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 1.05rem;
-  font-weight: 900;
-  padding: 2px 8px;
-  border-radius: 5px;
-  letter-spacing: -0.2px;
-  line-height: 1.1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  width: 44px;
+  height: 26px;
+  background: url('imgs/ai-badge.png') no-repeat center / contain;
+  font-size: 0;
+  color: transparent;
+  vertical-align: middle;
+  flex: none;
   box-shadow: 0 1px 3px rgba(0,0,0,0.18);
-  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  border-radius: 4px;
+  transition: box-shadow 0.15s ease;
 }
 /* Инверсия цветов логотипа в ночном режиме */
 html[data-theme="dark"] .badge-ai {
-  background: #fcbd4a;
-  color: #121316;
+  background-image: url('imgs/ai-badge-invert.png');
   box-shadow: 0 0 12px rgba(252, 189, 74, 0.35);
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .badge-ai {
-    background: #fcbd4a;
-    color: #121316;
+    background-image: url('imgs/ai-badge-invert.png');
     box-shadow: 0 0 12px rgba(252, 189, 74, 0.35);
   }
 }
