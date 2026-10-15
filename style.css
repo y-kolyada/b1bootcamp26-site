@@ -70,26 +70,30 @@ header.top a.home {
 .badge-ai {
   background: #161e2e;
   color: #fcbd4a;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.85rem;
-  font-weight: 800;
-  padding: 2px 7px;
-  border-radius: 4px;
-  letter-spacing: -0.5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 5px;
+  letter-spacing: -0.2px;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
   transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 /* Инверсия цветов логотипа в ночном режиме */
 html[data-theme="dark"] .badge-ai {
   background: #fcbd4a;
   color: #121316;
-  box-shadow: 0 0 10px rgba(252, 189, 74, 0.28);
+  box-shadow: 0 0 12px rgba(252, 189, 74, 0.35);
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .badge-ai {
     background: #fcbd4a;
     color: #121316;
-    box-shadow: 0 0 10px rgba(252, 189, 74, 0.28);
+    box-shadow: 0 0 12px rgba(252, 189, 74, 0.35);
   }
 }
 .sub-brand {
@@ -281,6 +285,7 @@ details.step > summary code { white-space: nowrap; }
 .box { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin: 1.4rem 0; }
 .box.warn { border-left: 3px solid var(--warn); }
 .box.key { border-left: 4px solid var(--term-accent); background: var(--code); }
+.box.key .artifacts-slogan { font-size: 1.05rem; font-weight: 700; color: var(--fg); margin: 0 0 10px; line-height: 1.45; }
 .box h3 { margin-top: 0; }
 
 .soon { color: var(--dim); }
