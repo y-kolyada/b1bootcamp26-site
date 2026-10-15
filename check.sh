@@ -172,9 +172,9 @@ for f in "$PAGE" "${LESSONS[@]}" "glossary.html"; do
   fi
 done
 
-# --- предикат 11: мультиязычность (4 языка: RU, UK, EN, DE) и честные заглушки со ссылками ---
+# --- предикат 11: мультиязычность (8 языков: RU, UK, BE, KK, KY, KA, EN, DE) и честные заглушки со ссылками ---
 LANG_TRACKS=(index 01 02 glossary)
-LANG_SUFFIXES=("" "-uk" "-en" "-de")
+LANG_SUFFIXES=("" "-uk" "-be" "-kk" "-ky" "-ka" "-en" "-de")
 MISSING_STUBS=0
 
 for track in "${LANG_TRACKS[@]}"; do
@@ -182,13 +182,13 @@ for track in "${LANG_TRACKS[@]}"; do
     target="${track}${suf}.html"
     if [ ! -f "$target" ]; then
       MISSING_STUBS=$((MISSING_STUBS + 1))
-      bad "предикат 11: отсутствует страница $target" "должны быть созданы версии для всех 4 языков"
+      bad "предикат 11: отсутствует страница $target" "должны быть созданы версии для всех 8 языков"
     fi
   done
 done
 
 if [ "$MISSING_STUBS" -eq 0 ]; then
-  ok "предикат 11: все 16 страниц для 4 языков (RU, UK, EN, DE) на месте и ссылки проверены"
+  ok "предикат 11: все 32 страницы для 8 языков (RU, UK, BE, KK, KY, KA, EN, DE) на месте и ссылки проверены"
 fi
 
 echo "  ----------------------------------------------"
