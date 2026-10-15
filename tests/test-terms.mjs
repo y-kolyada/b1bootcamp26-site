@@ -1,4 +1,4 @@
-// tests/test-terms.mjs — автоматическая проверка интерактивных карточек терминов в Playwright
+// tests/test-terms.mjs - автоматическая проверка интерактивных карточек терминов в Playwright
 import { chromium } from 'playwright';
 import path from 'path';
 import { fileURLToPath } from 'url';

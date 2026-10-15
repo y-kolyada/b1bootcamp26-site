@@ -1,4 +1,4 @@
-// swa.js — Simple Web Architecture utilities: theme, font scale & dynamic in-page TOC
+// swa.js - Simple Web Architecture utilities: theme, font scale & dynamic in-page TOC
 (function () {
   // 1. Инициализация и переключение темы (День / Ночь)
   const savedTheme = localStorage.getItem('b1-theme');
