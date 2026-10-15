@@ -41,7 +41,7 @@
       <button type="button" class="font-btn font-m active" data-size="m" title="Standard-Schrift" aria-label="Standard-Schrift">A</button>
       <button type="button" class="font-btn font-l" data-size="l" title="Große Schrift" aria-label="Große Schrift">A</button>
     </div>
-    <button type="button" class="theme-toggle" id="themeToggle" title="Thema wechseln (Tag/Nacht)" aria-label="Thema wechseln Tag/Nacht">
+    <button type="button" class="theme-toggle" id="themeToggle" title="Thema wechseln (Tag/Nacht)" aria-label="Thema wechseln (Tag/Nacht)">
       <span class="theme-icon" aria-hidden="true">☼</span>
     </button>
   </div>
@@ -63,20 +63,56 @@
     <div class="nav-extra">
       <a href="glossary-de.html">📖 Begriffswörterbuch</a>
     </div>
+    <div class="page-toc" id="pageToc" aria-label="Abschnitte auf dieser Seite" hidden>
+      <div class="toc-title">Auf dieser Seite</div>
+      <ul class="toc-list" id="tocList"></ul>
+    </div>
   </nav>
 
   <main>
     <h1>Acht Lektionen, und in jeder gibst und bekommst du etwas</h1>
     <p class="lead">Ein Kurs darüber, wie man mit KI so arbeitet, dass ein echtes Produkt entsteht und kein unverbindliches Gespräch. Du formulierst die Aufgabe, die KI setzt sie um, die automatische Prüfung antwortet mit „Ja“ oder „Nein“. Achtmal.</p>
 
-    <div class="stub-card">
-      <h2>Kursmaterialien sind für eine zukünftige Veröffentlichung auf Deutsch geplant</h2>
-      <p>Die vollständige Website des Kurses mit Schritt-für-Schritt-Lektionen, Terminalbefehlen und automatischen Prüfungen ist derzeit auf Russisch verfügbar.</p>
-      <p>Du kannst die vollständige Originalversion der Website erkunden und mit den Lektionen beginnen:</p>
-      <div class="stub-actions">
-        <a href="index.html" class="btn-primary">Hauptseite auf Russisch (на русском языке) öffnen →</a>
-      </div>
+    <div class="box key" id="glavnaya-mysl">
+      <h3>Leitgedanke des Kurses <a class="yakor" href="#glavnaya-mysl" aria-label="Link zu diesem Abschnitt">#</a></h3>
+      <p>Der Kurs vermittelt, wie man mit künstlicher Intelligenz als Ingenieur arbeitet und nicht als ratloser Chat-Nutzer. Jeder Schritt basiert auf einem Dreiklang: zuerst deine präzise Aufgabe, dann die Aktion der Maschine und unmittelbar darauf eine objektive Überprüfung ohne menschliche Voreingenommenheit. Wir schreiben keinen Code um des Codes willen und verschwenden keine Lebenszeit mit inhaltsleeren Chats. In jeder Lektion schaffst du ein greifbares Artefakt, übergibst es nach außen und veränderst deine Denkweise nachhaltig.</p>
     </div>
+
+    <h2 id="tri-slova">Drei Worte, aus denen der gesamte Kurs besteht <a class="yakor" href="#tri-slova">#</a></h2>
+    <p><strong>Aufgabe</strong> — was getan werden muss. Formuliert von <strong>dir</strong>, bevor die KI gefragt wird.<br>
+    <strong>Aktion</strong> — was tatsächlich entstanden ist. Den Text tippt die KI. Was darin stehen soll — deine Aufgabe. Was daran wahr ist — deine Prüfung.<br>
+    <strong>Prüfung</strong> — antwortet mit „GRÜN“ oder „ROT“. Ohne Meinungen und ohne „Fast“.</p>
+
+    <div class="box">
+      <h3>Diese Website folgt genau denselben Regeln</h3>
+      <p>Sie hat ihre eigene Aufgabe — <a href="zadanie-1.md">zadanie-1.md</a> —, geschrieben <em>bevor</em> die KI mit der Arbeit begann, und ein eigenes Protokoll — <a href="zapis-1.md">zapis-1.md</a> —, das zeigt, was sie tatsächlich getan hat. Sowie <a href="potom.md">potom.md</a> — Dinge, die wir vorerst aufgeschoben haben, mit einer nachvollziehbaren Begründung für jede Zeile.</p>
+      <p>Wir nutzen keine Werkzeuge, die dir nicht ebenfalls zur Verfügung stehen. Wenn uns etwas unpraktisch erscheint, ist es für dich genauso unpraktisch — und das gehört behoben, nicht versteckt.</p>
+    </div>
+
+    <h2 id="kak-chitat">Wie man eine Lektionsseite liest <a class="yakor" href="#kak-chitat">#</a></h2>
+    <p>Die Schritte sind nummeriert und eingeklappt: einen öffnen, umsetzen, schließen. Bei jedem Schritt ist angegeben, <strong>was nach ihm existiert</strong> — eine Datei, ein Commit oder eine Webadresse. Das ist die eindeutige Antwort auf die Frage „Hat es geklappt?“.</p>
+    <p>Es gibt drei Wege zum Ergebnis, und alle führen zum identischen Zustand:</p>
+    <ul>
+      <li><strong>Minimum</strong> — mit der Maus im Editor, ganz ohne Terminal;</li>
+      <li><strong>100%</strong> — über Befehlszeilen, schneller und präziser;</li>
+      <li><strong>Maximum</strong> — mit Agenten und voller Automation. Folgt später.</li>
+    </ul>
+    <p class="dim">Eine neue Lektion erscheint hier einige Tage vor dem Kurstermin.</p>
+
+    <h2 id="do-zanyatiya">Was vor der ersten Lektion benötigt wird <a class="yakor" href="#do-zanyatiya">#</a></h2>
+    <p>Ein eingerichteter Arbeitsplatz. Dafür gibt es eine eigene Anleitung im Kurs-Repository: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">Dein Zug 0 · Richte deinen Arbeitsplatz ein</a>.</p>
+    <p>Der Lehrplan aller acht Lektionen — <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.</p>
+
+    <h2 id="artefakty">Artefakte: Was du nach dem Kennenlernen der Plattform besitzt <a class="yakor" href="#artefakty">#</a></h2>
+    <div class="box key">
+      <p class="artifacts-slogan">Lektion &gt;&gt; Dein Lebenszeit-Quant · Partnerschaft der Würde mit AI · Neuausrichtung deines neuronalen Netzes</p>
+      <p><strong>Eine Lektion ist ein von dir beanspruchter Teil deiner Lebenszeit.</strong> Dieser Zeitpool ist unwiederbringlich. Daher muss jede Minute hier einen spürbaren Nutzen für dich und deine Umwelt stiften. „Du besitzt“ meint jeden Einzelnen, der dieser Seite Aufmerksamkeit gewidmet hat: Teilnehmer, Leser, Eltern oder Autor. Und „Artefakte“ sind nicht bloß Dateien und Commits, sondern neue Fähigkeiten, Gewohnheiten und Erkenntnisse: Dein eigenes neuronales Netz hat sich während der Arbeit neu strukturiert — und dieses Ergebnis bleibt dir für immer erhalten.</p>
+    </div>
+    <ol>
+      <li><strong>Klares Verständnis der Methode:</strong> Aufgabe vor Aktion, Prädikate vor Code, automatische Prüfung ohne Diskussionen.</li>
+      <li><strong>Qualitätsmaßstab:</strong> Beherrschung der drei Pfade (Minimum, 100%, Maximum) und der Anspruch, Arbeiten bis zur Abnahme zu führen.</li>
+      <li><strong>Bereitschaft für Schritt 0:</strong> Ein einsatzbereiter Arbeitsplatz und ein sicherer Raum für gemeinsame Schöpferkraft.</li>
+    </ol>
 
     <footer>
       Erstellt mit denselben Werkzeugen wie bei den Teilnehmern: reines HTML und CSS, Bash-Prüfung, Bereitstellung über GitHub Pages.

@@ -232,6 +232,13 @@ nav.sessions li > a:hover { background: var(--code); }
 nav.sessions li > a[aria-current="page"] { border-color: var(--line); background: var(--code); font-weight: 600; }
 nav.sessions li > .later { color: var(--dim); text-wrap: pretty; }
 nav.sessions li > .later::after { content: " · будет"; font-size: .85em; }
+html[lang="uk"] nav.sessions li > .later::after { content: " · буде"; }
+html[lang="be"] nav.sessions li > .later::after { content: " · будзе"; }
+html[lang="kk"] nav.sessions li > .later::after { content: " · болады"; }
+html[lang="ky"] nav.sessions li > .later::after { content: " · болот"; }
+html[lang="ka"] nav.sessions li > .later::after { content: " · იქნება"; }
+html[lang="en"] nav.sessions li > .later::after { content: " · coming soon"; }
+html[lang="de"] nav.sessions li > .later::after { content: " · folgt"; }
 nav.sessions .num { display: inline-block; width: 1.4em; color: var(--dim); flex: none; }
 
 @media (min-width: 56rem) {

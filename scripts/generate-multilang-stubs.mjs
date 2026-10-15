@@ -32,8 +32,108 @@ function renderLangSwitcher(track, activeLangCode, switcherAriaLabel) {
   return html;
 }
 
-// Translations dictionary for new languages
-const STUB_DATA = {
+// Full localized data for all 7 non-Russian languages
+const MULTILANG_DATA = {
+  uk: {
+    lang: 'uk',
+    subBrand: 'aibootcamp-teens',
+    three: 'завдання · дія · перевірка',
+    trayAria: 'Налаштування відображення та мова',
+    switcherAria: 'Вибір мови',
+    fontAria: 'Розмір шрифту',
+    fontS: 'Дрібний шрифт',
+    fontM: 'Стандартний шрифт',
+    fontL: 'Великий шрифт',
+    themeAria: 'Змінити тему (День/Ніч)',
+    navAria: 'Заняття',
+    navItems: [
+      { num: '1', title: 'Перша поставка', href: '01-uk.html' },
+      { num: '2', title: 'Вимоги: що означає «зроблено»', href: '02-uk.html' },
+      { num: '3', title: 'Історія змін', later: true },
+      { num: '4', title: 'Власна перевірка', later: true },
+      { num: '5', title: 'Перевірка без тебе', later: true },
+      { num: '6', title: 'Коли не вийшло', later: true },
+      { num: '7', title: 'Зелене, яке нічого не означає', later: true },
+      { num: '8', title: 'Здача: показати і захистити', later: true }
+    ],
+    glossaryNav: '📖 Словник понять',
+    tocAria: 'Розділи цієї сторінки',
+    tocTitle: 'На цій сторінці',
+    footer: 'Сайт зроблений тим самим оснащенням, що й в учасників: звичайний HTML і CSS, перевірка на bash, публікація через GitHub Pages.',
+    index: {
+      title: 'AI Bootcamp · курс із восьми занять',
+      h1: 'Вісім занять, і на кожному ти щось віддаєш і отримуєш',
+      lead: 'Курс про те, як працювати з ШІ так, щоб виходив продукт, а не розмова. Ти пишеш завдання, ШІ робить, перевірка відповідає «так» чи «ні». Вісім разів.',
+      keyTitle: 'Головна думка курсу',
+      keyYakAria: 'посилання на цей блок',
+      keyText: "Курс вчить працювати зі штучним інтелектом як інженер, а не як розгублений користувач чатів. В основі кожного кроку лежить тріада: спершу твоє суворе завдання, потім дія машини, і одразу ж об'єктивна перевірка без участі людської думки. Ми не пишемо код заради коду і не витрачаємо час життя на порожні розмови з моделлю. На кожному занятті ти створюєш відчутний артефакт, віддаєш його назовні та змінюєш своє інженерне мислення назавжди.",
+      threeH2: 'Три слова, з яких складається весь курс',
+      taskLabel: 'Завдання',
+      taskDesc: 'що потрібно зробити. Пишеш <strong>ти</strong>, до того як попросити ШІ.',
+      actionLabel: 'Дія',
+      actionDesc: 'що вийшло насправді. Текст набирає ШІ. Що в ньому має бути — твоє завдання. Що в ньому правда — твоя перевірка.',
+      checkLabel: 'Перевірка',
+      checkDesc: 'відповідає «ЗЕЛЕНЕ» або «ЧЕРВОНЕ». Без думок і без «майже».',
+      rulesH3: 'Цей сайт зроблений за тими ж правилами',
+      rulesP1: 'У нього є своє завдання — <a href="zadanie-1.md">zadanie-1.md</a> — написане <em>до</em> того, як ШІ почав працювати, і свій запис — <a href="zapis-1.md">zapis-1.md</a>, де видно, що він насправді зробив. І <a href="potom.md">potom.md</a> — те, що ми вирішили робити не зараз, з причиною для кожного рядка.',
+      rulesP2: 'У нас немає жодного оснащення, якого не буде в тебе. Якщо нам незручно — значить незручно і тобі, і це треба виправляти, а не ховати.',
+      howToH2: 'Як читати сторінку заняття',
+      howToP1: 'Кроки пронумеровані і згорнуті: відкриваєш один, робиш, закриваєш. Біля кожного кроку написано, <strong>що існує після нього</strong> — файл, коміт або адреса. Це і є відповідь на запитання «чи вийшло».',
+      howToP2: 'Шляхів до результату три, і вони приводять до одного й того самого стану:',
+      pathMinLabel: 'мінімум',
+      pathMinDesc: 'мишкою та в редакторі, без терміналу;',
+      path100Label: '100%',
+      path100Desc: 'командами, швидше і точніше;',
+      pathMaxLabel: 'максимум',
+      pathMaxDesc: "там, де вже агенти та автоматика. З'явиться пізніше.",
+      howToDim: "Нове заняття з'являється тут за кілька днів до самого заняття.",
+      beforeH2: 'Що потрібно до першого заняття',
+      beforeP1: 'Налаштоване робоче місце. Це окрема інструкція, і вона лежить у репозиторії курсу: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">Твій хід 0 · Збери робоче місце</a>.',
+      beforeP2: 'Програма всіх восьми занять — <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.',
+      artifactsH2: 'Артефакти: що в тебе є після знайомства з платформою',
+      artifactsSlogan: 'Заняття &gt;&gt; Твій квант часу життя · Партнерство гідності разом із AI · Перебудова твоєї нейромережі',
+      artifactsStrong: 'Заняття — це зайнята тобою частина часу твого життя.',
+      artifactsText: 'Цей пул часу непоправний, тому кожна хвилина тут має приносити відчутну користь тобі та світові навколо. «У тебе» — означає особисто у кожного, хто інвестував свою увагу в цю сторінку: в учня, читача, батьків чи автора. А «артефакти» — це не просто файли та коміти в репозиторії, а й нові вміння, звички та осяяння: твоя власна нейронна мережа перебудувалася під час роботи, і цей результат залишається з тобою назавжди.',
+      artItem1Title: 'Ясне розуміння методу:',
+      artItem1Desc: 'завдання до дії, предикати до коду, автоматична перевірка без суперечок.',
+      artItem2Title: 'Орієнтир якості:',
+      artItem2Desc: 'знання трьох шляхів (мінімум, 100%, максимум) та вміння доводити роботу до здачі.',
+      artItem3Title: 'Готовність до кроку 0:',
+      artItem3Desc: 'налаштоване робоче місце та безпечне середовище для спільної творчості.'
+    },
+    stubs: {
+      '01': {
+        title: 'Заняття 1 · Перша поставка · AI Bootcamp',
+        h1: 'Заняття 1 · Перша поставка',
+        lead: 'До кінця заняття у тебе є адреса в інтернеті, яку можна надіслати другу, і сторінка за цією адресою створена ШІ — за твоїм завданням, а не за його здогадом.',
+        stubH2: 'Матеріали заняття заплановані до перекладу в перспективі',
+        stubP1: 'Повна робоча версія заняття з покроковими інструкціями, термінальними командами та скриптами перевірки наразі опублікована та підтримується на русском языке.',
+        stubP2: 'Ви можете пройти заняття за повною оригінальною версією:',
+        btnText: 'Відкрити Заняття 1 на русском языке →',
+        btnHref: '01.html'
+      },
+      '02': {
+        title: 'Заняття 2 · Вимоги: що означає «зроблено» · AI Bootcamp',
+        h1: 'Заняття 2 · Вимоги: що означає «зроблено»',
+        lead: 'ШІ робить код, але не знає, коли зупинитися. Якщо немає критерію прийомки — він буде вигадувати нескінченно. Вчимося писати умови, які можна перевірити автоматично.',
+        stubH2: 'Матеріали заняття заплановані до перекладу в перспективі',
+        stubP1: 'Повна робоча версія заняття з практикою складних предикатів, власним скілом та тестами перевірки наразі опублікована та підтримується на русском языке.',
+        stubP2: 'Ви можете пройти заняття за повною оригінальною версією:',
+        btnText: 'Відкрити Заняття 2 на русском языке →',
+        btnHref: '02.html'
+      },
+      glossary: {
+        title: 'Словник понять · AI Bootcamp',
+        h1: 'Словник понять курсу',
+        lead: 'Ми навчаємо дорослої інженерної майстерності, тому називаємо речі своїми іменами. Але кожне слово тут — це не білет на іспиті, а інструмент сили, який вирішує конкретне завдання.',
+        stubH2: 'Словник понять запланований до перекладу в перспективі',
+        stubP1: 'Повний словник термінів із детальними поясненнями та контекстними посиланнями на уроки наразі доступний на русском языке.',
+        stubP2: 'Ви можете переглянути повний словник в оригіналі:',
+        btnText: 'Відкрити Словник понять на русском языке →',
+        btnHref: 'glossary.html'
+      }
+    }
+  },
   be: {
     lang: 'be',
     subBrand: 'aibootcamp-teens',
@@ -57,18 +157,51 @@ const STUB_DATA = {
       { num: '8', title: 'Здача: паказаць і абараніць', later: true }
     ],
     glossaryNav: '📖 Слоўнік паняццяў',
+    tocAria: 'Раздзелы гэтай старонкі',
+    tocTitle: 'На гэтай старонцы',
     footer: 'Сайт створаны тым самым аснашчэннем, што і ва ўдзельнікаў: звычайны HTML і CSS, праверка на bash, публікацыя праз GitHub Pages.',
-    pages: {
-      index: {
-        title: 'AI Bootcamp · курс з васьмі заняткаў',
-        h1: 'Восем заняткаў, і на кожным ты нешта аддаеш і атрымліваеш',
-        lead: 'Курс пра тое, як працаваць з ІІ так, каб атрымліваўся прадукт, а не размова. Ты пішаш заданне, ІІ робіць, праверка адказвае «так» ці «не». Восем разоў.',
-        stubH2: 'Матэрыялы курсу запланаваны да перакладу ў перспектыве',
-        stubP1: 'Поўная працоўная версія сайта курсу з пакрокавымі ўрокамі, тэрмінальнымі камандамі і скрыптамі праверкі на дадзены момант апублікавана і падтрымліваецца на русском языке.',
-        stubP2: 'Вы можаце азнаёміцца з поўнай версіяй сайта і пачаць навучанне:',
-        btnText: 'Адкрыць галоўную старонку на русском языке →',
-        btnHref: 'index.html'
-      },
+    index: {
+      title: 'AI Bootcamp · курс з васьмі заняткаў',
+      h1: 'Восем заняткаў, і на кожным ты нешта аддаеш і атрымліваеш',
+      lead: 'Курс пра тое, як працаваць з ІІ так, каб атрымліваўся прадукт, а не размова. Ты пішаш заданне, ІІ робіць, праверка адказвае «так» ці «не». Восем разоў.',
+      keyTitle: 'Галоўная думка курсу',
+      keyYakAria: 'спасылка на гэты блок',
+      keyText: "Курс вучыць працаваць са штучным інтэлектам як інжынер, а не як разгублены карыстальнік чатаў. У аснове кожнага кроку ляжыць трыяда: спачатку тваё строгае заданне, затым дзеянне машыны, і адразу ж аб'ектыўная праверка без удзелу чалавечай думкі. Мы не пішам код дзеля коду і не марнуем час жыцця на пустыя размовы з мадэллю. На кожным занятку ты ствараеш адчувальны артэфакт, аддаеш яго вонкі і змяняеш сваё інжынернае мысленне назаўжды.",
+      threeH2: 'Тры словы, з якіх складаецца ўвесь курс',
+      taskLabel: 'Заданне',
+      taskDesc: 'што трэба зрабіць. Пішаш <strong>ты</strong>, да таго як папрасіць ІІ.',
+      actionLabel: 'Дзеянне',
+      actionDesc: 'што атрымалася на самой справе. Тэкст набірае ІІ. Што ў ім павінна быць — тваё заданне. Што ў ім праўда — твая праверка.',
+      checkLabel: 'Праверка',
+      checkDesc: 'адказвае «ЗЯЛЁНАЕ» або «ЧЫРВОНАЕ». Без меркаванняў і без «амаль».',
+      rulesH3: 'Гэты сайт зроблены па тых жа правілах',
+      rulesP1: 'У яго ёсць сваё заданне — <a href="zadanie-1.md">zadanie-1.md</a> — напісанае <em>да</em> таго, як ІІ пачаў працаваць, і свой запіс — <a href="zapis-1.md">zapis-1.md</a>, дзе бачна, што ён насамрэч зрабіў. І <a href="potom.md">potom.md</a> — тое, што мы вырашылі рабіць не цяпер, з прычынай па кожным радку.',
+      rulesP2: 'У нас няма ніякай аснасткі, якой не будзе ў цябе. Калі нам нязручна — значыць нязручна і табе, і гэта трэба выпраўляць, а не хаваць.',
+      howToH2: 'Як чытаць старонку занятка',
+      howToP1: 'Крокі пранумараваныя і згорнутыя: адкрываеш адзін, робіш, закрываеш. Каля кожнага кроку напісана, <strong>што існуе пасля яго</strong> — файл, коміт ці адрас. Гэта і ёсць адказ на пытанне «ці атрымалася».',
+      howToP2: 'Шляхоў да выніку тры, і яны прыводзяць да аднаго і таго ж стану:',
+      pathMinLabel: 'мінімум',
+      pathMinDesc: 'мышкай і ў рэдактары, без тэрмінала;',
+      path100Label: '100%',
+      path100Desc: 'камандамі, хутчэй і дакладней;',
+      pathMaxLabel: 'максімум',
+      pathMaxDesc: "там, дзе ўжо агенты і аўтаматыка. З'явіцца пазней.",
+      howToDim: "Новы занятак з'яўляецца тут за некалькі дзён да самога занятка.",
+      beforeH2: 'Што патрэбна да першага занятка',
+      beforeP1: 'Наладжанае працоўнае месца. Гэта асобная інструкцыя, і яна ляжыць у рэпазіторыі курсу: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">Твой ход 0 · Збяры працоўнае месца</a>.',
+      beforeP2: 'Праграма ўсіх васьмі заняткаў — <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.',
+      artifactsH2: 'Артэфакты: што ў цябе ёсць пасля знаёмства з платформай',
+      artifactsSlogan: 'Занятак &gt;&gt; Твой квант часу жыцця · Партнёрства годнасці разам з AI · Перабудова тваёй нейрасеткі',
+      artifactsStrong: 'Занятак — гэта занятая табой частка часу твайго жыцця.',
+      artifactsText: 'Гэты пул часу незаменны, таму кожная хвіліна тут павінна прыносіць адчувальную карысць табе і свету вакол. «У цябе» — значыць асабіста ў кожнага, хто інвеставаў сваю ўвагу ў гэтую старонку: у вучня, чытача, бацькоў або аўтара. А «артэфакты» — гэта не проста файлы і коміты ў рэпазіторыі, але і новыя ўменні, звычкі і азарэнні: твая ўласная нейронная сетка перабудавалася падчас працы, і гэты вынік застаецца з табой назаўжды.',
+      artItem1Title: 'Выразнае разуменне метаду:',
+      artItem1Desc: 'заданне да дзеяння, прэдыкаты да коду, аўтаматычная праверка без спрэчак.',
+      artItem2Title: 'Арыенцір якасці:',
+      artItem2Desc: 'веданне трох шляхоў (мінімум, 100%, максімум) і ўменне даводзіць працу да здачы.',
+      artItem3Title: 'Гатоўнасць да кроку 0:',
+      artItem3Desc: 'наладжанае працоўнае месца і бяспечнае асяроддзе для сумеснай творчасці.'
+    },
+    stubs: {
       '01': {
         title: 'Занятак 1 · Першая пастаўка · AI Bootcamp',
         h1: 'Занятак 1 · Першая пастаўка',
@@ -124,18 +257,51 @@ const STUB_DATA = {
       { num: '8', title: 'Тапсырыс: көрсету және қорғау', later: true }
     ],
     glossaryNav: '📖 Түсініктер сөздігі',
+    tocAria: 'Осы беттің бөлімдері',
+    tocTitle: 'Бұл бетте',
     footer: 'Сайт қатысушылардікі сияқты құралдармен жасалған: таза HTML және CSS, bash арқылы тексеру, GitHub Pages арқылы жариялау.',
-    pages: {
-      index: {
-        title: 'AI Bootcamp · сегіз сабақтан тұратын курс',
-        h1: 'Сегіз сабақ және әрқайсысында сен бірдеңе бересің және аласың',
-        lead: 'ЖИ-мен жұмыс істегенде жай сөйлесу емес, нақты өнім шығуы үшін жасалған курс. Сен тапсырма жазасың, ЖИ жасайды, тексеру «иә» немесе «жоқ» деп жауап береді. Сегіз рет.',
-        stubH2: 'Курс материалдарын болашақта аудару жоспарланған',
-        stubP1: 'Қадамдық сабақтары, терминал командалары және тексеру скрипттері бар сайттың толық нұсқасы қазіргі уақытта на русском языке жарияланған және қолдау көрсетілуде.',
-        stubP2: 'Сіз сайттың толық нұсқасымен танысып, оқуды бастай аласыз:',
-        btnText: 'Басты бетті на русском языке ашу →',
-        btnHref: 'index.html'
-      },
+    index: {
+      title: 'AI Bootcamp · сегіз сабақтан тұратын курс',
+      h1: 'Сегіз сабақ және әрқайсысында сен бірдеңе бересің және аласың',
+      lead: 'ЖИ-мен жұмыс істегенде жай сөйлесу емес, нақты өнім шығуы үшін жасалған курс. Сен тапсырма жазасың, ЖИ жасайды, тексеру «иә» немесе «жоқ» деп жауап береді. Сегіз рет.',
+      keyTitle: 'Курстың басты ойы',
+      keyYakAria: 'осы блокқа сілтеме',
+      keyText: 'Курс жасанды интеллектпен чаттардағы шарасыз пайдаланушы сияқты емес, инженер ретінде жұмыс істеуге үйретеді. Әрбір қадамның негізінде үштік жатыр: алдымен сенің нақты тапсырмаң, содан кейін машинаның әрекеті, және бірден адамның субъективті пікірінсіз объективті тексеру. Біз код үшін код жазбаймыз және өмір уақытымызды модельмен бос әңгімеге жұмсамаймыз. Әр сабақта сен нақты артефакт жасайсың, оны сыртқа ұсынасың және өзіңнің инженерлік ойлау қабілетіңді мәңгіге өзгертесің.',
+      threeH2: 'Бүкіл курс құралатын үш сөз',
+      taskLabel: 'Тапсырма',
+      taskDesc: 'не істеу керек. ЖИ-ден сұрамас бұрын, <strong>сен</strong> жазасың.',
+      actionLabel: 'Әрекет',
+      actionDesc: 'іс жүзінде не шықты. Мәтінді ЖИ тереді. Онда не болуы керек — сенің тапсырмаң. Онда не шындық — сенің тексеруің.',
+      checkLabel: 'Тексеру',
+      checkDesc: '«ЖАСЫЛ» немесе «ҚЫЗЫЛ» деп жауап береді. Пікірсіз және «дерліксіз».',
+      rulesH3: 'Бұл сайт дәл осы ережелермен жасалған',
+      rulesP1: 'Оның өз тапсырмасы бар — <a href="zadanie-1.md">zadanie-1.md</a> — ЖИ жұмыс істей бастар <em>алдында</em> жазылған, және өз жазбасы бар — <a href="zapis-1.md">zapis-1.md</a>, онда оның іс жүзінде не істегені көрінеді. Және <a href="potom.md">potom.md</a> — әр жолдың себебі көрсетілген, қазір істемеуге шешім қабылдаған нәрселеріміз.',
+      rulesP2: 'Бізде сенде болмайтын ешқандай жабдық жоқ. Егер бізге ыңғайсыз болса — демек саған да ыңғайсыз, және оны жасырмай, түзету керек.',
+      howToH2: 'Сабақ бетін қалай оқу керек',
+      howToP1: 'Қадамдар нөмірленген және жиналған: біреуін ашасың, жасайсың, жабасың. Әр қадамның жанында <strong>одан кейін не бар болатыны</strong> жазылған — файл, коммит немесе мекенжай. Бұл «нәтиже шықты ма» деген сұраққа жауап.',
+      howToP2: 'Нәтижеге апаратын үш жол бар, олар бірдей күйге әкеледі:',
+      pathMinLabel: 'минимум',
+      pathMinDesc: 'тінтуірмен және редакторда, терминалсыз;',
+      path100Label: '100%',
+      path100Desc: 'командалармен, жылдамырақ және дәлірек;',
+      pathMaxLabel: 'максимум',
+      pathMaxDesc: 'агенттер мен автоматика бар жерде. Кейінірек пайда болады.',
+      howToDim: 'Жаңа сабақ мұнда сабақтың өзіне дейін бірнеше күн бұрын пайда болады.',
+      beforeH2: 'Бірінші сабаққа дейін не қажет',
+      beforeP1: 'Бапталған жұмыс орны. Бұл жеке нұсқаулық және ол курстың репозиторийінде орналасқан: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">Сенің жүрісің 0 · Жұмыс орнын жинақта</a>.',
+      beforeP2: 'Барлық сегіз сабақтың бағдарламасы — <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.',
+      artifactsH2: 'Артефактілер: платформамен танысқаннан кейін сенде не бар',
+      artifactsSlogan: 'Сабақ &gt;&gt; Өмір уақытыңның кванты · AI-мен бірге абырой серіктестігі · Нейрожүйеңді қайта құру',
+      artifactsStrong: 'Сабақ — бұл сенің өміріңнің өзің иеленген уақыт бөлігі.',
+      artifactsText: 'Бұл уақыт пулы қайтарылмайды, сондықтан мұндағы әр минут саған және айналадағы әлемге нақты пайда әкелуі керек. «Сенде» — бұл бетке өз назарын бөлген әрбір адамда дегенді білдіреді: оқушыда, оқырманда, ата-анада немесе авторда. Ал «артефактілер» — тек репозиторийдегі файлдар мен коммиттер ғана емес, сонымен бірге жаңа дағдылар, әдеттер мен танымдар: жұмыс кезінде сенің жеке нейрондық жүйең қайта құрылды және бұл нәтиже сенімен мәңгі қалады.',
+      artItem1Title: 'Әдісті нақты түсіну:',
+      artItem1Desc: 'әрекетке дейін тапсырма, кодқа дейін предикаттар, даусыз автоматты тексеру.',
+      artItem2Title: 'Сапа бағдары:',
+      artItem2Desc: 'үш жолды білу (минимум, 100%, максимум) және жұмысты тапсыруға дейін жеткізу қабілеті.',
+      artItem3Title: '0-қадамға дайындық:',
+      artItem3Desc: 'бапталған жұмыс орны және бірлескен шығармашылыққа арналған қауіпсіз орта.'
+    },
+    stubs: {
       '01': {
         title: '1-сабақ · Алғашқы тапсырыс · AI Bootcamp',
         h1: '1-сабақ · Алғашқы тапсырыс',
@@ -191,18 +357,51 @@ const STUB_DATA = {
       { num: '8', title: 'Тапшыруу: көрсөтүү жана коргоо', later: true }
     ],
     glossaryNav: '📖 Түшүнүктөр сөздүгү',
+    tocAria: 'Бул барактын бөлүмдөрү',
+    tocTitle: 'Бул баракта',
     footer: 'Сайт катышуучулардыкындай эле куралдар менен жасалган: таза HTML жана CSS, bash аркылуу текшерүү, GitHub Pages аркылуу жарыялоо.',
-    pages: {
-      index: {
-        title: 'AI Bootcamp · сегиз сабактан турган курс',
-        h1: 'Сегиз сабак жана ар биринде сен бир нерсе тапшырасың жана аласың',
-        lead: 'ЖИ менен сүйлөшүү эмес, чыныгы продукт чыгышы үчүн иштөө жөнүндө курс. Сен тапшырма жазасың, ЖИ жасайт, текшерүү «ооба» же «жок» деп жооп берет. Сегиз жолу.',
-        stubH2: 'Курс материалдары келечекте которулушу пландаштырылууда',
-        stubP1: 'Кадамдык сабактары, терминал буйруктары жана текшерүү скрипттери бар сайттын толук версиясы азыркы учурда на русском языке жарыяланган жана колдоого алынат.',
-        stubP2: 'Сиз сайттын толук версиясы менен таанышып, окууну баштасаңыз болот:',
-        btnText: 'Башкы баракты на русском языке ачуу →',
-        btnHref: 'index.html'
-      },
+    index: {
+      title: 'AI Bootcamp · сегиз сабактан турган курс',
+      h1: 'Сегиз сабак жана ар биринде сен бир нерсе тапшырасың жана аласың',
+      lead: 'ЖИ менен сүйлөшүү эмес, чыныгы продукт чыгышы үчүн иштөө жөнүндө курс. Сен тапшырма жазасың, ЖИ жасайт, текшерүү «ооба» же «жок» деп жооп берет. Сегиз жолу.',
+      keyTitle: 'Курстун башкы ою',
+      keyYakAria: 'бул блокко шилтеме',
+      keyText: 'Курс жасалма интеллект менен чаттардагы баш аламан колдонуучу сыяктуу эмес, инженер катары иштөөнү үйрөтөт. Ар бир кадамдын негизинде триада жатат: алгач сенин так тапшырмаң, андан кийин машинанын аракети, жана дароо адамдын жеке пикирисиз объективдүү текшерүү. Биз код үчүн код жазбайбыз жана өмүр убактыбызды модель менен куру сөзгө коротпойбуз. Ар бир сабакта сен көзгө көрүнөрлүк артефакт жаратасың, аны тышка сунуштайсың жана инженердик ой жүгүртүүңдү түбөлүккө өзгөртөсүң.',
+      threeH2: 'Бүт курс куралган үч сөз',
+      taskLabel: 'Тапшырма',
+      taskDesc: 'эмне кылуу керек. ЖИден суранардан мурда, <strong>сен</strong> жазасың.',
+      actionLabel: 'Аракет',
+      actionDesc: 'чындыгында эмне чыкты. Текстти ЖИ терет. Анда эмне болушу керек — сенин тапшырмаң. Анда эмне чындык — сенин текшерүүң.',
+      checkLabel: 'Текшерүү',
+      checkDesc: '«ЖАШЫЛ» же «КЫЗЫЛ» деп жооп берет. Пикирсиз жана «дээрликсиз».',
+      rulesH3: 'Бул сайт дал ушул эрежелер менен жасалган',
+      rulesP1: 'Анын өз тапшырмасы бар — <a href="zadanie-1.md">zadanie-1.md</a> — ЖИ иштей баштаганга <em>чейин</em> жазылган, жана өз жазуусу бар — <a href="zapis-1.md">zapis-1.md</a>, анда анын чындыгында эмне кылганы көрүнөт. Жана <a href="potom.md">potom.md</a> — ар бир саптын себеби көрсөтүлгөн, азыр жасабоого чечим чыгарган нерселерибиз.',
+      rulesP2: 'Бизде сенде болбой турган эч кандай атайын курал жок. Эгер бизге ыңгайсыз болсо — демек сага да ыңгайсыз, жана аны жашырбай, оңдоо керек.',
+      howToH2: 'Сабактын барагын кантип окуу керек',
+      howToP1: 'Кадамдар номерленген жана бүктөлгөн: бирин ачасың, жасайсың, жабасың. Ар бир кадамдын жанында <strong>андан кийин эмне бар болору</strong> жазылган — файл, коммит же дарек. Бул «ишке аштыбы» деген суроого жооп.',
+      howToP2: 'Ныйтыйжага алып баруучу үч жол бар, жана алар бирдей абалга алып келет:',
+      pathMinLabel: 'минимум',
+      pathMinDesc: 'чычкан менен жана редактордо, терминалсыз;',
+      path100Label: '100%',
+      path100Desc: 'буйруктар менен, тезирээк жана тагыраак;',
+      pathMaxLabel: 'максимум',
+      pathMaxDesc: 'агенттер жана автоматика бар жерде. Кийинчерээк пайда болот.',
+      howToDim: 'Жаңы сабак мында сабактын өзүнө чейин бир нече күн мурун чыгат.',
+      beforeH2: 'Биринчи сабакка чейин эмне керек',
+      beforeP1: 'Жөндөлгөн жумуш орду. Бул өзүнчө нускама жана ал курстун репозиторийинде турат: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">Сенин жүрүшүң 0 · Жумуш ордун жыйна</a>.',
+      beforeP2: 'Бардык сегиз сабактын программасы — <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.',
+      artifactsH2: 'Артефакттар: платформа менен таанышкандан кийин сенде эмне бар',
+      artifactsSlogan: 'Сабак &gt;&gt; Өмүр убактыңдын кванты · AI менен бирге кадыр-барк өнөктөштүгү · Нейротармагыңды кайра куруу',
+      artifactsStrong: 'Сабак — бул сенин өмүрүңдүн өзүң ээлеген убакыт бөлүгү.',
+      artifactsText: 'Бул убакыт кору кайтарылгыс, ошондуктан мындагы ар бир мүнөт сага жана айланадагы дүйнөгө так пайда алып келиши керек. «Сенде» — бул баракка өз көңүлүн бурган ар бир адамда дегенди билдирет: окуучуда, окурманды, ата-энеде же автордо. Ал эми «артефакттар» — жөн гана репозиторийдеги файлдар менен коммиттер эмес, ошондой эле жаңы көндүмдөр, адаттар жана түшүнүктөр: жумуш учурунда сенин жеке нейрон тармагың кайра курулду жана бул натыйжа сени менен түбөлүккө калат.',
+      artItem1Title: 'Методду так түшүнүү:',
+      artItem1Desc: 'аракетке чейин тапшырма, кодго чейин предикаттар, талашсыз автоматтык текшерүү.',
+      artItem2Title: 'Сапат багыты:',
+      artItem2Desc: 'үч жолду билүү (минимум, 100%, максимум) жана ишти тапшырууга чейин жеткирүү билгичтиги.',
+      artItem3Title: '0-кадамга даярдык:',
+      artItem3Desc: 'жөндөлгөн жумуш орду жана биргелешкен чыгармачылык үчүн коопсуз чөйрө.'
+    },
+    stubs: {
       '01': {
         title: '1-сабак · Алгачкы тапшыруу · AI Bootcamp',
         h1: '1-сабак · Алгачкы тапшыруу',
@@ -258,18 +457,51 @@ const STUB_DATA = {
       { num: '8', title: 'მიწოდება: ჩვენება და დაცვა', later: true }
     ],
     glossaryNav: '📖 ტერმინთა ლექსიკონი',
+    tocAria: 'ამ გვერდის განყოფილებები',
+    tocTitle: 'ამ გვერდზე',
     footer: 'საიტი შექმნილია იმავე ხელსაწყოებით, რაც მონაწილეებს აქვთ: სუფთა HTML და CSS, შემოწმება bash-ზე, გამოქვეყნება GitHub Pages-ის საშუალებით.',
-    pages: {
-      index: {
-        title: 'AI Bootcamp · რვა გაკვეთილისგან შემდგარი კურსი',
-        h1: 'რვა გაკვეთილი და თითოეულზე შენ რაღაცას გასცემ და იღებ',
-        lead: 'კურსი იმის შესახებ, თუ როგორ ვიმუშაოთ ხელოვნურ ინტელექტთან ისე, რომ მივიღოთ რეალური პროდუქტი და არა უბრალო საუბარი. შენ წერ დავალებას, AI აკეთებს, შემოწმება პასუხობს «კი» ან «არა». რვაჯერ.',
-        stubH2: 'კურსის მასალები დაგეგმილია მომავალში თარგმნისთვის',
-        stubP1: 'საიტის სრული სამუშაო ვერსია ნაბიჯ-ნაბიჯ გაკვეთილებით, ტერმინალის ბრძანებებით და შემოწმების სკრიპტებით ამჟამად გამოქვეყნებულია და მხარდაჭერილია на русском языке.',
-        stubP2: 'შეგიძლიათ გაეცნოთ საიტის სრულ ვერსიას და დაიწყოთ სწავლა:',
-        btnText: 'მთავარი გვერდის გახსნა на русском языке →',
-        btnHref: 'index.html'
-      },
+    index: {
+      title: 'AI Bootcamp · რვა გაკვეთილისგან შემდგარი კურსი',
+      h1: 'რვა გაკვეთილი და თითოეულზე შენ რაღაცას გასცემ და იღებ',
+      lead: 'კურსი იმის შესახებ, თუ როგორ ვიმუშაოთ ხელოვნურ ინტელექტთან ისე, რომ მივიღოთ რეალური პროდუქტი და არა უბრალო საუბარი. შენ წერ დავალებას, AI აკეთებს, შემოწმება პასუხობს «კი» ან «არა». რვაჯერ.',
+      keyTitle: 'კურსის მთავარი აზრი',
+      keyYakAria: 'ბმული ამ ბლოკზე',
+      keyText: 'კურსი გასწავლის ხელოვნურ ინტელექტთან მუშაობას როგორც ინჟინერი და არა როგორც ჩატების დაბნეული მომხმარებელი. თითოეული ნაბიჯის საფუძველში დევს ტრიადა: ჯერ შენი მკაცრი დავალება, შემდეგ მანქანის მოქმედება და მაშინვე ობიექტური შემოწმება ადამიანის სუბიექტური აზრის გარეშე. ჩვენ არ ვწერთ კოდს კოდისთვის და არ ვხარჯავთ სიცოცხლის დროს მოდელთან ფუჭ საუბრებზე. თითოეულ გაკვეთილზე შენ ქმნი ხელშესახებ არტეფაქტს, გასცემ მას გარე სამყაროში და სამუდამოდ ცვლი შენს საინჟინრო აზროვნებას.',
+      threeH2: 'სამი სიტყვა, რომლისგანაც შედგება მთელი კურსი',
+      taskLabel: 'დავალება',
+      taskDesc: 'რა უნდა გაკეთდეს. წერ <strong>შენ</strong>, სანამ AI-ს სთხოვდე.',
+      actionLabel: 'მოქმედება',
+      actionDesc: 'რა გამოვიდა სინამდვილეში. ტექსტს კრებს AI. რა უნდა იყოს მასში — შენი დავალებაა. რა არის მასში სიმართლე — შენი შემოწმებაა.',
+      checkLabel: 'შემოწმება',
+      checkDesc: 'პასუხობს «მწვანე» ან «წითელი». აზრებისა და «თითქმის» გარეშე.',
+      rulesH3: 'ეს საიტი შექმნილია იგივე წესებით',
+      rulesP1: 'მას აქვს თავისი დავალება — <a href="zadanie-1.md">zadanie-1.md</a> — დაწერილი <em>მანამ</em>, სანამ AI დაიწყებდა მუშაობას, და თავისი ჩანაწერი — <a href="zapis-1.md">zapis-1.md</a>, სადაც ჩანს, თუ რა გააკეთა მან სინამდვილეში. და <a href="potom.md">potom.md</a> — ის, რისი გაკეთებაც გადავწყვიტეთ არა ახლა, თითოეული სტრიქონის მიზეზით.',
+      rulesP2: 'ჩვენ არ გვაქვს არანაირი აღჭურვილობა, რომელიც შენ არ გექნება. თუ ჩვენთვის მოუხერხებელია — ესე იგი შენთვისაც მოუხერხებელია, და ეს უნდა გამოსწორდეს და არა დაიმალოს.',
+      howToH2: 'როგორ წავიკითხოთ გაკვეთილის გვერდი',
+      howToP1: 'ნაბიჯები დანომრილია და ჩაკეცილი: ხსნი ერთს, აკეთებ, ხურავ. თითოეულ ნაბიჯთან წერია, <strong>რა არსებობს მის შემდეგ</strong> — ფაილი, კომიტი თუ მისამართი. ეს არის პასუხი კითხვაზე «გამოვიდა თუ არა».',
+      howToP2: 'შედეგამდე მიმავალი გზა სამია და ისინი ერთსა და იმავე მდგომარეობამდე მიდიან:',
+      pathMinLabel: 'მინიმუმი',
+      pathMinDesc: 'მაუსით და რედაქტორში, ტერმინალის გარეშე;',
+      path100Label: '100%',
+      path100Desc: 'ბრძანებებით, უფრო სწრაფად და ზუსტად;',
+      pathMaxLabel: 'მაქსიმუმი',
+      pathMaxDesc: 'სადაც უკვე აგენტები და ავტომატიკაა. მოგვიანებით გამოჩნდება.',
+      howToDim: 'ახალი გაკვეთილი აქ ჩნდება გაკვეთილამდე რამდენიმე დღით ადრე.',
+      beforeH2: 'რა არის საჭირო პირველ გაკვეთილამდე',
+      beforeP1: 'მომზადებული სამუშაო ადგილი. ეს ცალკე ინსტრუქციაა და ის დევს კურსის რეპოზიტორიაში: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">შენი სვლა 0 · ააწყვე სამუშაო ადგილი</a>.',
+      beforeP2: 'ყველა რვა გაკვეთილის პროგრამა — <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.',
+      artifactsH2: 'არტეფაქტები: რა გაქვს პლატფორმის გაცნობის შემდეგ',
+      artifactsSlogan: 'გაკვეთილი &gt;&gt; შენი სიცოცხლის დროის კვანტი · ღირსების პარტნიორობა AI-სთან ერთად · შენი ნეიროქსელის გადაწყობა',
+      artifactsStrong: 'გაკვეთილი — ეს არის შენი სიცოცხლის დროის შენ მიერ დაკავებული ნაწილი.',
+      artifactsText: 'ეს დროის აუზი შეუქცევადია, ამიტომ თითოეულმა წუთმა აქ ხელშესახები სარგებელი უნდა მოგიტანოს შენ და შენს გარშემო სამყაროს. «შენთან» — ნიშნავს პირადად თითოეულთან, ვინც თავისი ყურადღება ჩადო ამ გვერდში: მოსწავლესთან, მკითხველთან, მშობელთან თუ ავტორთან. ხოლო «არტეფაქტები» — ეს არ არის მხოლოდ ფაილები და კომიტები რეპოზიტორიაში, არამედ ახალი უნარები, ჩვევები და აღმოჩენები: შენი საკუთარი ნეირონული ქსელი გადაეწყო მუშაობის დროს და ეს შედეგი სამუდამოდ შენთან რჩება.',
+      artItem1Title: 'მეთოდის ნათელი გაგება:',
+      artItem1Desc: 'დავალება მოქმედებამდე, პრედიკატები კოდამდე, ავტომატური შემოწმება კამათის გარეშე.',
+      artItem2Title: 'ხარისხის ორიენტირი:',
+      artItem2Desc: 'სამი გზის ცოდნა (მინიმუმი, 100%, მაქსიმუმი) და საქმის ჩაბარებამდე მიყვანის უნარი.',
+      artItem3Title: 'მზადყოფნა 0 ნაბიჯისთვის:',
+      artItem3Desc: 'გამართული სამუშაო ადგილი და უსაფრთხო გარემო ერთობლივი შემოქმედებისთვის.'
+    },
+    stubs: {
       '01': {
         title: 'გაკვეთილი 1 · პირველი მიწოდება · AI Bootcamp',
         h1: 'გაკვეთილი 1 · პირველი მიწოდება',
@@ -297,57 +529,237 @@ const STUB_DATA = {
         stubH2: 'ტერმინთა ლექსიკონი დაგეგმილია მომავალში თარგმნისთვის',
         stubP1: 'ტერმინების სრული ლექსიკონი დეტალური განმარტებებით და გაკვეთილების კონტექსტური ბმულებით ამჟამად ხელმისაწვდომია на русском языке.',
         stubP2: 'შეგიძლიათ იხილოთ სრული ლექსიკონი ორიგინალში:',
-        btnText: 'ტერმინთა ლექსიკონის გახсნა на русском языке →',
+        btnText: 'ტერმინთა ლექსიკონის გახსნა на русском языке →',
+        btnHref: 'glossary.html'
+      }
+    }
+  },
+  en: {
+    lang: 'en',
+    subBrand: 'aibootcamp-teens',
+    three: 'task · action · verification',
+    trayAria: 'Display settings and language',
+    switcherAria: 'Language selection',
+    fontAria: 'Font size',
+    fontS: 'Small font',
+    fontM: 'Standard font',
+    fontL: 'Large font',
+    themeAria: 'Toggle theme (Day/Night)',
+    navAria: 'Sessions',
+    navItems: [
+      { num: '1', title: 'First Delivery', href: '01-en.html' },
+      { num: '2', title: "Requirements: What 'Done' Means", href: '02-en.html' },
+      { num: '3', title: 'Change History', later: true },
+      { num: '4', title: 'Own Verification', later: true },
+      { num: '5', title: 'Verification Without You', later: true },
+      { num: '6', title: 'When It Fails', later: true },
+      { num: '7', title: 'Green That Means Nothing', later: true },
+      { num: '8', title: 'Delivery: Show and Defend', later: true }
+    ],
+    glossaryNav: '📖 Glossary of Terms',
+    tocAria: 'Sections on this page',
+    tocTitle: 'On this page',
+    footer: 'Site built with the same harness as the participants use: pure HTML and CSS, bash verification, GitHub Pages deployment.',
+    index: {
+      title: 'AI Bootcamp · Eight-Session Course',
+      h1: 'Eight sessions, and in each one you give and receive something',
+      lead: 'A course about working with AI to produce working products rather than idle conversation. You specify the task, AI executes, the automated check returns Yes or No. Eight times.',
+      keyTitle: 'Core philosophy of the course',
+      keyYakAria: 'link to this section',
+      keyText: 'The course teaches how to work with artificial intelligence as an engineer, not as a bewildered chat user. At the heart of every step is a triad: first, your rigorous task specification; second, the machine’s execution; and immediately following, an objective verification free from human subjective opinion. We do not write code for code’s sake, nor do we squander our lifetime on aimless chatter with language models. In every single session, you craft a tangible artifact, release it to the outside world, and permanently upgrade your engineering mindset.',
+      threeH2: 'Three words that define the entire course',
+      taskLabel: 'Task',
+      taskDesc: 'what needs to be done. Written by <strong>you</strong>, before asking the AI.',
+      actionLabel: 'Action',
+      actionDesc: 'what actually came out. The text is generated by AI. What belongs in it is your task. What is true in it is your verification.',
+      checkLabel: 'Verification',
+      checkDesc: 'returns GREEN or RED. No opinions, no "almost".',
+      rulesH3: 'This site is built by the exact same rules',
+      rulesP1: 'It has its own task — <a href="zadanie-1.md">zadanie-1.md</a> — written <em>before</em> the AI started working, and its own log — <a href="zapis-1.md">zapis-1.md</a>, showing what it actually did. And <a href="potom.md">potom.md</a> — things we decided not to do right now, with an explicit reason for every line.',
+      rulesP2: 'We have no harness that you won’t have. If something is inconvenient for us, it will be inconvenient for you too, and that must be resolved, not hidden.',
+      howToH2: 'How to read a session page',
+      howToP1: 'Steps are numbered and collapsed: open one, complete it, close it. Next to each step, it states <strong>what exists after it</strong> — a file, a commit, or a URL. That is the definitive answer to "did it work?".',
+      howToP2: 'There are three paths to the result, and they all arrive at the exact same state:',
+      pathMinLabel: 'minimum',
+      pathMinDesc: 'using the mouse and editor, without the terminal;',
+      path100Label: '100%',
+      path100Desc: 'using CLI commands, faster and more precise;',
+      pathMaxLabel: 'maximum',
+      pathMaxDesc: 'involving agents and automated workflows. Will appear later.',
+      howToDim: 'A new session appears here several days before the live session.',
+      beforeH2: 'What is required before session 1',
+      beforeP1: 'A configured workspace. This is a dedicated instruction residing in the course repository: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">Your Move 0 · Set up your workspace</a>.',
+      beforeP2: 'The syllabus for all eight sessions — <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.',
+      artifactsH2: 'Artifacts: what you possess after getting acquainted with the platform',
+      artifactsSlogan: 'Session &gt;&gt; Your quantum of lifetime · Partnership of dignity alongside AI · Rewiring of your neural network',
+      artifactsStrong: 'A session is a dedicated portion of your life’s finite time.',
+      artifactsText: 'This pool of time is irreplaceable; therefore, every minute spent here must deliver tangible value to you and the world around you. "You possess" means everyone who invested attention into this page: student, reader, parent, or author. And "artifacts" are not merely files and git commits, but new skills, habits, and mental breakthroughs: your own biological neural network has rewired during the work, and that result stays with you forever.',
+      artItem1Title: 'Crystal-clear understanding of the method:',
+      artItem1Desc: 'task before action, predicates before code, automated verification without debates.',
+      artItem2Title: 'Benchmark of quality:',
+      artItem2Desc: 'mastery of the three paths (minimum, 100%, maximum) and the discipline to bring work to final delivery.',
+      artItem3Title: 'Readiness for Step 0:',
+      artItem3Desc: 'a configured workspace and a secure environment for collaborative creativity.'
+    },
+    stubs: {
+      '01': {
+        title: 'Session 1 · First Delivery · AI Bootcamp',
+        h1: 'Session 1 · First Delivery',
+        lead: 'By the end of the session, you will have a live web address you can send to a friend, and the page at that address was created by AI — following your specification, not its own assumption.',
+        stubH2: 'Course materials are planned for future release in English',
+        stubP1: 'The complete working course website with step-by-step sessions, terminal commands, and automated verification checks is currently published in Russian (на русском языке).',
+        stubP2: 'You can explore the full course site and follow the lessons using the original version:',
+        btnText: 'Open Session 1 in Russian (на русском языке) →',
+        btnHref: '01.html'
+      },
+      '02': {
+        title: "Session 2 · Requirements: What 'Done' Means · AI Bootcamp",
+        h1: "Session 2 · Requirements: What 'Done' Means",
+        lead: 'AI generates code, but does not know when to stop. Without acceptance criteria, it hallucinates indefinitely. We learn to write conditions that can be validated automatically.',
+        stubH2: 'Course materials are planned for future release in English',
+        stubP1: 'The complete working session with complex predicate practice, custom skills, and verification tests is currently published in Russian (на русском языке).',
+        stubP2: 'You can follow the full original lesson here:',
+        btnText: 'Open Session 2 in Russian (на русском языке) →',
+        btnHref: '02.html'
+      },
+      glossary: {
+        title: 'Glossary of Terms · AI Bootcamp',
+        h1: 'Course Glossary of Terms',
+        lead: 'We teach mature engineering craftsmanship, calling things by their real names. Every term here is not an exam quiz, but a power tool that solves a concrete problem.',
+        stubH2: 'Glossary of terms is planned for future release in English',
+        stubP1: 'The comprehensive glossary of engineering terms with in-depth definitions and contextual session links is currently available in Russian (на русском языке).',
+        stubP2: 'You can inspect the full original glossary here:',
+        btnText: 'Open Glossary in Russian (на русском языке) →',
+        btnHref: 'glossary.html'
+      }
+    }
+  },
+  de: {
+    lang: 'de',
+    subBrand: 'aibootcamp-teens',
+    three: 'Aufgabe · Aktion · Prüfung',
+    trayAria: 'Anzeigeeinstellungen und Sprache',
+    switcherAria: 'Sprachauswahl',
+    fontAria: 'Schriftgröße',
+    fontS: 'Kleine Schrift',
+    fontM: 'Standard-Schrift',
+    fontL: 'Große Schrift',
+    themeAria: 'Thema wechseln (Tag/Nacht)',
+    navAria: 'Lektionen',
+    navItems: [
+      { num: '1', title: 'Erste Lieferung', href: '01-de.html' },
+      { num: '2', title: "Anforderungen: Was 'Erledigt' bedeutet", href: '02-de.html' },
+      { num: '3', title: 'Änderungshistorie', later: true },
+      { num: '4', title: 'Eigene Prüfung', later: true },
+      { num: '5', title: 'Prüfung ohne dich', later: true },
+      { num: '6', title: 'Wenn es fehlschlägt', later: true },
+      { num: '7', title: 'Grün, das nichts bedeutet', later: true },
+      { num: '8', title: 'Abgabe: Zeigen und verteidigen', later: true }
+    ],
+    glossaryNav: '📖 Begriffswörterbuch',
+    tocAria: 'Abschnitte auf dieser Seite',
+    tocTitle: 'Auf dieser Seite',
+    footer: 'Erstellt mit denselben Werkzeugen wie bei den Teilnehmern: reines HTML und CSS, Bash-Prüfung, Bereitstellung über GitHub Pages.',
+    index: {
+      title: 'AI Bootcamp · Kurs aus acht Lektionen',
+      h1: 'Acht Lektionen, und in jeder gibst und bekommst du etwas',
+      lead: 'Ein Kurs darüber, wie man mit KI so arbeitet, dass ein echtes Produkt entsteht und kein unverbindliches Gespräch. Du formulierst die Aufgabe, die KI setzt sie um, die automatische Prüfung antwortet mit „Ja“ oder „Nein“. Achtmal.',
+      keyTitle: 'Leitgedanke des Kurses',
+      keyYakAria: 'Link zu diesem Abschnitt',
+      keyText: 'Der Kurs vermittelt, wie man mit künstlicher Intelligenz als Ingenieur arbeitet und nicht als ratloser Chat-Nutzer. Jeder Schritt basiert auf einem Dreiklang: zuerst deine präzise Aufgabe, dann die Aktion der Maschine und unmittelbar darauf eine objektive Überprüfung ohne menschliche Voreingenommenheit. Wir schreiben keinen Code um des Codes willen und verschwenden keine Lebenszeit mit inhaltsleeren Chats. In jeder Lektion schaffst du ein greifbares Artefakt, übergibst es nach außen und veränderst deine Denkweise nachhaltig.',
+      threeH2: 'Drei Worte, aus denen der gesamte Kurs besteht',
+      taskLabel: 'Aufgabe',
+      taskDesc: 'was getan werden muss. Formuliert von <strong>dir</strong>, bevor die KI gefragt wird.',
+      actionLabel: 'Aktion',
+      actionDesc: 'was tatsächlich entstanden ist. Den Text tippt die KI. Was darin stehen soll — deine Aufgabe. Was daran wahr ist — deine Prüfung.',
+      checkLabel: 'Prüfung',
+      checkDesc: 'antwortet mit „GRÜN“ oder „ROT“. Ohne Meinungen und ohne „Fast“.',
+      rulesH3: 'Diese Website folgt genau denselben Regeln',
+      rulesP1: 'Sie hat ihre eigene Aufgabe — <a href="zadanie-1.md">zadanie-1.md</a> —, geschrieben <em>bevor</em> die KI mit der Arbeit begann, und ein eigenes Protokoll — <a href="zapis-1.md">zapis-1.md</a> —, das zeigt, was sie tatsächlich getan hat. Sowie <a href="potom.md">potom.md</a> — Dinge, die wir vorerst aufgeschoben haben, mit einer nachvollziehbaren Begründung für jede Zeile.',
+      rulesP2: 'Wir nutzen keine Werkzeuge, die dir nicht ebenfalls zur Verfügung stehen. Wenn uns etwas unpraktisch erscheint, ist es für dich genauso unpraktisch — und das gehört behoben, nicht versteckt.',
+      howToH2: 'Wie man eine Lektionsseite liest',
+      howToP1: 'Die Schritte sind nummeriert und eingeklappt: einen öffnen, umsetzen, schließen. Bei jedem Schritt ist angegeben, <strong>was nach ihm existiert</strong> — eine Datei, ein Commit oder eine Webadresse. Das ist die eindeutige Antwort auf die Frage „Hat es geklappt?“.',
+      howToP2: 'Es gibt drei Wege zum Ergebnis, und alle führen zum identischen Zustand:',
+      pathMinLabel: 'Minimum',
+      pathMinDesc: 'mit der Maus im Editor, ganz ohne Terminal;',
+      path100Label: '100%',
+      path100Desc: 'über Befehlszeilen, schneller und präziser;',
+      pathMaxLabel: 'Maximum',
+      pathMaxDesc: 'mit Agenten und voller Automation. Folgt später.',
+      howToDim: 'Eine neue Lektion erscheint hier einige Tage vor dem Kurstermin.',
+      beforeH2: 'Was vor der ersten Lektion benötigt wird',
+      beforeP1: 'Ein eingerichteter Arbeitsplatz. Dafür gibt es eine eigene Anleitung im Kurs-Repository: <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/sessions/00-tvoy-hod.md">Dein Zug 0 · Richte deinen Arbeitsplatz ein</a>.',
+      beforeP2: 'Der Lehrplan aller acht Lektionen — <a href="https://github.com/y-kolyada/b1bootcamp26/blob/main/programme.md">programme.md</a>.',
+      artifactsH2: 'Artefakte: Was du nach dem Kennenlernen der Plattform besitzt',
+      artifactsSlogan: 'Lektion &gt;&gt; Dein Lebenszeit-Quant · Partnerschaft der Würde mit AI · Neuausrichtung deines neuronalen Netzes',
+      artifactsStrong: 'Eine Lektion ist ein von dir beanspruchter Teil deiner Lebenszeit.',
+      artifactsText: 'Dieser Zeitpool ist unwiederbringlich. Daher muss jede Minute hier einen spürbaren Nutzen für dich und deine Umwelt stiften. „Du besitzt“ meint jeden Einzelnen, der dieser Seite Aufmerksamkeit gewidmet hat: Teilnehmer, Leser, Eltern oder Autor. Und „Artefakte“ sind nicht bloß Dateien und Commits, sondern neue Fähigkeiten, Gewohnheiten und Erkenntnisse: Dein eigenes neuronales Netz hat sich während der Arbeit neu strukturiert — und dieses Ergebnis bleibt dir für immer erhalten.',
+      artItem1Title: 'Klares Verständnis der Methode:',
+      artItem1Desc: 'Aufgabe vor Aktion, Prädikate vor Code, automatische Prüfung ohne Diskussionen.',
+      artItem2Title: 'Qualitätsmaßstab:',
+      artItem2Desc: 'Beherrschung der drei Pfade (Minimum, 100%, Maximum) und der Anspruch, Arbeiten bis zur Abnahme zu führen.',
+      artItem3Title: 'Bereitschaft für Schritt 0:',
+      artItem3Desc: 'Ein einsatzbereiter Arbeitsplatz und ein sicherer Raum für gemeinsame Schöpferkraft.'
+    },
+    stubs: {
+      '01': {
+        title: 'Lektion 1 · Erste Lieferung · AI Bootcamp',
+        h1: 'Lektion 1 · Erste Lieferung',
+        lead: 'Am Ende der Lektion hast du eine Webadresse im Internet, die du einem Freund schicken kannst, und die Seite unter dieser Adresse wurde von der KI erstellt — nach deiner Aufgabe, nicht nach ihrer Vermutung.',
+        stubH2: 'Kursmaterialien sind für eine zukünftige Veröffentlichung auf Deutsch geplant',
+        stubP1: 'Die vollständige Arbeitsversion der Lektion mit Schritt-für-Schritt-Anleitungen, Terminalbefehlen und Prüfskripten ist derzeit auf Russisch (на русском языке) veröffentlicht.',
+        stubP2: 'Du kannst die Lektion in der vollständigen Originalversion durchführen:',
+        btnText: 'Lektion 1 auf Russisch (на русском языке) öffnen →',
+        btnHref: '01.html'
+      },
+      '02': {
+        title: "Lektion 2 · Anforderungen: Was 'Erledigt' bedeutet · AI Bootcamp",
+        h1: "Lektion 2 · Anforderungen: Was 'Erledigt' bedeutet",
+        lead: 'Die KI generiert Code, weiß aber nicht, wann sie aufhören soll. Ohne Akzeptanzkriterien erfindet sie endlos weiter. Wir lernen, Bedingungen zu formulieren, die automatisch überprüfbar sind.',
+        stubH2: 'Kursmaterialien sind für eine zukünftige Veröffentlichung auf Deutsch geplant',
+        stubP1: 'Die vollständige Lektion mit praktischen Prädikaten, eigenen Skills und automatischen Tests ist derzeit auf Russisch (на русском языке) verfügbar.',
+        stubP2: 'Du kannst die Lektion in der vollständigen Originalversion durchführen:',
+        btnText: 'Lektion 2 auf Russisch (на русском языке) öffnen →',
+        btnHref: '02.html'
+      },
+      glossary: {
+        title: 'Begriffswörterbuch · AI Bootcamp',
+        h1: 'Begriffswörterbuch des Kurses',
+        lead: 'Wir lehren reife Ingenieurkunst und benennen die Dinge beim Namen. Doch jedes Wort hier ist keine Prüfungsfrage, sondern ein Werkzeug der Stärke, das eine konkrete Aufgabe löst.',
+        stubH2: 'Das Begriffswörterbuch ist für eine zukünftige Veröffentlichung auf Deutsch geplant',
+        stubP1: 'Das vollständige Glossar mit detaillierten Erläuterungen und Kontextlinks zu den Lektionen ist derzeit auf Russisch (на русском языке) verfügbar.',
+        stubP2: 'Du kannst das vollständige Glossar im Original einsehen:',
+        btnText: 'Begriffswörterbuch auf Russisch (на русском языке) öffnen →',
         btnHref: 'glossary.html'
       }
     }
   }
 };
 
-// 1. Update existing 16 files with the 8-language switcher
-const existingFiles = [
-  'index.html', '01.html', '02.html', 'glossary.html',
-  'index-uk.html', '01-uk.html', '02-uk.html', 'glossary-uk.html',
-  'index-en.html', '01-en.html', '02-en.html', 'glossary-en.html',
-  'index-de.html', '01-de.html', '02-de.html', 'glossary-de.html'
-];
-
-for (const filename of existingFiles) {
+// 1. Update switcher in Russian main files
+const ruFiles = ['index.html', '01.html', '02.html', 'glossary.html'];
+for (const filename of ruFiles) {
   const filePath = path.join(siteDir, filename);
   if (!fs.existsSync(filePath)) continue;
 
   let content = fs.readFileSync(filePath, 'utf8');
+  let track = filename.replace('.html', '');
+  const newSwitcher = renderLangSwitcher(track, 'ru', 'Выбор языка');
 
-  // Determine track and langCode
-  let track = 'index';
-  if (filename.startsWith('01')) track = '01';
-  else if (filename.startsWith('02')) track = '02';
-  else if (filename.startsWith('glossary')) track = 'glossary';
-
-  let langCode = 'ru';
-  if (filename.includes('-uk.')) langCode = 'uk';
-  else if (filename.includes('-en.')) langCode = 'en';
-  else if (filename.includes('-de.')) langCode = 'de';
-
-  const langObj = LANGUAGES.find(l => l.code === langCode);
-  const newSwitcher = renderLangSwitcher(track, langCode, langObj.ariaLabel);
-
-  // Replace <div class="lang-switcher" ...>...</div>
   const switcherRegex = /<div class="lang-switcher"[^>]*>[\s\S]*?<\/div>/;
   if (switcherRegex.test(content)) {
     content = content.replace(switcherRegex, newSwitcher.trim());
     fs.writeFileSync(filePath, content, 'utf8');
-    console.log(`Updated lang switcher in: ${filename}`);
-  } else {
-    console.warn(`Could not find lang-switcher in: ${filename}`);
+    console.log(`Updated switcher in: ${filename}`);
   }
 }
 
-// 2. Generate new 16 stub files for be, kk, ky, ka
-for (const [langKey, langInfo] of Object.entries(STUB_DATA)) {
+// 2. Generate all localized files for the 7 non-Russian languages
+for (const [langKey, langInfo] of Object.entries(MULTILANG_DATA)) {
   for (const track of TRACKS) {
     const filename = `${track}-${langKey}.html`;
-    const pageData = langInfo.pages[track];
+    const homeHref = `./index-${langKey}.html`;
+    const switcherHtml = renderLangSwitcher(track, langKey, langInfo.switcherAria);
 
     let navListHtml = '';
     langInfo.navItems.forEach(item => {
@@ -362,16 +774,132 @@ for (const [langKey, langInfo] of Object.entries(STUB_DATA)) {
 
     const isGlossaryPage = track === 'glossary';
     const glossaryCurrent = isGlossaryPage ? ' aria-current="page"' : '';
-    const homeHref = `./index-${langKey}.html`;
 
-    const switcherHtml = renderLangSwitcher(track, langKey, langInfo.switcherAria);
-
-    const fileContent = `<!doctype html>
+    if (track === 'index') {
+      // FULL LANDING PAGE
+      const indexData = langInfo.index;
+      const fileContent = `<!doctype html>
 <html lang="${langInfo.lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${pageData.title}</title>
+<title>${indexData.title}</title>
+<link rel="stylesheet" href="style.css?v=6">
+<script>
+  (function() {
+    var t = localStorage.getItem('b1-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    var f = localStorage.getItem('b1-font');
+    if (f) document.documentElement.setAttribute('data-font', f);
+  })();
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="brand-group">
+    <a class="home" href="${homeHref}">
+      <span class="badge-ai">ai|</span>
+      <span class="sub-brand">${langInfo.subBrand}</span>
+    </a>
+    <div class="three" aria-hidden="true">${langInfo.three}</div>
+  </div>
+  <div class="utility-tray" role="toolbar" aria-label="${langInfo.trayAria}">
+${switcherHtml}
+    <div class="font-scaler" role="group" aria-label="${langInfo.fontAria}">
+      <button type="button" class="font-btn font-s" data-size="s" title="${langInfo.fontS}" aria-label="${langInfo.fontS}">А</button>
+      <button type="button" class="font-btn font-m active" data-size="m" title="${langInfo.fontM}" aria-label="${langInfo.fontM}">A</button>
+      <button type="button" class="font-btn font-l" data-size="l" title="${langInfo.fontL}" aria-label="${langInfo.fontL}">A</button>
+    </div>
+    <button type="button" class="theme-toggle" id="themeToggle" title="${langInfo.themeAria}" aria-label="${langInfo.themeAria}">
+      <span class="theme-icon" aria-hidden="true">☼</span>
+    </button>
+  </div>
+</header>
+
+<div class="cols">
+
+  <nav class="sessions" aria-label="${langInfo.navAria}">
+    <ol>
+${navListHtml}    </ol>
+    <div class="nav-extra">
+      <a href="glossary-${langKey}.html"${glossaryCurrent}>${langInfo.glossaryNav}</a>
+    </div>
+    <div class="page-toc" id="pageToc" aria-label="${langInfo.tocAria}" hidden>
+      <div class="toc-title">${langInfo.tocTitle}</div>
+      <ul class="toc-list" id="tocList"></ul>
+    </div>
+  </nav>
+
+  <main>
+    <h1>${indexData.h1}</h1>
+    <p class="lead">${indexData.lead}</p>
+
+    <div class="box key" id="glavnaya-mysl">
+      <h3>${indexData.keyTitle} <a class="yakor" href="#glavnaya-mysl" aria-label="${indexData.keyYakAria}">#</a></h3>
+      <p>${indexData.keyText}</p>
+    </div>
+
+    <h2 id="tri-slova">${indexData.threeH2} <a class="yakor" href="#tri-slova">#</a></h2>
+    <p><strong>${indexData.taskLabel}</strong> — ${indexData.taskDesc}<br>
+    <strong>${indexData.actionLabel}</strong> — ${indexData.actionDesc}<br>
+    <strong>${indexData.checkLabel}</strong> — ${indexData.checkDesc}</p>
+
+    <div class="box">
+      <h3>${indexData.rulesH3}</h3>
+      <p>${indexData.rulesP1}</p>
+      <p>${indexData.rulesP2}</p>
+    </div>
+
+    <h2 id="kak-chitat">${indexData.howToH2} <a class="yakor" href="#kak-chitat">#</a></h2>
+    <p>${indexData.howToP1}</p>
+    <p>${indexData.howToP2}</p>
+    <ul>
+      <li><strong>${indexData.pathMinLabel}</strong> — ${indexData.pathMinDesc}</li>
+      <li><strong>${indexData.path100Label}</strong> — ${indexData.path100Desc}</li>
+      <li><strong>${indexData.pathMaxLabel}</strong> — ${indexData.pathMaxDesc}</li>
+    </ul>
+    <p class="dim">${indexData.howToDim}</p>
+
+    <h2 id="do-zanyatiya">${indexData.beforeH2} <a class="yakor" href="#do-zanyatiya">#</a></h2>
+    <p>${indexData.beforeP1}</p>
+    <p>${indexData.beforeP2}</p>
+
+    <h2 id="artefakty">${indexData.artifactsH2} <a class="yakor" href="#artefakty">#</a></h2>
+    <div class="box key">
+      <p class="artifacts-slogan">${indexData.artifactsSlogan}</p>
+      <p><strong>${indexData.artifactsStrong}</strong> ${indexData.artifactsText}</p>
+    </div>
+    <ol>
+      <li><strong>${indexData.artItem1Title}</strong> ${indexData.artItem1Desc}</li>
+      <li><strong>${indexData.artItem2Title}</strong> ${indexData.artItem2Desc}</li>
+      <li><strong>${indexData.artItem3Title}</strong> ${indexData.artItem3Desc}</li>
+    </ol>
+
+    <footer>
+      ${langInfo.footer}
+    </footer>
+  </main>
+
+</div>
+</div>
+<script src="swa.js"></script>
+</body>
+</html>
+`;
+      const outPath = path.join(siteDir, filename);
+      fs.writeFileSync(outPath, fileContent, 'utf8');
+      console.log(`Generated full index: ${filename}`);
+    } else {
+      // LESSON / GLOSSARY STUB PAGE
+      const stubData = langInfo.stubs[track];
+      const fileContent = `<!doctype html>
+<html lang="${langInfo.lang}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${stubData.title}</title>
 <link rel="stylesheet" href="style.css?v=6">
 <script>
   (function() {
@@ -417,15 +945,15 @@ ${navListHtml}    </ol>
   </nav>
 
   <main>
-    <h1>${pageData.h1}</h1>
-    <p class="lead">${pageData.lead}</p>
+    <h1>${stubData.h1}</h1>
+    <p class="lead">${stubData.lead}</p>
 
     <div class="stub-card">
-      <h2>${pageData.stubH2}</h2>
-      <p>${pageData.stubP1}</p>
-      <p>${pageData.stubP2}</p>
+      <h2>${stubData.stubH2}</h2>
+      <p>${stubData.stubP1}</p>
+      <p>${stubData.stubP2}</p>
       <div class="stub-actions">
-        <a href="${pageData.btnHref}" class="btn-primary">${pageData.btnText}</a>
+        <a href="${stubData.btnHref}" class="btn-primary">${stubData.btnText}</a>
       </div>
     </div>
 
@@ -440,11 +968,11 @@ ${navListHtml}    </ol>
 </body>
 </html>
 `;
-
-    const outPath = path.join(siteDir, filename);
-    fs.writeFileSync(outPath, fileContent, 'utf8');
-    console.log(`Created stub file: ${filename}`);
+      const outPath = path.join(siteDir, filename);
+      fs.writeFileSync(outPath, fileContent, 'utf8');
+      console.log(`Generated stub: ${filename}`);
+    }
   }
 }
 
-console.log('Multilingual stubs generation completed successfully.');
+console.log('Multilingual site files generation completed successfully.');
