@@ -57,17 +57,22 @@
   const tocContainer = document.getElementById('pageToc');
   const tocList = document.getElementById('tocList');
   if (tocContainer && tocList) {
-    const headings = Array.from(document.querySelectorAll('main h2[id]'));
-    if (headings.length > 0) {
+    const items = Array.from(document.querySelectorAll('main h2[id], main .glossary-term[id]'));
+    if (items.length > 0) {
       tocList.innerHTML = '';
-      headings.forEach((h) => {
+      items.forEach((item) => {
         const li = document.createElement('li');
         const a = document.createElement('a');
-        a.href = '#' + h.id;
-        // Берём текст заголовка без символа '#' ссылки-якоря
-        const text = h.cloneNode(true);
+        a.href = '#' + item.id;
+        // Берём заголовок: для карточки термина из вложенного h2/h3, иначе из самого элемента
+        const titleEl = item.matches('.glossary-term')
+          ? item.querySelector('h2, h3')
+          : item;
+        const text = titleEl ? titleEl.cloneNode(true) : item.cloneNode(true);
         const yakor = text.querySelector('.yakor');
         if (yakor) yakor.remove();
+        const obj = text.querySelector('.glossary-object');
+        if (obj) obj.remove();
         a.textContent = text.textContent.trim();
         li.appendChild(a);
         tocList.appendChild(li);
@@ -90,7 +95,7 @@
           threshold: 0
         });
 
-        headings.forEach((h) => observer.observe(h));
+        items.forEach((item) => observer.observe(item));
       }
     }
   }

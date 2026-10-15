@@ -311,7 +311,8 @@ details.step > summary code { white-space: nowrap; }
 .box.warn { border-left: 3px solid var(--warn); }
 .box.key { border-left: 4px solid var(--term-accent); background: var(--code); }
 .box.key .artifacts-slogan { font-size: 1.05rem; font-weight: 700; color: var(--fg); margin: 0 0 10px; line-height: 1.45; }
-.box h3 { margin-top: 0; }
+.box h2, .box h3 { margin-top: 0; }
+.box.key h2 { font-size: 1.15rem; margin-bottom: 8px; }
 
 .soon { color: var(--dim); }
 footer { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 14px; color: var(--dim); font-size: .9rem; }
@@ -508,7 +509,14 @@ nav.sessions .nav-extra a[aria-current="page"] {
   padding: 16px 18px;
   margin: 0 0 16px;
   background: var(--bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
+.glossary-term:target {
+  border-color: var(--term-accent);
+  box-shadow: 0 0 0 1px var(--term-accent), 0 4px 16px rgba(252, 189, 74, 0.2);
+  scroll-margin-top: 24px;
+}
+.glossary-term h2,
 .glossary-term h3 {
   margin: 0 0 10px;
   font-size: 1.3rem;
@@ -532,6 +540,7 @@ nav.sessions .nav-extra a[aria-current="page"] {
   border-radius: 5px;
   letter-spacing: 0.02em;
 }
+.glossary-term h2 .yakor,
 .glossary-term h3 .yakor {
   margin-left: auto;
   font-size: 1rem;
@@ -559,6 +568,11 @@ nav.sessions .nav-extra a[aria-current="page"] {
   margin-top: 0;
   padding-top: 12px;
   border-top: 1px solid var(--line);
+}
+@media (max-width: 56rem) {
+  .page-toc {
+    display: none;
+  }
 }
 .toc-title {
   font-size: 0.75rem;
