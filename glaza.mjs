@@ -63,7 +63,7 @@ console.log(beda.vylezli.length ? 'за край вылезло: ' + beda.vylezl
 for (const v of beda.vylezli.slice(0, 5)) console.log('  ' + v);
 
 await page.screenshot({ path: 'telefon.png', fullPage: true });
-console.log('снимок: telefon.png - посмотри на него сам');
+console.log('снимок: telefon.png - посмотри на него своими глазами');
 
 await browser.close();
 process.exit(beda.vylezli.length ? 1 : 0);
