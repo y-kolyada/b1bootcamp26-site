@@ -147,11 +147,11 @@ done
 # --- предикат 8: кнопка «свернуть всё», видимая всегда ---
 for LESSON in "${LESSONS[@]}"; do
   if [ -f "$LESSON" ]; then
-    if grep -q 'class="svernut"' "$LESSON" && ! grep -q '<details class="step"[^>]*name=' "$LESSON"; then
+    if grep -q 'class="collapse-btn"' "$LESSON" && ! grep -q '<details class="step"[^>]*name=' "$LESSON"; then
       ok "предикат 8 ($LESSON): кнопка «свернуть всё» на месте, шаги друг друга не закрывают"
     else
       bad "предикат 8 ($LESSON): нет кнопки «свернуть всё» или шаги сделаны аккордеоном" \
-          "нужна ссылка class=\"svernut\" на саму страницу, и никакого name= у шагов"
+          "нужна ссылка class=\"collapse-btn\" на саму страницу, и никакого name= у шагов"
     fi
   fi
 done

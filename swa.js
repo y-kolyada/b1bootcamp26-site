@@ -85,8 +85,8 @@
           ? item.querySelector('h2, h3')
           : item;
         const text = titleEl ? titleEl.cloneNode(true) : item.cloneNode(true);
-        const yakor = text.querySelector('.yakor');
-        if (yakor) yakor.remove();
+        const anchor = text.querySelector('.anchor-link');
+        if (anchor) anchor.remove();
         const obj = text.querySelector('.glossary-object');
         if (obj) obj.remove();
         a.textContent = text.textContent.trim();
@@ -122,7 +122,7 @@
       // Пока шапка на экране, панель начинается ниже её верха, и max-height
       // в calc(100vh - 36px) уводил её низ за край: измерено 79px при окне
       // 860px, нижние пункты были недостижимы.
-      const nav = tocContainer.closest('nav.sessions');
+      const nav = tocContainer.closest('nav.contents');
 
       fitNav = function () {
         if (!nav || getComputedStyle(nav).position !== 'sticky') {
@@ -178,8 +178,8 @@
 
   // Кнопка «свернуть всё» закреплена в том же углу, поэтому она переезжает в
   // стопку, а не спорит с ней за место.
-  const svernut = document.querySelector('.svernut');
-  if (svernut) floats.insertBefore(svernut, floats.firstChild);
+  const collapse = document.querySelector('.collapse-btn');
+  if (collapse) floats.insertBefore(collapse, floats.firstChild);
 
   function fitFloats() {
     const doc = document.scrollingElement || document.documentElement;

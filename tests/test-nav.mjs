@@ -22,7 +22,7 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const pages = readdirSync(rootDir).filter((n) => n.endsWith('.html')).sort();
 const HEIGHTS = [860, 1400];
 const PHONE = { width: 390, height: 844 };
-const STICKY_TOP = 18; // то же число, что у nav.sessions в style.css
+const STICKY_TOP = 18; // то же число, что у nav.contents в style.css
 
 const bad = [];
 const g = (s) => '\x1b[32m' + s + '\x1b[0m';
@@ -37,7 +37,7 @@ for (const height of HEIGHTS) {
     await page.goto('file://' + path.join(rootDir, name));
     const seen = await page.evaluate(async (top) => {
       const sleep = () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
-      const nav = document.querySelector('nav.sessions');
+      const nav = document.querySelector('nav.contents');
       const links = [...document.querySelectorAll('#tocList a')];
       if (!nav || links.length === 0) return null;
 
@@ -84,8 +84,8 @@ for (const name of pages) {
     if (!long && shown) out.push('на короткой странице кнопки прокрутки лишние');
     if (!shown) return out;
 
-    const svernut = document.querySelector('.svernut');
-    if (svernut && svernut.parentElement !== stack) out.push('кнопка «свернуть всё» не в стопке');
+    const collapse = document.querySelector('.collapse-btn');
+    if (collapse && collapse.parentElement !== stack) out.push('кнопка «свернуть всё» не в стопке');
 
     const items = [...stack.children];
     const rect = (el) => el.getBoundingClientRect();
