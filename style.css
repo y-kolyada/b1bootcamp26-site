@@ -440,11 +440,14 @@ nav.contents .icon {
   opacity: .55;
   transition: opacity .15s, border-color .15s, color .15s;
 }
+/* Янтарный, а не синий: синим на сайте окрашены ссылки, а это кнопка. Тот же
+   цвет носят остальные инструменты читателя - кнопка копирования кода и
+   карточки терминов. */
 .float-btn:hover,
 .float-btn:focus-visible {
   opacity: 1;
-  border-color: var(--acc);
-  color: var(--acc);
+  color: var(--term-accent);
+  border-color: var(--step-target-border);
 }
 /* Чтобы кнопка не накрывала последние строки страницы. */
 body { padding-bottom: 72px; }
