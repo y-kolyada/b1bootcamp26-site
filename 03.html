@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Занятие 3 · Возврат: работа не принята · AI Bootcamp</title>
+<link rel="stylesheet" href="style.css?v=8">
+<script>
+  (function() {
+    var t = localStorage.getItem('b1-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    var f = localStorage.getItem('b1-font');
+    if (f) document.documentElement.setAttribute('data-font', f);
+  })();
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="brand-group">
+    <a class="home" href="./">
+      <span class="badge-ai">ai|</span>
+      <span class="sub-brand">aibootcamp-teens</span>
+    </a>
+    <div class="three" aria-hidden="true">задание · действие · проверка</div>
+  </div>
+  <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
+    <div class="lang-switcher" aria-label="Выбор языка">
+      <a href="03.html" class="active" aria-current="page">RU</a>
+      <a href="03-uk.html">UK</a>
+      <a href="03-be.html">BE</a>
+      <a href="03-kk.html">KK</a>
+      <a href="03-ky.html">KY</a>
+      <a href="03-ka.html">KA</a>
+      <a href="03-en.html">EN</a>
+      <a href="03-de.html">DE</a>
+    </div>
+    <div class="font-scaler" role="group" aria-label="Размер шрифта">
+      <button type="button" class="font-btn font-s" data-size="s" title="Мелкий шрифт" aria-label="Мелкий шрифт">А</button>
+      <button type="button" class="font-btn font-m active" data-size="m" title="Стандартный шрифт" aria-label="Стандартный шрифт">A</button>
+      <button type="button" class="font-btn font-l" data-size="l" title="Крупный шрифт" aria-label="Крупный шрифт">A</button>
+    </div>
+    <button type="button" class="theme-toggle" id="themeToggle" title="Сменить тему (День/Ночь)" aria-label="Сменить тему день/ночь">
+      <span class="theme-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<div class="cols">
+
+  <nav class="contents" aria-label="Занятия">
+    <ol>
+      <li><a href="01.html"><span class="num">1</span>Первая поставка</a></li>
+      <li><a href="02.html"><span class="num">2</span>Требования: что значит «сделано»</a></li>
+      <li><a href="03.html" aria-current="page"><span class="num">3</span>Возврат: работа не принята</a></li>
+      <li><span class="later"><span class="num">4</span>Проверка без тебя: первый тест</span></li>
+      <li><span class="later"><span class="num">5</span>Фабрика: проверка запускается сама</span></li>
+      <li><span class="later"><span class="num">6</span>Приёмка чужой работы</span></li>
+      <li><span class="later"><span class="num">7</span>Зелёное, которое ничего не значит</span></li>
+      <li><span class="later"><span class="num">8</span>Сдача: показать и защитить</span></li>
+    </ol>
+    <div class="nav-extra">
+      <a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a>
+    </div>
+    <div class="page-toc" id="pageToc" aria-label="Разделы этой страницы" hidden>
+      <div class="toc-title">На этой странице</div>
+      <ul class="toc-list" id="tocList"></ul>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Занятие 3 · Возврат: работа не принята</h1>
+    <p class="lead">К концу занятия у тебя есть первая настоящая функция продукта и хотя бы один честный возврат.
+    Ты учишься читать <code>git diff</code>, возвращать работу по предикатам и откатывать неудачные шаги за одну секунду - не переделывая руками.</p>
+
+    <div class="box key" id="glavnaya-mysl">
+      <h3>Главная мысль занятия <a class="anchor-link" href="#glavnaya-mysl" aria-label="ссылка на этот блок">#</a></h3>
+      <p><strong>Слова ИИ - не доказательство. Доказательство - команда <code>git diff</code>.</strong> В конце каждого ответа ИИ уверяет, что он всё сделал безупречно. Верить этому на слово нельзя. Доказательство - это зелёные строки добавленного и красные строки удалённого в реальных файлах твоего репозитория. Вторая мысль занятия - <strong>коммит до того, как просишь</strong>. Сохранение стоит десять секунд, но даёт тебе несгораемую точку возврата: если машина ошиблась, одна команда <code>git restore</code> мгновенно возвращает всё на место. И главное правило взрослого инженера: <strong>никогда не переделывай за ИИ руками</strong>. Если предикат нарушен - возвращай работу машине с указанием точной причины.</p>
+    </div>
+
+    <!-- 1 -->
+    <h2 id="cel">1 · Цель занятия <a class="anchor-link" href="#cel" aria-label="ссылка на этот раздел">#</a></h2>
+    <p><strong>Научиться управлять качеством и говорить машине «нет».</strong> ИИ часто делает что-то похожее, но пропускает важные детали или ломает то, что работало до него. Наша цель сегодня:</p>
+    <ul>
+      <li><strong>создать первую интерактивную функцию</strong> своего продукта (кнопку с действием, переключатель, форму или список);</li>
+      <li><strong>поставить точку возврата</strong> - сделать <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">коммит</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Коммит</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Несгораемая точка сохранения в истории проекта с понятным описанием.</span><span class="term-links"><a href="01.html#shag-3">Где встретилось: Занятие 1 →</a> <a href="glossary.html#kommit">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> в Git <em>до</em> того, как отдавать команду;</li>
+      <li><strong>освоить <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">дифф</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Дифф</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Команда терминала, показывающая реальную разницу между файлами до и после работы.</span><span class="term-links"><a href="01.html#shag-5">Где встретилось: Занятие 1 →</a> <a href="glossary.html#diff">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span></strong> - отличать зелёные добавления <code>+</code> от красных удалений <code>-</code>;</li>
+      <li><strong>сделать честный возврат</strong> - найти невыполненный предикат, отклонить работу и заставить ИИ исправить ошибку.</li>
+    </ul>
+
+    <div class="box" id="pravilo-diff">
+      <h3>Как читать дифф: факты против слов <a class="anchor-link" href="#pravilo-diff">#</a></h3>
+      <p>Когда программист смотрит на результат, он не читает объяснения модели. Он запускает <code>git diff</code>:</p>
+      <ul>
+        <li><strong>Зелёные строки с плюсом (<code>+</code>)</strong> - то, что реально добавлено в файл. Проверь: это ровно то, о чём просил предикат? Нет ли там лишнего мусора?</li>
+        <li><strong>Красные строки с минусом (<code>-</code>)</strong> - то, что удалено. Самая частая скрытая поломка: ИИ «забыл» половину твоих прежних стилей или заголовок.</li>
+      </ul>
+      <p>Если в диффе есть красные строки, которые ты удалять не просил, или нет того, что требует предикат - <strong>работа не принята</strong>.</p>
+    </div>
+
+    <!-- 2 -->
+    <h2 id="minimum">2 · Путь-минимум: мышкой, без терминала <a class="anchor-link" href="#minimum" aria-label="ссылка на этот раздел">#</a></h2>
+    <p>Этого пути достаточно, чтобы сделать первую функцию продукта и провести возврат прямо в редакторе.</p>
+
+    <details class="step" open>
+      <summary><span class="n">1</span> Третья пара артефактов <a class="anchor-link" href="#min-1">#</a></summary>
+      <div class="body" id="min-1">
+        <p>В проводнике файлов редактора создаём третью пару артефактов:</p>
+        <ol>
+          <li>Скопируй <code>zadanie-2.md</code> и назови копию <code>zadanie-3.md</code>.</li>
+          <li>Скопируй <code>zapis-2.md</code> и назови копию <code>zapis-3.md</code>.</li>
+        </ol>
+        <p>Или одной строкой в терминале (<strong>микро-цель:</strong> подготовить чистые бланки для третьего занятия):</p>
+<pre><code>cp zadanie-2.md zadanie-3.md
+cp zapis-2.md zapis-3.md</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> ничего (тишина означает, что файлы скопированы успешно).</div>
+        <div class="after"><b>После шага существует:</b> файлы <code>zadanie-3.md</code> и <code>zapis-3.md</code> в корне твоего проекта.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">2</span> Задание на первую функцию и коммит сохранения <a class="anchor-link" href="#min-2">#</a></summary>
+      <div class="body" id="min-2">
+        <p>Открой <code>zadanie-3.md</code> и сформулируй задачу на интерактивную функцию для твоей страницы. Например:</p>
+        <ul>
+          <li><strong>Хочу:</strong> интерактивную кнопку счётчика кликов на странице.</li>
+          <li><strong>Предикат 1:</strong> на странице есть кнопка с текстом «Нажми меня» и идентификатором <code>counter-btn</code>.</li>
+          <li><strong>Предикат 2:</strong> рядом отображается текст «Нажатий: 0».</li>
+          <li><strong>Предикат 3:</strong> при каждом клике на кнопку число увеличивается на единицу, без перезагрузки страницы.</li>
+        </ul>
+        <p><strong>Зафиксируй сохранение ДО запуска ИИ.</strong></p>
+        <p>В редакторе: вкладка <strong>Source Control</strong> → сообщение <code>docs: задание 3 и точка возврата</code> → <strong>Commit</strong>.</p>
+        <p>Или в терминале (<strong>микро-цель:</strong> ставим несгораемую точку в Git, к которой сможем вернуться при любой ошибке):</p>
+<pre><code>git add zadanie-3.md zapis-3.md
+git commit -m "docs: задание 3 и точка возврата"</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> строку коммита с подтверждением сохранения.</div>
+        <div class="after"><b>После шага существует:</b> коммит сохранения, защищающий проект от поломок.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">3</span> Попроси ИИ и посмотри дифф в Source Control <a class="anchor-link" href="#min-3">#</a></summary>
+      <div class="body" id="min-3">
+        <p>Открой чат с ИИ и отправь задачу строго по заданию:</p>
+<pre><code>Сделай задачу из zadanie-3.md. Напиши код в index.html. Не меняй ничего лишнего.</code></pre>
+        <p>Когда ИИ закончит и напишет, что всё готово, <strong>не верь ему на слово</strong>. Перейди во вкладку <strong>Source Control</strong> (слева) и нажми на файл <code>index.html</code>.</p>
+        <p>Редактор откроет окно сравнения: слева старый файл, справа новый. Проверь глазами:</p>
+        <ul>
+          <li>появилась ли кнопка с нужным <code>id</code>?</li>
+          <li>есть ли начальный текст «Нажатий: 0»?</li>
+          <li>не стёр ли ИИ твои стили или прошлый текст (нет ли лишних красных строк)?</li>
+        </ul>
+        <div class="after"><b>После шага существует:</b> изменённый файл <code>index.html</code>, проверенный твоими глазами в окне сравнения.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">4</span> Честный возврат: найди ошибку и верни работу <a class="anchor-link" href="#min-4">#</a></summary>
+      <div class="body" id="min-4">
+        <p>Открой страницу в браузере и нажми на кнопку. Если она не работает, или текст отличается от предиката, или ИИ забыл начальный ноль - это <strong>возврат</strong>.</p>
+        <p><em>(Даже если ИИ угадал всё с первого раза, найди мелкую неточность - например, шрифт, отступ или текст - и потребуй исправить именно её, чтобы отработать возврат.)</em></p>
+        <p><strong>Ничего не исправляй руками!</strong> Напиши ИИ в чат:</p>
+<pre><code>Работа не принята. Предикат 2 нарушен: счётчик не обновляет цифру на экране при клике.
+Исправь JavaScript в index.html, соблюдая все три предиката из zadanie-3.md.</code></pre>
+        <p>ИИ прочитает замечание и перепишет код. Снова открой вкладку Source Control и проверь изменения.</p>
+        <div class="after"><b>После шага существует:</b> исправленный код, доведённый до соответствия предикатам без единой ручной правки.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">5</span> Заполни <code>zapis-3.md</code> и отправь на GitHub <a class="anchor-link" href="#min-5">#</a></summary>
+      <div class="body" id="min-5">
+        <p>Открой <code>zapis-3.md</code> и честно запиши ход приёмки:</p>
+        <ul>
+          <li>какой предикат был нарушен в первой попытке;</li>
+          <li>что ты ответил ИИ для возврата;</li>
+          <li>итог проверки: «Принято после исправления».</li>
+        </ul>
+        <p>Запечатай работу в Git и отправь на GitHub:</p>
+<pre><code>git add index.html zapis-3.md
+git commit -m "feat: первая функция и честный возврат по заданию 3"
+git push</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> строку отправки ветки в удалённый репозиторий GitHub.</div>
+        <div class="after"><b>После шага существует:</b> опубликованный сайт с интерактивной функцией и зафиксированная история возврата.</div>
+      </div>
+    </details>
+
+    <!-- 3 -->
+    <h2 id="sto">3 · Путь-100%: в терминале через Claude Code <a class="anchor-link" href="#sto" aria-label="ссылка на этот раздел">#</a></h2>
+    <p>Путь настоящего инженера: проверка диффа прямо в консоли и мгновенный откат неудачных правок.</p>
+
+    <details class="step">
+      <summary><span class="n">1</span> Чтение <code>git diff</code> в терминале <a class="anchor-link" href="#sto-1">#</a></summary>
+      <div class="body" id="sto-1">
+        <p>После того как Claude Code изменил файлы, выполни в терминале команду проверки (<strong>микро-цель:</strong> увидеть реальные факты изменений без запуска графического редактора):</p>
+<pre><code>git diff index.html</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> блок изменений, где зелёные строки начинаются с <code>+</code>, а удалённые - с <code>-</code>.</div>
+        <p>Строка <code>@@ -15,4 +15,12 @@</code> показывает номера изменённых строк. Внимательно посмотри на знаки минус: если ИИ снёс нужную часть страницы, ты увидишь это сразу.</p>
+        <div class="after"><b>После шага существует:</b> ясная картина изменений в терминале.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">2</span> Опасная сила отката: <code>git status</code> перед <code>git restore</code> <a class="anchor-link" href="#sto-2">#</a></summary>
+      <div class="body" id="sto-2">
+        <p>Если ИИ запутался и нагородил ерунды, не пытайся судорожно нажимать <code>Ctrl+Z</code>. Твой коммит сохранения из шага 2 помнит чистое состояние. Но перед тем как стирать, <strong>всегда посмотри, что именно исчезнет</strong> (<strong>микро-цель:</strong> увидеть список несохранённых файлов своими глазами):</p>
+<pre><code>git status</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> список файлов красным цветом под строкой <em>Changes not staged for commit</em> (например: <code>modified: index.html</code>).</div>
+        <div class="box key">
+          <p><strong>Предупреждение, которое спасёт твою работу.</strong> Команда <code>git restore .</code> безжалостна: точка <code>.</code> означает «откатить абсолютно всё в текущей папке». Она сметёт <strong>все несохранённые изменения</strong> - не только то, что нагенерировал ИИ, но и твои собственные правки, если ты забыл их закоммитить! Поэтому правило железное: <em>сначала проверь глазами через <code>git status</code>, и только потом делай откат</em>.</p>
+        </div>
+        <p>Теперь откатываем неудачный эксперимент к чистому сохранению:</p>
+<pre><code>git restore .</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> ничего (в Linux тишина означает, что файлы мгновенно вернулись к последнему коммиту).</div>
+        <p>Запусти <code>git status</code> снова - терминал напишет <code>nothing to commit, working tree clean</code>. Проект спасён!</p>
+        <div class="after"><b>После шага существует:</b> чистое исходное состояние проекта с пониманием того, что и почему было отменено.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">3</span> Прицельный возврат в Claude Code <a class="anchor-link" href="#sto-3">#</a></summary>
+      <div class="body" id="sto-3">
+        <p>Запусти Claude Code с указанием точной причины возврата:</p>
+<pre><code>claude "Сделай задачу из zadanie-3.md. В прошлый раз не работал предикат 3. Сделай строго по предикатам, не трогая разметку шапки и подвала."</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> отчёт Claude Code о точечном изменении кода по заданным условиям.</div>
+        <div class="after"><b>После шага существует:</b> исправленный <code>index.html</code>, созданный с учётом твоих требований.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">4</span> Проверка статистики диффа и публикация <a class="anchor-link" href="#sto-4">#</a></summary>
+      <div class="body" id="sto-4">
+        <p>Перед коммитом посмотри компактную сводку изменений (<strong>микро-цель:</strong> убедиться, что затронуты только нужные файлы и число строк адекватно):</p>
+<pre><code>git diff --stat</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> список файлов и количество добавленных/удалённых строк (например, <code>index.html | 14 +++-</code>).</div>
+        <p>Если всё сходится - сохраняй и публикуй:</p>
+<pre><code>git add index.html zapis-3.md
+git commit -m "feat(core): первая интерактивная функция и успешный возврат"
+git push</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> строки отправки изменений на GitHub.</div>
+        <div class="after"><b>После шага существует:</b> отправленный в сеть коммит с чистым диффом.</div>
+      </div>
+    </details>
+
+    <!-- 4 -->
+    <h2 id="maksimum">4 · Путь-максимум: продолжение следует <a class="anchor-link" href="#maksimum" aria-label="ссылка на этот раздел">#</a></h2>
+    <p>Для тех, кто хочет сделать свою среду разработки ещё надёжнее.</p>
+
+    <details class="step">
+      <summary><span class="n">1</span> Защита от тихого удаления кода в <code>AGENTS.md</code> <a class="anchor-link" href="#max-1">#</a></summary>
+      <div class="body" id="max-1">
+        <p>ИИ очень любит переписывать файлы целиком, выбрасывая «неважные», по его мнению, куски. Добавь в свой файл <code>AGENTS.md</code> четвёртое строгое правило:</p>
+<pre><code>5. Правило сохранения: никогда не удаляй существующие функции, классы и стили, если об этом прямо не сказано в предикатах задания. При сомнениях - только добавляй новое.</code></pre>
+        <p>Зафиксируй улучшение правил в Git (<strong>микро-цель:</strong> обучить ИИ бережному отношению к существующему коду):</p>
+<pre><code>git add AGENTS.md
+git commit -m "chore(rules): правило защиты существующего кода от удаления"</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> подтверждение сохранения файла правил.</div>
+        <div class="after"><b>После шага существует:</b> усиленный файл <code>AGENTS.md</code> с защитой от непреднамеренных удалений.</div>
+      </div>
+    </details>
+
+    <!-- 5 -->
+    <h2 id="artefakty">5 · Артефакты: что у тебя есть после занятия <a class="anchor-link" href="#artefakty" aria-label="ссылка на этот раздел">#</a></h2>
+    <div class="box key">
+      <p class="artifacts-slogan">Занятие &gt;&gt; Твой квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка твоей нейросети</p>
+      <p><strong>Занятие - это занятая тобой часть времени твоей жизни.</strong> Ты инвестировал своё внимание не в просмотр чужих роликов, а в создание собственного работающего инструмента. Главный артефакт сегодняшнего дня - не просто строчки в репозитории, а твоя новая привычка: <strong>не верить словам на экране, проверять факты по диффу и уверенно возвращать некачественную работу</strong>. Твоя нейросеть научилась быть требовательным архитектором.</p>
+    </div>
+    <p>Материальный перечень артефактов третьего занятия:</p>
+    <ol>
+      <li><strong><code>zadanie-3.md</code></strong> - цель и три проверяемых предиката для первой настоящей функции твоего продукта. В коммите.</li>
+      <li><strong>Несгораемая точка возврата</strong> - коммит сохранения в Git, сделанный <em>до</em> генерации кода.</li>
+      <li><strong><code>index.html</code></strong> - обновлённая страница с работающей функцией, проверенная через <code>git diff</code>. В коммите.</li>
+      <li><strong><code>zapis-3.md</code></strong> - честная запись проверки с зафиксированным возвратом и исправлением. В коммите.</li>
+      <li><strong>Умение читать <code>git diff</code> и использовать <code>git restore</code></strong> - практический навык управления кодовой базой.</li>
+    </ol>
+
+    <div class="box">
+      <h3>Памятка: команды возврата и проверки Git</h3>
+      <p>Команды, которые делают тебя хозяином ситуации:</p>
+      <ul>
+        <li><code>git diff</code> - показать реальные изменения: зелёные добавления <code>+</code> и красные удаления <code>-</code>.</li>
+        <li><code>git diff --stat</code> - краткая сводка: какие файлы затронуты и сколько строк изменилось.</li>
+        <li><code>git restore &lt;файл&gt;</code> - стереть неудачные правки в одном файле и вернуть его к последнему коммиту.</li>
+        <li><code>git restore .</code> - мгновенно отменить ВСЕ незакоммиченные изменения во всём проекте.</li>
+      </ul>
+    </div>
+
+    <div class="box" id="ne-uspel">
+      <h3>Не успеть - это нормально <a class="anchor-link" href="#ne-uspel">#</a></h3>
+      <p>Занятие рассчитано так, что успеть можно. Но если не успеваешь - <strong>продолжай с того номера, на котором пришлось остановиться</strong>:
+      номера на этой странице и в занятии одни и те же, и страница никуда не денется.</p>
+      <p><strong>Сначала спроси своего ИИ, потом тренера.</strong> Покажи ИИ команду или дифф, который вызвал затруднение, и спроси, что пошло не так. 
+      Если не помогло - пиши в Telegram, в чат «aibootcamp26 chat», <strong>одну строку</strong> в таком виде:</p>
+<pre><code>шаг 3 · последняя строка: error: pathspec 'index.html' did not match any file(s)
+спросил ИИ - предложил проверить git status, не помогло</code></pre>
+      <p>Номер шага, последняя строка терминала и <strong>что ответил ИИ</strong>. Этого хватает, чтобы тренер ответил сразу.</p>
+    </div>
+
+    <footer>
+      Эта страница - часть сайта курса, сделанного той же оснасткой, что у участников.
+      Её задание: <a href="zadanie-2.md">zadanie-2.md</a>. Что получилось на самом деле: <a href="zapis-2.md">zapis-2.md</a>.
+      Что решили делать не сейчас: <a href="potom.md">potom.md</a>.
+    </footer>
+  </main>
+
+</div>
+</div>
+
+<a class="collapse-btn" href="03.html" title="Свернуть все шаги и вернуться наверх">свернуть всё</a>
+<script src="terms.js?v=2"></script>
+<script src="swa.js?v=2"></script>
+<script src="cp.js"></script>
+
+</body>
+</html>

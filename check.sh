@@ -20,7 +20,7 @@
 set -uo pipefail
 
 PAGE=index.html
-LESSONS=(01.html 02.html)
+LESSONS=(01.html 02.html 03.html)
 FAIL=0
 
 g() { printf '\033[32m%s\033[0m' "$1"; }
@@ -121,7 +121,7 @@ for f in "$PAGE" "${LESSONS[@]}"; do
   N=$(grep -c '<span class="num">' "$f" || true)
   LINKS=$(grep -c '<li><a href="0[0-9]*\.html"' "$f" || true)
   LATER=$(grep -c '<li><span class="later">' "$f" || true)
-  if [ "$N" -eq 8 ] && [ "$LINKS" -eq 2 ] && [ $((LINKS + LATER)) -eq 8 ]; then
+  if [ "$N" -eq 8 ] && [ "$LINKS" -eq 3 ] && [ $((LINKS + LATER)) -eq 8 ]; then
     ok "предикат 6: в $f восемь занятий - ссылок $LINKS, «будет» $LATER"
   else
     bad "предикат 6: в $f занятий $N, ссылок $LINKS, «будет» $LATER" "нужно восемь пунктов, и каждый либо ссылка, либо помечен классом later"
@@ -209,7 +209,7 @@ for f in "$PAGE" "${LESSONS[@]}" "glossary.html"; do
 done
 
 # --- предикат 11: мультиязычность (8 языков: RU, UK, BE, KK, KY, KA, EN, DE) и честные заглушки со ссылками ---
-LANG_TRACKS=(index 01 02 glossary)
+LANG_TRACKS=(index 01 02 03 glossary)
 LANG_SUFFIXES=("" "-uk" "-be" "-kk" "-ky" "-ka" "-en" "-de")
 MISSING_STUBS=0
 
@@ -224,7 +224,7 @@ for track in "${LANG_TRACKS[@]}"; do
 done
 
 if [ "$MISSING_STUBS" -eq 0 ]; then
-  ok "предикат 11: все 32 страницы для 8 языков (RU, UK, BE, KK, KY, KA, EN, DE) на месте и ссылки проверены"
+  ok "предикат 11: все 40 страниц для 8 языков (RU, UK, BE, KK, KY, KA, EN, DE) на месте и ссылки проверены"
 fi
 
 echo "  ----------------------------------------------"
