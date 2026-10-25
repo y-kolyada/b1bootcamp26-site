@@ -85,18 +85,19 @@
     <ul>
       <li><strong>создать первую интерактивную функцию</strong> своего продукта (кнопку с действием, переключатель, форму или список);</li>
       <li><strong>поставить точку возврата</strong> - сделать <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">коммит</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Коммит</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Несгораемая точка сохранения в истории проекта с понятным описанием.</span><span class="term-links"><a href="01.html#shag-3">Где встретилось: Занятие 1 →</a> <a href="glossary.html#kommit">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> в Git <em>до</em> того, как отдавать команду;</li>
-      <li><strong>освоить <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">дифф</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Дифф</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Команда терминала, показывающая реальную разницу между файлами до и после работы.</span><span class="term-links"><a href="01.html#shag-5">Где встретилось: Занятие 1 →</a> <a href="glossary.html#diff">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span></strong> - отличать зелёные добавления <code>+</code> от красных удалений <code>-</code>;</li>
+      <li><strong>сверять результат с предикатами</strong> - смотреть на страницу в браузере и на свои документы, а не на слова ИИ. А <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">дифф</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Дифф</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Команда терминала, показывающая реальную разницу между файлами до и после работы.</span><span class="term-links"><a href="01.html#shag-5">Где встретилось: Занятие 1 →</a> <a href="glossary.html#diff">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> пусть читает агент: это его инструмент;</li>
       <li><strong>сделать честный возврат</strong> - найти невыполненный предикат, отклонить работу и заставить ИИ исправить ошибку.</li>
     </ul>
 
-    <div class="box" id="pravilo-diff">
-      <h3>Как читать дифф: факты против слов <a class="anchor-link" href="#pravilo-diff">#</a></h3>
-      <p>Когда программист смотрит на результат, он не читает объяснения модели. Он запускает <code>git diff</code>:</p>
+    <div class="box" id="pravilo-sverki">
+      <h3>Как сверять результат: факты против слов <a class="anchor-link" href="#pravilo-sverki">#</a></h3>
+      <p>ИИ в конце пишет, что всё готово. <strong>Это его слова, а не доказательство.</strong> Доказательство - то, что ты видишь сам, и смотреть надо в два места:</p>
       <ul>
-        <li><strong>Зелёные строки с плюсом (<code>+</code>)</strong> - то, что реально добавлено в файл. Проверь: это ровно то, о чём просил предикат? Нет ли там лишнего мусора?</li>
-        <li><strong>Красные строки с минусом (<code>-</code>)</strong> - то, что удалено. Самая частая скрытая поломка: ИИ «забыл» половину твоих прежних стилей или заголовок.</li>
+        <li><strong>Страница в браузере.</strong> Обнови её и пройди по предикатам по одному: есть ли то, что требует предикат 1? предикат 2? предикат 3? И отдельно - <strong>не пропало ли то, что работало до этого</strong>. Это самая частая скрытая поломка: ИИ переписывает файл целиком и выбрасывает «неважное».</li>
+        <li><strong>Документы рядом с сайтом.</strong> Твоё задание <code>zadanie-3.md</code> - то, с чем сверяешь. Запись <code>zapis-3.md</code> - то, где остаётся правда о приёмке.</li>
       </ul>
-      <p>Если в диффе есть красные строки, которые ты удалять не просил, или нет того, что требует предикат - <strong>работа не принята</strong>.</p>
+      <p>Если хоть один предикат не выполнен, или исчезло то, что ты удалять не просил - <strong>работа не принята</strong>. Номер предиката и есть причина возврата.</p>
+      <p class="dim">А что именно изменилось в файлах, пусть покажет сам агент - на пути-100%. Читать дифф строка за строкой ты научишься на пути-максимум, и это не нужно, чтобы вернуть работу сегодня.</p>
     </div>
 
     <!-- 2 -->
@@ -140,18 +141,22 @@ git commit -m "docs: задание 3 и точка возврата"</code></pr
     </details>
 
     <details class="step">
-      <summary><span class="n">3</span> Попроси ИИ и посмотри дифф в Source Control <a class="anchor-link" href="#min-3">#</a></summary>
+      <summary><span class="n">3</span> Попроси ИИ и посмотри на результат <a class="anchor-link" href="#min-3">#</a></summary>
       <div class="body" id="min-3">
         <p>Открой чат с ИИ и отправь задачу строго по заданию:</p>
 <pre><code>Сделай задачу из zadanie-3.md. Напиши код в index.html. Не меняй ничего лишнего.</code></pre>
-        <p>Когда ИИ закончит и напишет, что всё готово, <strong>не верь ему на слово</strong>. Перейди во вкладку <strong>Source Control</strong> (слева) и нажми на файл <code>index.html</code>.</p>
-        <p>Редактор откроет окно сравнения: слева старый файл, справа новый. Проверь глазами:</p>
+        <p>Когда ИИ закончит и напишет, что всё готово, <strong>не верь ему на слово</strong>. Открой свою страницу в браузере и обнови её. Рядом открой <code>zadanie-3.md</code>.</p>
+        <p>Теперь пройди по своим предикатам по одному, глядя на страницу:</p>
         <ul>
-          <li>появилась ли кнопка с нужным <code>id</code>?</li>
-          <li>есть ли начальный текст «Нажатий: 0»?</li>
-          <li>не стёр ли ИИ твои стили или прошлый текст (нет ли лишних красных строк)?</li>
+          <li>предикат 1: кнопка «Нажми меня» на странице есть?</li>
+          <li>предикат 2: рядом написано «Нажатий: 0»?</li>
+          <li>предикат 3: нажал - цифра выросла на единицу, и страница не перезагрузилась?</li>
+          <li>и отдельно: <strong>всё ли на месте, что работало до этого</strong> - заголовок, текст, оформление?</li>
         </ul>
-        <div class="after"><b>После шага существует:</b> изменённый файл <code>index.html</code>, проверенный твоими глазами в окне сравнения.</div>
+        <div class="box key">
+          <p><strong>Почему смотрим на страницу, а не в код.</strong> Твой предикат написан про то, что видно. Значит и проверять его надо там, где видно. Инструменты, которые показывают разницу в файлах, нужны агенту, чтобы себя проверить, - до них дойдёт очередь на пути-100%.</p>
+        </div>
+        <div class="after"><b>После шага существует:</b> ответ «да» или «нет» по каждому предикату, полученный своими глазами на своей странице.</div>
       </div>
     </details>
 
@@ -163,7 +168,7 @@ git commit -m "docs: задание 3 и точка возврата"</code></pr
         <p><strong>Ничего не исправляй руками!</strong> Напиши ИИ в чат:</p>
 <pre><code>Работа не принята. Предикат 2 нарушен: счётчик не обновляет цифру на экране при клике.
 Исправь JavaScript в index.html, соблюдая все три предиката из zadanie-3.md.</code></pre>
-        <p>ИИ прочитает замечание и перепишет код. Снова открой вкладку Source Control и проверь изменения.</p>
+        <p>ИИ прочитает замечание и перепишет код. Снова обнови страницу в браузере и пройди по предикатам с начала - все три.</p>
         <div class="after"><b>После шага существует:</b> исправленный код, доведённый до соответствия предикатам без единой ручной правки.</div>
       </div>
     </details>
@@ -188,16 +193,19 @@ git push</code></pre>
 
     <!-- 3 -->
     <h2 id="sto">3 · Путь-100%: в терминале через Claude Code <a class="anchor-link" href="#sto" aria-label="ссылка на этот раздел">#</a></h2>
-    <p>Путь настоящего инженера: проверка диффа прямо в консоли и мгновенный откат неудачных правок.</p>
+    <p>Путь настоящего инженера: заставить агента доказать свою работу, и мгновенный откат, если он нагородил ерунды.</p>
 
     <details class="step">
-      <summary><span class="n">1</span> Чтение <code>git diff</code> в терминале <a class="anchor-link" href="#sto-1">#</a></summary>
+      <summary><span class="n">1</span> Пусть агент сам докажет, что он изменил <a class="anchor-link" href="#sto-1">#</a></summary>
       <div class="body" id="sto-1">
-        <p>После того как Claude Code изменил файлы, выполни в терминале команду проверки (<strong>микро-цель:</strong> увидеть реальные факты изменений без запуска графического редактора):</p>
-<pre><code>git diff index.html</code></pre>
-        <div class="prints"><strong>Должно напечатать:</strong> блок изменений, где зелёные строки начинаются с <code>+</code>, а удалённые - с <code>-</code>.</div>
-        <p>Строка <code>@@ -15,4 +15,12 @@</code> показывает номера изменённых строк. Внимательно посмотри на знаки минус: если ИИ снёс нужную часть страницы, ты увидишь это сразу.</p>
-        <div class="after"><b>После шага существует:</b> ясная картина изменений в терминале.</div>
+        <p>Читать дифф руками - работа агента, а не твоя. Твоё дело - потребовать отчёт по предикатам. Отдай этот промпт (<strong>микро-цель:</strong> получить от агента разбор его собственной работы, который можно сверить с заданием):</p>
+<pre><code>claude "Прочитай zadanie-3.md. Запусти git diff и сверь каждое изменение с моими предикатами.
+По каждому предикату ответь ДА или НЕТ и назови строку файла, которая это доказывает.
+Отдельно перечисли всё, что ты удалил, и объясни, почему это не нарушает предикаты.
+Ничего не исправляй: мне нужен только отчёт."</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> разбор по пунктам - ДА или НЕТ на каждый твой предикат, и список удалённого.</div>
+        <p>Этот промпт сильнее, чем чтение диффа глазами: агент обязан назвать строку на каждое своё «да». <strong>Но отчёт - тоже слова.</strong> Любое «ДА» сверяй со страницей в браузере, как на пути-минимум. Нашёл расхождение между отчётом и страницей - это возврат, и причина у него серьёзнее обычной: агент сказал то, чего нет.</p>
+        <div class="after"><b>После шага существует:</b> отчёт агента по твоим предикатам со ссылками на строки - и твоя сверка его со страницей.</div>
       </div>
     </details>
 
@@ -245,7 +253,7 @@ git push</code></pre>
 
     <!-- 4 -->
     <h2 id="maksimum">4 · Путь-максимум: продолжение следует <a class="anchor-link" href="#maksimum" aria-label="ссылка на этот раздел">#</a></h2>
-    <p>Для тех, кто хочет сделать свою среду разработки ещё надёжнее.</p>
+    <p>Для тех, кто хочет сделать свою среду надёжнее и прочитать дифф своими глазами.</p>
 
     <details class="step">
       <summary><span class="n">1</span> Защита от тихого удаления кода в <code>AGENTS.md</code> <a class="anchor-link" href="#max-1">#</a></summary>
@@ -257,6 +265,18 @@ git push</code></pre>
 git commit -m "chore(rules): правило защиты существующего кода от удаления"</code></pre>
         <div class="prints"><strong>Должно напечатать:</strong> подтверждение сохранения файла правил.</div>
         <div class="after"><b>После шага существует:</b> усиленный файл <code>AGENTS.md</code> с защитой от непреднамеренных удалений.</div>
+      </div>
+    </details>
+
+    <details class="step">
+      <summary><span class="n">2</span> Прочитать дифф своими глазами <a class="anchor-link" href="#max-2">#</a></summary>
+      <div class="body" id="max-2">
+        <p>До этого шага дифф за тебя читал агент. Теперь прочитай сам - не потому, что без этого нельзя вернуть работу, а потому что интересно, как устроена правда о файлах (<strong>микро-цель:</strong> увидеть изменения своими глазами, без посредника):</p>
+<pre><code>git diff index.html</code></pre>
+        <div class="prints"><strong>Должно напечатать:</strong> блок изменений, где добавленные строки начинаются с <code>+</code>, а удалённые - с <code>-</code>.</div>
+        <p>Строка вида <code>@@ -15,4 +15,12 @@</code> говорит, какие номера строк затронуты. Смотри на минусы внимательнее, чем на плюсы: плюсы ты просил, а минусы - нет.</p>
+        <p>Сравни то, что увидел, с отчётом агента из пути-100%. <strong>Сошлось - агенту можно верить чуть больше. Не сошлось - у тебя есть находка, которая дороже самой функции.</strong></p>
+        <div class="after"><b>После шага существует:</b> твоё собственное прочтение диффа и ответ, совпал ли он с отчётом агента.</div>
       </div>
     </details>
 
