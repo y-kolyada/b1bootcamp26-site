@@ -7,7 +7,7 @@
 #
 # ЧЕМ ОНА ОТЛИЧАЕТСЯ ОТ ПРОВЕРКИ В ШАБЛОНЕ. Там четыре строки и они смотрят
 # только, что страница есть и заголовок уже твой. Здесь проверка идёт ПО
-# ПРЕДИКАТАМ ИЗ zadanie-1.md, zadanie-2.md и zadanie-3.md - по тем самым, которые были написаны до работы.
+# ПРЕДИКАТАМ ИЗ zadanie-1.md ... zadanie-4.md - по тем самым, которые были написаны до работы.
 #
 # ЧЕГО ОНА НЕ ПРОВЕРЯЕТ, И ЭТО СКАЗАНО ВСЛУХ:
 #   - предикат 4 («не уезжает за край на телефоне») проверяется только глазами,
@@ -20,7 +20,7 @@
 set -uo pipefail
 
 PAGE=index.html
-LESSONS=(01.html 02.html 03.html)
+LESSONS=(01.html 02.html 03.html 04.html)
 FAIL=0
 
 g() { printf '\033[32m%s\033[0m' "$1"; }
@@ -121,7 +121,7 @@ for f in "$PAGE" "${LESSONS[@]}"; do
   N=$(grep -c '<span class="num">' "$f" || true)
   LINKS=$(grep -c '<li><a href="0[0-9]*\.html"' "$f" || true)
   LATER=$(grep -c '<li><span class="later">' "$f" || true)
-  if [ "$N" -eq 8 ] && [ "$LINKS" -eq 3 ] && [ $((LINKS + LATER)) -eq 8 ]; then
+  if [ "$N" -eq 8 ] && [ "$LINKS" -eq 4 ] && [ $((LINKS + LATER)) -eq 8 ]; then
     ok "предикат 6: в $f восемь занятий - ссылок $LINKS, «будет» $LATER"
   else
     bad "предикат 6: в $f занятий $N, ссылок $LINKS, «будет» $LATER" "нужно восемь пунктов, и каждый либо ссылка, либо помечен классом later"
@@ -209,7 +209,7 @@ for f in "$PAGE" "${LESSONS[@]}" "glossary.html"; do
 done
 
 # --- предикат 11: мультиязычность (8 языков: RU, UK, BE, KK, KY, KA, EN, DE) и честные заглушки со ссылками ---
-LANG_TRACKS=(index 01 02 03 glossary)
+LANG_TRACKS=(index 01 02 03 04 glossary)
 LANG_SUFFIXES=("" "-uk" "-be" "-kk" "-ky" "-ka" "-en" "-de")
 MISSING_STUBS=0
 
@@ -224,7 +224,7 @@ for track in "${LANG_TRACKS[@]}"; do
 done
 
 if [ "$MISSING_STUBS" -eq 0 ]; then
-  ok "предикат 11: все 40 страниц для 8 языков (RU, UK, BE, KK, KY, KA, EN, DE) на месте и ссылки проверены"
+  ok "предикат 11: все $((${#LANG_TRACKS[@]} * ${#LANG_SUFFIXES[@]})) страниц для ${#LANG_SUFFIXES[@]} языков (RU, UK, BE, KK, KY, KA, EN, DE) на месте и ссылки проверены"
 fi
 
 # --- предикат 12: у каждого занятия все три артефакта (задание, запись, страница) ---
@@ -258,7 +258,7 @@ fi
 # (шаг 5 пути-минимум: «сверь по git diff»), и у 01.html, откуда термин пришёл. Занятия 1 и 2
 # уже прошли с живыми людьми, их правка - отдельное решение тренера. Долг записан в potom.md.
 # Когда занятие вылечено, его страница добавляется в этот список, и проверка начинает его держать.
-MINIMUM_CLEAN=(03.html)
+MINIMUM_CLEAN=(03.html 04.html)
 DIRTY=0
 for LESSON in "${MINIMUM_CLEAN[@]}"; do
   [ -f "$LESSON" ] || continue
