@@ -7,7 +7,7 @@
 #
 # ЧЕМ ОНА ОТЛИЧАЕТСЯ ОТ ПРОВЕРКИ В ШАБЛОНЕ. Там четыре строки и они смотрят
 # только, что страница есть и заголовок уже твой. Здесь проверка идёт ПО
-# ПРЕДИКАТАМ ИЗ zadanie-1.md ... zadanie-6.md - по тем самым, которые были написаны до работы.
+# ПРЕДИКАТАМ ИЗ zadanie-1.md ... zadanie-7.md - по тем самым, которые были написаны до работы.
 #
 # ЧЕГО ОНА НЕ ПРОВЕРЯЕТ, И ЭТО СКАЗАНО ВСЛУХ:
 #   - предикат 4 («не уезжает за край на телефоне») проверяется только глазами,
@@ -20,7 +20,7 @@
 set -uo pipefail
 
 PAGE=index.html
-LESSONS=(01.html 02.html 03.html 04.html 05.html 06.html)
+LESSONS=(01.html 02.html 03.html 04.html 05.html 06.html 07.html)
 FAIL=0
 
 g() { printf '\033[32m%s\033[0m' "$1"; }
@@ -211,7 +211,7 @@ for f in "$PAGE" "${LESSONS[@]}" "glossary.html"; do
 done
 
 # --- предикат 11: мультиязычность (8 языков: RU, UK, BE, KK, KY, KA, EN, DE) и честные заглушки со ссылками ---
-LANG_TRACKS=(index 01 02 03 04 05 06 glossary)
+LANG_TRACKS=(index 01 02 03 04 05 06 07 glossary)
 LANG_SUFFIXES=("" "-uk" "-be" "-kk" "-ky" "-ka" "-en" "-de")
 MISSING_STUBS=0
 
@@ -260,7 +260,7 @@ fi
 # (шаг 5 пути-минимум: «сверь по git diff»), и у 01.html, откуда термин пришёл. Занятия 1 и 2
 # уже прошли с живыми людьми, их правка - отдельное решение тренера. Долг записан в potom.md.
 # Когда занятие вылечено, его страница добавляется в этот список, и проверка начинает его держать.
-MINIMUM_CLEAN=(03.html 04.html 05.html 06.html)
+MINIMUM_CLEAN=(03.html 04.html 05.html 06.html 07.html)
 DIRTY=0
 for LESSON in "${MINIMUM_CLEAN[@]}"; do
   [ -f "$LESSON" ] || continue
